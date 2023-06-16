@@ -1,0 +1,22 @@
+// Abstract
+@use './abstracts/mixins' as *;
+
+//Base
+@use './base/reset';
+
+// Tailwind base
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+//Inserting custom styles to tailwind via @layer directive
+@layer utilities {
+   .no-scrollbar{
+    scrollbar-width: 0;
+
+    &::-webkit-scrollbar{
+      display: none;
+    }
+   }
+
+}

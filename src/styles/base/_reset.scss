@@ -1,0 +1,32 @@
+@use '../abstracts/mixins' as *;
+@use '../abstracts/variables' as *;
+
+
+html {
+  -webkit-tap-highlight-color: transparent;
+}
+
+pre {
+  font-family: unset !important;
+}
+
+img {
+  max-width: unset !important;
+}
+
+// input:-webkit-autofill,
+// input:-webkit-autofill:hover,
+// input:-webkit-autofill:focus,
+// textarea:-webkit-autofill,
+// textarea:-webkit-autofill:hover,
+// textarea:-webkit-autofill:focus,
+// select:-webkit-autofill,
+// select:-webkit-autofill:hover,
+// select:-webkit-autofill:focus {
+//   border: none;
+//   border-bottom: 1px solid #e5e5e5;
+//   -webkit-text-fill-color: none;
+//   -webkit-box-shadow: 0 0 0px 1000px white inset;
+//   transition: none;
+// }
+
