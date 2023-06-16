@@ -10,7 +10,7 @@ import {
 import { ItitleLinks, routePathTypes } from 'types';
 import { useMemo } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { useWindowSize } from 'usehooks-ts';
+// import { useWindowSize } from 'usehooks-ts';
 import Menu from '../Menu';
 
 export type IDropNavTitles = 'Profile' | 'Chat' | 'Settings' | 'Subscription' | 'FAQ' | 'Logout';
