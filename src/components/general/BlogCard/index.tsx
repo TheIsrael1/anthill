@@ -1,3 +1,4 @@
+import { Skeleton } from 'components/shadcn/skeleton';
 import CONSTANTS from 'constant';
 import { LazyLoadImage } from 'react-lazy-load-image-component';
 import { useNavigate } from 'react-router-dom';
@@ -39,6 +40,7 @@ const BlogCard = ({
         '
         >
           <LazyLoadImage
+            placeholder={<Skeleton className='w-full h-full' />}
             src={blogImage}
             alt=''
             className='w-full h-full transition-transform duration-300 ease-in-out bg-top bg-cover group-hover:scale-105'

@@ -3,6 +3,7 @@ import { LazyLoadImage } from 'react-lazy-load-image-component';
 import Icon from 'utils/Icon';
 import niyi from 'assets/image/niyi.png?format=webp&imagetools';
 import ContactCard from 'components/partials/contact-card';
+import { Skeleton } from 'components/shadcn/skeleton';
 
 const About = () => {
   const scrollToElement = (i: string) => {
@@ -138,7 +139,11 @@ const About = () => {
             {[...Array(4)]?.map((_, idx) => (
               <div key={idx} className='flex flex-col items-center gap-4'>
                 <div className='h-[120px] w-[120px] rounded-[50px] overflow-hidden'>
-                  <LazyLoadImage src={niyi} className='w-full h-full bg-center bg-cover' />
+                  <LazyLoadImage
+                    placeholder={<Skeleton className='w-full h-full' />}
+                    src={niyi}
+                    className='w-full h-full bg-center bg-cover'
+                  />
                 </div>
                 <div className='flex flex-col items-center gap-2'>
                   <h6 className='text-primary-20 font-[500] text-[24px] leading-[38px] '>

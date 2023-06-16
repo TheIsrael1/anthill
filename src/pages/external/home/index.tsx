@@ -37,13 +37,13 @@ const Home = () => {
           <div className='flex items-center gap-4 mb-4'>
             <button
               onClick={() => navigate(`/${CONSTANTS.ROUTES['create-account']}`)}
-              className='py-[1rem] md:py-[1.25rem] px-[2rem] md:px-[2.5rem] text-white bg-primary-1 rounded-[8px] text-[18px] leading-[24px] font-[500] tracking-[0.15px] shadow-1 hover:opacity-90 transition-opacity duration-300 ease-in-out'
+              className='py-[1rem] md:py-[1.25rem] px-[2rem] md:px-[2.5rem] text-white bg-primary-1 rounded-[8px] text-[14px] md:text-[18px] leading-[24px] font-[500] tracking-[0.15px] shadow-1 hover:opacity-90 transition-opacity duration-300 ease-in-out'
             >
               Sign Up
             </button>
             <button
               onClick={() => navigate(`/${CONSTANTS.ROUTES['hire-talent']}`)}
-              className='overflow-hidden w-max inline-flex relative py-[1rem] md:py-[1.25rem] px-[2rem] md:px-[2.5rem] text-primary-1 hover:text-white transition-colors duration-300 ease-in-out bg-white rounded-[8px] text-[18px] leading-[24px] font-[500] tracking-[0.15px] shadow-2 group'
+              className='overflow-hidden w-max inline-flex relative py-[1rem] md:py-[1.25rem] px-[2rem] md:px-[2.5rem] text-primary-1 hover:text-white transition-colors duration-300 ease-in-out bg-white rounded-[8px] text-[14px] md:text-[18px] leading-[24px] font-[500] tracking-[0.15px] shadow-2 group'
             >
               <BgTransitionSpan className='-mx-[2rem] md:-mx-[2.5rem] -mt-[1rem] md:-mt-[1.25rem]  bg-primary-1 rounded-[8px]' />
               <span className='relative'>Hire Talents</span>

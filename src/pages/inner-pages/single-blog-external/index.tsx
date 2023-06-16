@@ -6,6 +6,7 @@ import BlogCard from 'components/general/BlogCard';
 import blogImg from 'assets/image/blogImg.png?format=webp&w=330&h=280&imagetools';
 import dpIcon from 'assets/image/demoDp.jpg?format=webp&imagetools';
 import { useNavigate } from 'react-router-dom';
+import { Skeleton } from 'components/shadcn/skeleton';
 
 const SingleBlogExternal = () => {
   const navigate = useNavigate();
@@ -30,7 +31,12 @@ const SingleBlogExternal = () => {
           </div>
           <div className='flex items-end gap-4'>
             <div className='w-[48px] h-[48px] overflow-hidden rounded-[50px]'>
-              <LazyLoadImage src={demoDp} className='w-full h-full origin-center' effect='blur' />
+              <LazyLoadImage
+                placeholder={<Skeleton className='w-full h-full' />}
+                src={demoDp}
+                className='w-full h-full origin-center'
+                effect='blur'
+              />
             </div>
             <div className='flex flex-col gap-1'>
               <h6 className='font-[600] leading-[21px] text-white'>Anthill Studios</h6>

@@ -6,6 +6,7 @@ import { LazyLoadImage } from 'react-lazy-load-image-component';
 import demoBlogImg from 'assets/image/blogImg.png';
 import demoDp from 'assets/image/demoDp.jpg';
 import BlogCard from 'components/general/BlogCard';
+import { Skeleton } from 'components/shadcn/skeleton';
 
 type filterTypes =
   | 'All'
@@ -57,7 +58,13 @@ const Blogs = () => {
             </p>
             <div className='flex items-center gap-4'>
               <div className='w-[56px] h-[56px] rounded-[50px] overflow-hidden'>
-                <LazyLoadImage className='w-full h-full' src={demoDp} effect='blur' alt='' />
+                <LazyLoadImage
+                  placeholder={<Skeleton className='w-full h-full' />}
+                  className='w-full h-full'
+                  src={demoDp}
+                  effect='blur'
+                  alt=''
+                />
               </div>
               <div className='flex flex-col justify-center gap-1'>
                 <h6 className='font-[600] leading-[21px] text-primary-9'>Mohammad Reza</h6>
