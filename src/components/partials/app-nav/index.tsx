@@ -41,7 +41,7 @@ export const menuLinks: IDropNavLinks = {
 const AppNav = () => {
   const navigate = useNavigate();
 
-  const { width } = useWindowSize();
+  // const { width } = useWindowSize();
 
   const tags = useMemo(() => {
     const chatCount = 2;

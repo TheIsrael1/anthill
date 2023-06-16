@@ -116,7 +116,11 @@ const Faq = () => {
           </div>
           <Accordion type='single' collapsible className='w-full'>
             {faqs['Payment & pricing']?.map((i, idx) => (
-              <AccordionItem value={i?.title} className='no-underline shadow-3 rounded-[6px] mb-2'>
+              <AccordionItem
+                key={idx}
+                value={i?.title}
+                className='no-underline shadow-3 rounded-[6px] mb-2'
+              >
                 <AccordionTrigger className='py-[0.84rem] px-[1.25rem] text-start text-primary-9/[0.87] leading-[24px] tracking-[0.15px]'>
                   {i?.title}
                 </AccordionTrigger>

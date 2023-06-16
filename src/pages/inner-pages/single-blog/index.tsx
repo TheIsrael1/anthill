@@ -1,7 +1,7 @@
-import { useNavigate } from 'react-router-dom';
+// import { useNavigate } from 'react-router-dom';
 
 const SingleBlog = () => {
-  const navigate = useNavigate();
+  // const navigate = useNavigate();
 
   return <div>SingleBlog</div>;
 };

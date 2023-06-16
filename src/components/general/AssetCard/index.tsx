@@ -1,5 +1,5 @@
 import { LazyLoadImage } from 'react-lazy-load-image-component';
-import { useNavigate } from 'react-router-dom';
+// import { useNavigate } from 'react-router-dom';
 import Icon from 'utils/Icon';
 
 interface IAssetCard {
@@ -9,8 +9,8 @@ interface IAssetCard {
   link?: string;
 }
 
-const AssetCard = ({ desc, image, title, link = '' }: IAssetCard) => {
-  const navigate = useNavigate();
+const AssetCard = ({ desc, image, title }: IAssetCard) => {
+  // const navigate = useNavigate();
 
   return (
     <div className='flex flex-col justify-between w-full cursor-pointer h-max group'>

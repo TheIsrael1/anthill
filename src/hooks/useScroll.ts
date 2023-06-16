@@ -17,7 +17,7 @@ export function useScroll() {
         // scroll direction would be either up or down
         const [scrollDirection, setScrollDirection] = useState<'down' | 'up'>('up');
 
-        const listener = (e: Event) => {
+        const listener = () => {
             if(isBrowser){
                 const res = document.body.getBoundingClientRect()  
                 setBodyOffset(res)

@@ -1,4 +1,4 @@
-import { useState, useEffect, useMemo, useCallback } from "react";
+import { useState, useMemo} from "react";
 
 interface IPagination{
     initPerPage: number
@@ -7,7 +7,7 @@ interface IPagination{
 }
 
 const usePagination = ({ initPerPage, initCurrPage, totalData }: IPagination) => {
-  const [results, setResults] = useState(initPerPage);
+  const [results,] = useState(initPerPage);
   const [page, setPage] = useState(initCurrPage);
 
 

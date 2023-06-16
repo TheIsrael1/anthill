@@ -1,4 +1,4 @@
-import { ItitleLinks, routesInterface } from 'types';
+import { ItitleLinks, routePathTypes } from 'types';
 import Icon from 'utils/Icon';
 
 type IfooterTitles =
@@ -19,7 +19,7 @@ type IfooterTitles =
 interface IfooterLinks {
   Blogs: ItitleLinks<IfooterTitles, string>[];
   BTS: ItitleLinks<IfooterTitles, string>[];
-  Links: ItitleLinks<IfooterTitles, routesInterface['path']>[];
+  Links: ItitleLinks<IfooterTitles, routePathTypes>[];
 }
 
 const Footer = () => {
