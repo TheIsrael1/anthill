@@ -135,7 +135,8 @@ module.exports = {
         danger: {
           1: '#FF3E1D',
           2: 'rgba(206, 37, 37, 0.87)',
-          3: '#FF4E4D'
+          3: '#FF4E4D',
+          4: '#F20101'
         },
         'textColor': {
           primary: 'rgba(50, 71, 92, 0.87)',

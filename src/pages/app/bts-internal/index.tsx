@@ -1,7 +1,9 @@
+import BtsCard from 'components/general/BtsCard';
 import FunkyPagesHero from 'components/general/FunkyPagesHero';
 import LinksFilter from 'components/general/LinksFilter';
 import SearchComboBox from 'components/general/SearchComboBox';
 import PlanGuard from 'guards/PlanGuard';
+import filmImg from 'assets/image/heyyou.png?format=webp&w=240&h=153&imagetools';
 
 const BtsInternal = () => {
   return (
@@ -12,10 +14,10 @@ const BtsInternal = () => {
       />
       <PlanGuard page='bts'>
         <>
-          <div className='w-full max-w-[800px] relative mx-auto my-[1.5rem] md:my-0 md:mb-[1.75rem] md:-top-[1.5rem]'>
+          <div className='w-full max-w-[800px] relative mx-auto my-[1.5rem] md:my-0 md:mb-[1rem] md:-top-[1.5rem]'>
             <SearchComboBox />
           </div>
-          <div className='flex justify-center w-full mb-[1.5rem]'>
+          <div className='flex justify-center w-full mb-[2.5rem]'>
             <LinksFilter
               tabs={[
                 {
@@ -48,6 +50,19 @@ const BtsInternal = () => {
                 },
               ]}
             />
+          </div>
+
+          <div className='grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-x-[1.5rem] gap-y-[2.5rem]'>
+            {[...Array(3)]?.map((_, idx) => (
+              <div key={idx} className='w-full h-full'>
+                <BtsCard
+                  btsImage={filmImg}
+                  category={`BTS Clips`}
+                  title={`The Making of Elevator Baby`}
+                  description={` Explore BTS of the hit “Elevator Baby”`}
+                />
+              </div>
+            ))}
           </div>
         </>
       </PlanGuard>

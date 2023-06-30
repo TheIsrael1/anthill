@@ -12,9 +12,9 @@ const AppLayout = () => {
       <aside className='hidden h-full w-max md:flex z-[1] overflow-visible'>
         <SideNav />
       </aside>
-      <main className='flex flex-col flex-grow'>
+      <main className='flex flex-col flex-grow bg-primary-15'>
         <AppNav />
-        <section className='w-full h-full overflow-auto'>{outlet}</section>
+        <section className='w-full h-full overflow-auto '>{outlet}</section>
       </main>
     </div>
   );

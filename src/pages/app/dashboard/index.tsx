@@ -13,6 +13,7 @@ import BtsCard from 'components/general/BtsCard';
 import filmImg from 'assets/image/heyyou.png?format=webp&w=240&h=153&imagetools';
 import AssetCard from 'components/general/AssetCard';
 import assetImg from 'assets/image/assetFilmImg.png';
+import { shimmer, toBase64 } from 'utils/general/shimmer';
 
 type filterTypes = 'All' | 'Adverts' | 'Blog Posts' | 'BTS' | 'Assets' | 'Upcoming Events';
 
@@ -36,7 +37,7 @@ const Dashboard = () => {
       />
       <PlanGuard page='dashboard'>
         <>
-          <div className='w-full max-w-[800px] relative mx-auto my-[1.5rem] md:my-0 md:mb-[1.75rem] md:-top-[1.5rem]'>
+          <div className='w-full max-w-[800px] relative mx-auto my-[1.5rem] md:my-0 md:mb-[1rem] md:-top-[1.5rem]'>
             <SearchComboBox />
           </div>
           <div className='flex justify-center w-full mb-[2.25rem]'>
@@ -49,7 +50,13 @@ const Dashboard = () => {
           <div className='w-full flex flex-col gap-[2.5rem]'>
             <div className='flex flex-col items-center gap-8 lg:flex-row'>
               <div className='w-full max-w-[424px] max-h-[424px]'>
-                <LazyLoadImage className='w-full h-full' src={demoAd} effect='blur' alt='' />
+                <LazyLoadImage
+                  placeholderSrc={`data:image/svg+xml;base64,${toBase64(shimmer(700, 475))}`}
+                  className='w-full h-full'
+                  src={demoAd}
+                  effect='blur'
+                  alt=''
+                />
               </div>
               <div className='flex flex-col justify-center gap-4'>
                 <span className='text-primary-1 font-[600] text-[14px] leading-[21px] tracking-[0.1px] '>

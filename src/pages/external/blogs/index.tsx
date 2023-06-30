@@ -6,7 +6,7 @@ import { LazyLoadImage } from 'react-lazy-load-image-component';
 import demoBlogImg from 'assets/image/blogImg.png';
 import demoDp from 'assets/image/demoDp.jpg';
 import BlogCard from 'components/general/BlogCard';
-import { Skeleton } from 'components/shadcn/skeleton';
+import { shimmer, toBase64 } from 'utils/general/shimmer';
 
 type filterTypes =
   | 'All'
@@ -42,7 +42,13 @@ const Blogs = () => {
       <div className='w-full flex flex-col gap-[2.5rem] mb-[7.69rem]'>
         <div className='flex flex-col items-center gap-8 lg:flex-row'>
           <div className='w-full max-w-[497px] h-[360px] rounded-[8px] overflow-hidden'>
-            <LazyLoadImage className='w-full h-full' src={demoBlogImg} effect='blur' alt='' />
+            <LazyLoadImage
+              placeholderSrc={`data:image/svg+xml;base64,${toBase64(shimmer(700, 475))}`}
+              className='w-full h-full'
+              src={demoBlogImg}
+              effect='blur'
+              alt=''
+            />
           </div>
           <div className='flex flex-col justify-center gap-4'>
             <span className='text-primary-1 font-[600] text-[14px] leading-[21px] tracking-[0.1px] '>
@@ -59,11 +65,11 @@ const Blogs = () => {
             <div className='flex items-center gap-4'>
               <div className='w-[56px] h-[56px] rounded-[50px] overflow-hidden'>
                 <LazyLoadImage
-                  placeholder={<Skeleton className='w-full h-full' />}
                   className='w-full h-full'
                   src={demoDp}
                   effect='blur'
                   alt=''
+                  placeholderSrc={`data:image/svg+xml;base64,${toBase64(shimmer(700, 475))}`}
                 />
               </div>
               <div className='flex flex-col justify-center gap-1'>

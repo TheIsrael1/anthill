@@ -35,7 +35,7 @@ const ManageSubscriptions = ({ trigger, triggerClassName }: IManageSubscriptions
   return (
     <Dialog onOpenChange={(i) => setModalOpen(i)} open={modalOpen}>
       <DialogTrigger className={triggerClassName}>{trigger}</DialogTrigger>
-      <DialogContent className='h-screen bg-white md:h-max sm:w-[80vw] !max-w-[1000px] py-[7.91rem] px-12 lg:px-[6.29rem] overflow-auto'>
+      <DialogContent className='h-screen bg-white max-w-full overflow-x-hidden md:h-max  sm:w-[80vw] md:!max-w-[1000px] py-[7.91rem] px-12 lg:px-[6.29rem] overflow-auto'>
         <div className='flex flex-col w-full h-full '>
           <h4 className='font-[500] text-[23.61px] leading-[28px] tracking-[0.17px] text-primary-9/[0.87] mb-[1.72rem]'>
             Manage Subscription

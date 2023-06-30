@@ -2,6 +2,7 @@ import { Skeleton } from 'components/shadcn/skeleton';
 import CONSTANTS from 'constant';
 import { LazyLoadImage } from 'react-lazy-load-image-component';
 import { useNavigate } from 'react-router-dom';
+import { shimmer, toBase64 } from 'utils/general/shimmer';
 
 interface IBlogCard {
   blogImage: string;
@@ -24,13 +25,13 @@ const BlogCard = ({
   date,
   description,
   title,
-  link = 'test-blog',
+  link = `/${CONSTANTS.ROUTES.blogs}/test-blog`,
 }: IBlogCard) => {
   const navigate = useNavigate();
 
   return (
     <div
-      onClick={() => navigate(`/${CONSTANTS.ROUTES.blogs}/${link}`)}
+      onClick={() => navigate(link)}
       className='flex flex-col justify-between w-full cursor-pointer h-max group'
     >
       <div className='flex flex-col'>
@@ -40,7 +41,7 @@ const BlogCard = ({
         '
         >
           <LazyLoadImage
-            placeholder={<Skeleton className='w-full h-full' />}
+            placeholderSrc={`data:image/svg+xml;base64,${toBase64(shimmer(700, 475))}`}
             src={blogImage}
             alt=''
             className='w-full h-full transition-transform duration-300 ease-in-out bg-top bg-cover group-hover:scale-105'
@@ -61,7 +62,12 @@ const BlogCard = ({
       </div>
       <div className='flex items-center gap-4'>
         <div className='w-[40px] h-[40px] rounded-[50px] overflow-hidden'>
-          <LazyLoadImage alt='' src={authorImg} className='w-full h-full bg-top bg-cover' />
+          <LazyLoadImage
+            placeholderSrc={`data:image/svg+xml;base64,${toBase64(shimmer(700, 475))}`}
+            alt=''
+            src={authorImg}
+            className='w-full h-full bg-top bg-cover'
+          />
         </div>
         <div className='flex flex-col items-start justify-center gap-1'>
           <h6 className='font-[600] text-[16px] leading-[21px] text-primary-9'>{authorName}</h6>

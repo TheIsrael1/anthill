@@ -61,7 +61,7 @@ const AppNav = () => {
       <nav
         className={` containter w-full  sticky right-0 left-0  md:pt-[0.75rem] md:px-container-base h-max md:h-[4rem] transition-all duration-300 ease-in-out border-b border-b-extraColor-borderBottom-3 md:border-0`}
       >
-        <div className='w-full  h-full hidden md:flex justify-between  py-[0.75rem] md:px-container-base shadow-4 rounded-[8px]'>
+        <div className='w-full  h-full hidden md:flex justify-between  py-[0.75rem] md:px-container-base shadow-4 rounded-[8px] bg-white'>
           <div className='flex items-center flex-grow'>
             <Icon name='searchIcon' svgProp={{ className: 'text-primary-9' }} />
             <input

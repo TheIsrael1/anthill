@@ -6,7 +6,7 @@ import BlogCard from 'components/general/BlogCard';
 import blogImg from 'assets/image/blogImg.png?format=webp&w=330&h=280&imagetools';
 import dpIcon from 'assets/image/demoDp.jpg?format=webp&imagetools';
 import { useNavigate } from 'react-router-dom';
-import { Skeleton } from 'components/shadcn/skeleton';
+import { shimmer, toBase64 } from 'utils/general/shimmer';
 
 const SingleBlogExternal = () => {
   const navigate = useNavigate();
@@ -32,7 +32,7 @@ const SingleBlogExternal = () => {
           <div className='flex items-end gap-4'>
             <div className='w-[48px] h-[48px] overflow-hidden rounded-[50px]'>
               <LazyLoadImage
-                placeholder={<Skeleton className='w-full h-full' />}
+                placeholderSrc={`data:image/svg+xml;base64,${toBase64(shimmer(700, 475))}`}
                 src={demoDp}
                 className='w-full h-full origin-center'
                 effect='blur'
@@ -48,9 +48,14 @@ const SingleBlogExternal = () => {
         </div>
       </div>
       <div className='relative flex flex-col px-container-base lg:px-container-lg '>
-        <div className='relative flex flex-col mb-[2.5rem] max-h-[35rem] w-full -mt-[calc(264px-211px)] lg:px-[3.125rem]  '>
-          <div className='w-full h-max overflow-hidden rounded-[16px]'>
-            <LazyLoadImage src={blogImgBig} effect='blur' className='w-full h-full origin-center' />
+        <div className='relative flex flex-col mb-[2.5rem] h-[35rem] w-full -mt-[calc(264px-211px)] lg:px-[3.125rem]  '>
+          <div className='w-full h-full overflow-hidden rounded-[16px]'>
+            <LazyLoadImage
+              placeholderSrc={`data:image/svg+xml;base64,${toBase64(shimmer(700, 475))}`}
+              src={blogImgBig}
+              effect='blur'
+              className='w-full !h-full origin-center bg-cover'
+            />
           </div>
           <div className='relative lg:absolute top-0 right-0 mt-4  lg:mt-[calc(12.69rem-10px)] flex lg:flex-col gap-4  lg:gap-[2.56rem]'>
             <div className='flex flex-col items-center gap-2 cursor-pointer group'>

@@ -53,7 +53,7 @@ const Faq = () => {
   return (
     <main className='container px-container-base lg:px-container-lg mt-[2.625rem] flex flex-col'>
       <div className='w-full h-[20rem] rounded-[8px]  relative overflow-hidden mb-[1.5rem]'>
-        <div className='absolute w-full h-full'>
+        <div className='absolute flex justify-center w-full h-full'>
           <Icon name='faqBanner' />
         </div>
         <div className='absolute flex justify-center w-full h-full'>

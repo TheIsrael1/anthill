@@ -2,6 +2,7 @@ import { Skeleton } from 'components/shadcn/skeleton';
 import { LazyLoadImage } from 'react-lazy-load-image-component';
 // import { useNavigate } from 'react-router-dom';
 import Icon from 'utils/Icon';
+import { shimmer, toBase64 } from 'utils/general/shimmer';
 
 interface IAssetCard {
   image: string;
@@ -21,10 +22,10 @@ const AssetCard = ({ desc, image, title }: IAssetCard) => {
         '
       >
         <LazyLoadImage
-          placeholder={<Skeleton className='w-full h-full' />}
           src={image}
           alt=''
           className='w-full h-full transition-transform duration-300 ease-in-out bg-top bg-cover group-hover:scale-105'
+          placeholderSrc={`data:image/svg+xml;base64,${toBase64(shimmer(700, 475))}`}
         />
       </div>
       <div className='flex flex-col w-full gap-1'>

@@ -62,6 +62,9 @@ import { ReactComponent as VisionIcon } from 'assets/svg/visionIcon.svg';
 import { ReactComponent as ValuesIcon } from 'assets/svg/valuesIcon.svg';
 import { ReactComponent as MissionDesignAsset } from 'assets/svg/missionDesignAsset.svg';
 import { ReactComponent as MissionDesignAssetTwo } from 'assets/svg/missionDesignAsset2.svg';
+import { ReactComponent as ArrowDown } from 'assets/svg/arrowDown.svg';
+import { ReactComponent as BookmarkIcon } from 'assets/svg/bookmarkIcon.svg';
+import { ReactComponent as LikeIcon } from 'assets/svg/likeIcon.svg';
 
 export type iconTypes =
   | 'filmReel'
@@ -127,7 +130,10 @@ export type iconTypes =
   | 'missionIcon'
   | 'valuesIcon'
   | 'missionDesignAsset'
-  | 'missionDesignAsset2';
+  | 'missionDesignAsset2'
+  | 'arrowDown'
+  | 'BookmarkIcon'
+  | 'likeIcon';
 
 interface IconInterface {
   name: iconTypes;
@@ -200,6 +206,9 @@ const Icon = ({ name, svgProp }: IconInterface) => {
     visionIcon: <VisionIcon {...svgProp} />,
     missionDesignAsset: <MissionDesignAsset {...svgProp} />,
     missionDesignAsset2: <MissionDesignAssetTwo {...svgProp} />,
+    arrowDown: <ArrowDown {...svgProp} />,
+    BookmarkIcon: <BookmarkIcon {...svgProp} />,
+    likeIcon: <LikeIcon {...svgProp} />,
   };
 
   return icons[name];

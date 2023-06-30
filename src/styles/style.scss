@@ -16,7 +16,11 @@
 
     &::-webkit-scrollbar{
       display: none;
-    }
+  }
    }
-
 }
+
+.lazy-load-image-background{
+  width: 100%;
+  height: 100%;
+ }

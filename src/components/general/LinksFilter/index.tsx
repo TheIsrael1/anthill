@@ -10,7 +10,7 @@ const LinksFilter = ({ tabs }: ILinksFilter) => {
       {tabs?.map((i, idx) => (
         <div
           key={idx}
-          className='px-[1.5rem] py-[1.125rem] flex flex-wrap items-center gap-2 shadow-3'
+          className='px-[1.5rem] py-[1.125rem] flex flex-wrap items-center gap-2 shadow-3 bg-white'
         >
           <div className='flex items-center gap-2'>
             <Icon name='linkFilterIcon' />
