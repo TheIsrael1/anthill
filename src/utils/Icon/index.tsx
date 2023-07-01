@@ -65,6 +65,8 @@ import { ReactComponent as MissionDesignAssetTwo } from 'assets/svg/missionDesig
 import { ReactComponent as ArrowDown } from 'assets/svg/arrowDown.svg';
 import { ReactComponent as BookmarkIcon } from 'assets/svg/bookmarkIcon.svg';
 import { ReactComponent as LikeIcon } from 'assets/svg/likeIcon.svg';
+import { ReactComponent as AddThreadIcon } from 'assets/svg/addThreadIcon.svg';
+import { ReactComponent as ThreadResponse } from 'assets/svg/threadResponseIcon.svg';
 
 export type iconTypes =
   | 'filmReel'
@@ -133,7 +135,9 @@ export type iconTypes =
   | 'missionDesignAsset2'
   | 'arrowDown'
   | 'BookmarkIcon'
-  | 'likeIcon';
+  | 'likeIcon'
+  | 'addThreadIcon'
+  | 'threadResponseIcon';
 
 interface IconInterface {
   name: iconTypes;
@@ -209,6 +213,8 @@ const Icon = ({ name, svgProp }: IconInterface) => {
     arrowDown: <ArrowDown {...svgProp} />,
     BookmarkIcon: <BookmarkIcon {...svgProp} />,
     likeIcon: <LikeIcon {...svgProp} />,
+    addThreadIcon: <AddThreadIcon {...svgProp} />,
+    threadResponseIcon: <ThreadResponse {...svgProp} />,
   };
 
   return icons[name];

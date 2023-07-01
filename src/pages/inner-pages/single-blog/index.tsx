@@ -31,7 +31,7 @@ const SingleBlog = () => {
           </h5>
           <div className='flex items-center gap-1'>
             <span className='text-secondary-9/60 leading-[175%]'>Bookmark</span>
-            <Icon name='BookmarkIcon' />
+            <Icon name='BookmarkIcon' svgProp={{ className: 'text-secondary-1' }} />
           </div>
         </div>
         <div className='w-full rounded-[8px] h-[19.56rem] overflow-hidden mb-4'>

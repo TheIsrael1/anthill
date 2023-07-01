@@ -51,7 +51,6 @@ const BtsInternal = () => {
               ]}
             />
           </div>
-
           <div className='grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-x-[1.5rem] gap-y-[2.5rem]'>
             {[...Array(3)]?.map((_, idx) => (
               <div key={idx} className='w-full h-full'>

@@ -5,6 +5,7 @@ import Icon from 'utils/Icon';
 import AuthMenu from './views/auth';
 import NonAuthMenu from './views/non-auth';
 import { createPortal } from 'react-dom';
+import { useLockBodyScroll } from 'hooks/useLockBodyScroll';
 
 const Menu = () => {
   const [menuOpen, setMenuOpen] = useState(false);
@@ -14,10 +15,12 @@ const Menu = () => {
     setMenuOpen(false);
   });
 
+  useLockBodyScroll(menuOpen);
+
   const loggedIn = true;
 
   return (
-    <div className='relative z-20'>
+    <div className='relative z-20 overflow-hidden'>
       <button className='relative flex items-center group' onClick={() => setMenuOpen(true)}>
         <Hamburger menuOpen={menuOpen} />
       </button>

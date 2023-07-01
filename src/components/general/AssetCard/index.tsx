@@ -1,4 +1,3 @@
-import { Skeleton } from 'components/shadcn/skeleton';
 import { LazyLoadImage } from 'react-lazy-load-image-component';
 // import { useNavigate } from 'react-router-dom';
 import Icon from 'utils/Icon';
