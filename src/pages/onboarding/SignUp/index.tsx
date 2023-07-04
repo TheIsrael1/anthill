@@ -55,7 +55,7 @@ const SignUp = () => {
               htmlFor='Remember Me'
               className='text-[14px] leading-[21px] tracking-[0.15px] text-primary-9/[0.38]'
             >
-              i Agree to privacy policy & terms
+              I agree to the Nollywood Filmmaker Privacy Policy
             </Label>
           </div>
           <button className='w-full py-2 text-white bg-primary-1 shadow-3 rounded-[8px] font-[500] text-[15px] hover:opacity-90 transition-opacity duration-300 ease-in-out mb-[1.75rem]'>

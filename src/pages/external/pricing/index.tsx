@@ -208,7 +208,7 @@ const Pricing = () => {
           Still not convinced? Start with a 14-day FREE trial!
         </h5>
         <p className='text-[14px] leading-[21px] tracking-[0.15px] text-primary-9/60'>
-          You will get full access to with all the features for 14 days.
+          You will get full access to all the features for 14 days.
         </p>
         <div className='bottom-0 h-auto md:left-[8.75rem] md:mt-4 py-[5rem] lg:py-0 xl:left-auto lg:right-[15.44rem]  relative xl:absolute w-[23.94rem] lg:h-[17rem]'>
           <LazyLoadImage src={pricingGirl} alt='' effect='blur' className='w-full h-full' />

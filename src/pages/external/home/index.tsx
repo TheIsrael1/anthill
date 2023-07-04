@@ -50,7 +50,8 @@ const Home = () => {
             </button>
           </div>
           <p className='text-primary-1 text-[14px] md:text-[16px] leading-[21px] md:leading-[24px] tracking-[0.15px]'>
-            From the makers of Elevator baby, King of thieves et al
+            From the makers of Elevator Baby, The Man for the Job, King of Thieves, The House of
+            Secrets, Mikolo, et al.
           </p>
         </div>
         <div className='relative flex justify-center max-w-full md:max-w-[calc(100%-590px)] flex-grow-0 flex-shrink-1 basis-auto mt-[5.5rem] overflow-hidden'>

@@ -1,3 +1,5 @@
+import CONSTANTS from 'constant';
+import { useNavigate } from 'react-router-dom';
 import { ItitleLinks, routePathTypes } from 'types';
 import Icon from 'utils/Icon';
 
@@ -7,7 +9,7 @@ type IfooterTitles =
   | 'Distribution and Marketing'
   | 'Animation'
   | 'Behind the scenes clips'
-  | 'Interviews and '
+  | 'Interviews'
   | 'How-tos'
   | 'Sign up'
   | 'Log in'
@@ -23,36 +25,38 @@ interface IfooterLinks {
 }
 
 const Footer = () => {
+  const navigate = useNavigate();
+
   const footerLinks: IfooterLinks = {
     Blogs: [
       {
-        link: '',
+        link: 'production',
         title: 'Production',
       },
       {
-        link: '',
+        link: 'post-production',
         title: 'Post production',
       },
       {
-        link: '',
+        link: 'distribution-and-marketing',
         title: 'Distribution and Marketing',
       },
       {
-        link: '',
+        link: 'animation',
         title: 'Animation',
       },
     ],
     BTS: [
       {
-        link: '',
+        link: 'behind-the-scenes-clips',
         title: 'Behind the scenes clips',
       },
       {
-        link: '',
-        title: 'Interviews and ',
+        link: 'interviews',
+        title: 'Interviews',
       },
       {
-        link: '',
+        link: 'how-tos',
         title: 'How-tos',
       },
     ],
@@ -117,6 +121,7 @@ const Footer = () => {
               <ul className='flex flex-col gap-4'>
                 {footerLinks['Blogs']?.map((i, idx) => (
                   <li
+                    onClick={() => navigate(`/${CONSTANTS?.ROUTES['blogs']}?category=${i?.link}`)}
                     key={idx}
                     className='whitespace-nowrap text-secondary-7 font-[400] text-[16px] leading-[24px] tracking-[0.15px] cursor-pointer hover:text-white transition-colors duration-300 ease-in-out'
                   >
@@ -132,6 +137,7 @@ const Footer = () => {
               <ul className='flex flex-col gap-4'>
                 {footerLinks['BTS']?.map((i, idx) => (
                   <li
+                    onClick={() => navigate(`/${i?.link}`)}
                     key={idx}
                     className='whitespace-nowrap text-secondary-7 font-[400] text-[16px] leading-[24px] tracking-[0.15px] cursor-pointer hover:text-white transition-colors duration-300 ease-in-out'
                   >
@@ -147,6 +153,7 @@ const Footer = () => {
               <ul className='flex flex-col gap-4'>
                 {footerLinks['Links']?.map((i, idx) => (
                   <li
+                    onClick={() => navigate(`/${i?.link}`)}
                     key={idx}
                     className='whitespace-nowrap text-secondary-7 font-[400] text-[16px] leading-[24px] tracking-[0.15px] cursor-pointer hover:text-white transition-colors duration-300 ease-in-out'
                   >
@@ -164,7 +171,7 @@ const Footer = () => {
       '
       >
         <span className='text-secondary-7 text-[12px] leading-[14px] tracking-[0.4px]'>
-          © 2023 Anthill.com
+          © 2023 Nollywoodfilmmaker.com
         </span>
         <div className='flex items-center gap-[1.67rem]'>
           <Icon name='facebookIcon' />
