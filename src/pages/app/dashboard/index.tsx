@@ -29,6 +29,8 @@ const generalFilters: filterTypes[] = [
 const Dashboard = () => {
   const [currFilter, setCurrFilter] = useState<filterTypes>('All');
 
+  //TODO: handle key searchparam of type filterTypes
+
   return (
     <div className='container w-full h-full px-container-base flex flex-col py-[1.875rem] overflow-auto'>
       <FunkyPagesHero

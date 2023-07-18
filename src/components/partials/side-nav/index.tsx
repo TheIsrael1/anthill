@@ -235,7 +235,7 @@ const SideNav = () => {
     <div
       className={`sticky top-0 bottom-0 ${
         navOpen ? ` w-[260px]` : `w-[86px]`
-      } h-full shadow-3 py-[2rem] flex flex-col relative transition-[width] duration-300 ease-in-out`}
+      } h-full shadow-3 py-[1.65rem] flex flex-col relative transition-[width] duration-300 ease-in-out`}
     >
       <button
         onClick={() => setNavOpen((prev) => !prev)}
@@ -247,7 +247,7 @@ const SideNav = () => {
           className='flex items-center gap-[0.625rem] px-[1.66rem] cursor-pointer'
         >
           <div className='flex items-center'>
-            <Icon name='filmReel' svgProp={{ width: 22.75, height: 22.75 }} />
+            <Icon name='nfmLogo' svgProp={{ width: 34.75, height: 34.75 }} />
           </div>
           <h4
             className={`font-[700] text-[28px] orig leading-[24px] tracking-[0.15px] text-textColor-primary ${

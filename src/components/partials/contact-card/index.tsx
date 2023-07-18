@@ -6,7 +6,7 @@ const ContactCard = () => {
   return (
     <section className='mt-[2.5rem] py-[5.625rem] flex flex-col'>
       <h4 className='max-w-[511px] text-primary-20 font-[800] text-[34px] mb-[3.5rem] leading-[38px]'>
-        We would love to hear from You! Get in touch!
+        We’d love to hear from you!
       </h4>
       <div className='flex flex-col gap-[1.5rem]'>
         <div className='grid grid-cols-1 md:grid-cols-2 gap-[1.5rem]'>

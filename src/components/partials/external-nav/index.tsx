@@ -36,18 +36,15 @@ export const ExternalNav = () => {
 
   return (
     <nav className='container sticky top-0 left-0 right-0 z-10 w-full bg-white border-b px-container-base lg:px-container-lg border-extraColor-borderBottom-3 md:border-0'>
-      <div className='w-full  flex justify-between items-center py-[1.875rem] md:pt-[2rem] md:py-[1rem] md:border-b md:border-extraColor-borderBottom-1 transition-all ease-in-out duration-300'>
+      <div className='w-full  flex justify-between items-center py-[1.375rem] md:pt-[2rem] md:py-[.5rem] md:border-b md:border-extraColor-borderBottom-1 transition-all ease-in-out duration-300'>
         <div className='flex items-center gap-[6rem]'>
-          <div
-            className='flex items-center gap-[0.39rem] md:gap-[0.625rem] cursor-pointer'
-            onClick={() => navigate(`/`)}
-          >
+          <div className='flex items-center  cursor-pointer' onClick={() => navigate(`/`)}>
             <Icon
-              name='filmReel'
-              svgProp={{ className: 'w-[20px] h-[20px] md:w-auto md:h-auto' }}
+              name='nfmLogo'
+              svgProp={{ className: 'w-[28px] h-[28px] md:w-[50px] md:h-[50px]' }}
             />
             <h4 className='font-[600] md:font-[500] text-[16px] md:text-[24px] leading-[20px] md:leading-[24px] tracking-[0.15px] text-primary-8'>
-              Nollywood Filmmaker.com
+              Nollywood Filmmaker
             </h4>
           </div>
           <div className='items-center gap-[2.5rem] hidden xl:flex'>

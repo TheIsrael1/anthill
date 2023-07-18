@@ -6,6 +6,7 @@ import Bts from 'pages/external/bts';
 import Faq from 'pages/external/faqs';
 import Home from 'pages/external/home';
 import Pricing from 'pages/external/pricing';
+import PrivacyPolicy from 'pages/external/privacy-policy';
 import SingleBlogExternal from 'pages/inner-pages/single-blog-external';
 import SingleBtsExternal from 'pages/inner-pages/single-bts-external';
 import { routeTypes, routesInterface } from 'types';
@@ -44,6 +45,11 @@ const externalRoute: routeTypes = [
   {
     element: <HireTalents />,
     path: 'hire-talent',
+    plan: 'starter',
+  },
+  {
+    element: <PrivacyPolicy />,
+    path: 'privacy-policy',
     plan: 'starter',
   },
 ];

@@ -8,44 +8,40 @@ import {
 } from 'components/shadcn/accordion';
 import { LazyLoadImage } from 'react-lazy-load-image-component';
 import pricingGirl from 'assets/image/pricingGirl.png';
+import { faqs } from 'content/faq';
 
-type faqTypes =
+export type faqTypes =
   | 'Payment & pricing'
   | 'Cancellation & Refund'
   | 'My subscriptions'
-  | 'core features';
+  | 'general';
 
-const FaqFilters: { title: faqTypes; icon: string }[] = [
-  { title: `Payment & pricing`, icon: `` },
-  { title: `Cancellation & Refund`, icon: `` },
-  { title: `My subscriptions`, icon: `` },
-  { title: `core features`, icon: `` },
+const faqHeaderTokens: Record<faqTypes, { title: string; description: string; icon: JSX.Element }> =
+  {
+    'Cancellation & Refund': {
+      description: 'Cancellation & Refund',
+      title: 'Cancellation',
+      icon: <Icon name='faqCancel' />,
+    },
+    'My subscriptions': {
+      description: 'My subscriptions',
+      title: 'Subscriptions',
+      icon: <Icon name='faqSub' />,
+    },
+    'Payment & pricing': {
+      description: 'Payment methods',
+      title: 'Payment & pricing',
+      icon: <Icon name='faqPay' />,
+    },
+    general: { description: '', title: 'General', icon: <Icon name='faqGen' /> },
+  };
+
+const FaqFilters: { title: faqTypes; icon: JSX.Element }[] = [
+  { title: `general`, icon: faqHeaderTokens['general']?.icon },
+  { title: `Payment & pricing`, icon: faqHeaderTokens['Payment & pricing']?.icon },
+  { title: `Cancellation & Refund`, icon: faqHeaderTokens['Cancellation & Refund']?.icon },
+  { title: `My subscriptions`, icon: faqHeaderTokens['My subscriptions']?.icon },
 ];
-
-interface faqInterface {
-  title: string;
-  body: string;
-}
-
-const faqs: Record<faqTypes, faqInterface[]> = {
-  'Payment & pricing': [
-    {
-      title: `Does my subscription automatically renew?`,
-      body: `Lorem ipsum, dolor sit amet consectetur adipisicing elit. Possimus, quidem.`,
-    },
-    {
-      title: `Can I store the item on an intranet so everyone has access?`,
-      body: `Lorem ipsum, dolor sit amet consectetur adipisicing elit. Possimus, quidem.`,
-    },
-    {
-      title: `Is the nollywood student subscription the same thing as an the nollywood professional subscription?`,
-      body: `Lorem ipsum, dolor sit amet consectetur adipisicing elit. Possimus, quidem.`,
-    },
-  ],
-  'Cancellation & Refund': [],
-  'core features': [],
-  'My subscriptions': [],
-};
 
 const Faq = () => {
   const [currFaq, setCurrFaq] = useState<faqTypes>('Payment & pricing');
@@ -70,14 +66,14 @@ const Faq = () => {
                 className='right-0 flex-grow border-0 focus:!ring-0 form-input placeholder:text-primary-9/60'
               />
             </div>
-            <p className='text-primary-9/60 text-[14px] leading-[21px] tracking-[0.15px]'>
+            <p className='text-primary-9/60 text-[14px] leading-[21px] text-center tracking-[0.15px]'>
               or choose a category to quickly find the help you need.
             </p>
           </div>
         </div>
       </div>
       <div className='flex gap-[1.5rem] flex-col lg:flex-row'>
-        <div className='flex max-w-full lg:flex-col gap-1 w-max lg:w-[300px] whitespace-nowrap overflow-x-auto no-scrollbar'>
+        <div className='flex max-w-full lg:flex-col gap-1 w-max lg:min-w-[300px] whitespace-nowrap overflow-x-auto no-scrollbar'>
           {FaqFilters?.map((i, idx) => (
             <div
               key={idx}
@@ -86,7 +82,7 @@ const Faq = () => {
                 currFaq === i?.title ? `bg-primary-1 text-white` : ``
               }`}
             >
-              <Icon name='listButton' />
+              {i?.icon}
               <span className={`font-[500] text-[14px] leading-[24px] tracking-[0.4px]`}>
                 {`${i?.title}`?.toUpperCase()}
               </span>
@@ -103,19 +99,21 @@ const Faq = () => {
         </div>
         <div className='flex flex-col flex-grow'>
           <div className='flex items-center gap-4 mb-[1.19rem]'>
-            <div className='flex items-center justify-center w-[42px] h-[42px] rounded-[6px] bg-primary-1/[0.16]'></div>
+            <div className='flex items-center text-primary-1 justify-center w-[42px] h-[42px] rounded-[6px] bg-primary-1/[0.16]'>
+              {faqHeaderTokens[currFaq]?.icon}
+            </div>
             <div className='flex flex-col justify-center'>
               <h6 className='text-primary-9/[0.87] font-[500] text-[20px] tracking-[0.15px]'>
-                Payment
+                {faqHeaderTokens[currFaq]?.title}
               </h6>
               <span className='text-[14px] text-primary-9/60 tracking-[0.15px]'>
                 {' '}
-                Payment methods
+                {faqHeaderTokens[currFaq]?.description}
               </span>
             </div>
           </div>
           <Accordion type='single' collapsible className='w-full'>
-            {faqs['Payment & pricing']?.map((i, idx) => (
+            {faqs[currFaq]?.map((i, idx) => (
               <AccordionItem
                 key={idx}
                 value={i?.title}
@@ -124,7 +122,7 @@ const Faq = () => {
                 <AccordionTrigger className='py-[0.84rem] px-[1.25rem] text-start text-primary-9/[0.87] leading-[24px] tracking-[0.15px]'>
                   {i?.title}
                 </AccordionTrigger>
-                <AccordionContent className='py-[1.22rem] px-[1.25rem] text-start text-primary-9/60 leading-[24px] tracking-[0.15px]'>
+                <AccordionContent className='py-[1.22rem] px-[1.25rem] text-start text-primary-9/60 leading-[24px] tracking-[0.15px] max-w-full overflow-auto no-scrollbar'>
                   {i?.body}
                 </AccordionContent>
               </AccordionItem>
@@ -162,7 +160,7 @@ const Faq = () => {
               <Icon name='envelope' svgProp={{ className: 'text-primary-1' }} />
             </div>
             <h6 className='font-[500] text-[20px] leading-[32px] tracking-[0.15px] text-primary-9/[0.87]'>
-              hello@help.com
+              Nollywoodfilmmaker@gmail.com
             </h6>
             <p className='text-[14px] leading-[21px] tracking-[0.15px] text-primary-9/60'>
               Best way to get answer faster!

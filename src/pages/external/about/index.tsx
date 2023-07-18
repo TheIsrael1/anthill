@@ -3,7 +3,7 @@ import { LazyLoadImage } from 'react-lazy-load-image-component';
 import Icon from 'utils/Icon';
 import niyi from 'assets/image/niyi.png?format=webp&imagetools';
 import ContactCard from 'components/partials/contact-card';
-import { Skeleton } from 'components/shadcn/skeleton';
+import { shimmer, toBase64 } from 'utils/general/shimmer';
 
 const About = () => {
   const scrollToElement = (i: string) => {
@@ -23,16 +23,16 @@ const About = () => {
             <h5 className='text-secondary-14 font-[600] text-[40px] leading-[47px]'>Our Story</h5>
             {[
               `We are a community of Nollywood filmmakers, enthusiasts, and industry experts who are
-            passionate about the unique cultural identity of Nigerian cinema - Our community is
+            passionate about the unique cultural identity of Nigerian cinema. Our community is
             made up of like-minded individuals who are dedicated to promoting and preserving the
             rich cultural heritage of Nigerian cinema.`,
               ` Our goal is to provide aspiring and established creatives with the resources they need
-            to succeed in this dynamic industry - We believe that by providing access to valuable
+            to succeed in this dynamic industry. We believe that by providing access to valuable
             resources and training programs, we can help our members unlock their full potential and
             achieve their career goals.`,
               ` Join us on this exciting journey and become a part of a community dedicated to
-            supporting the growth and success of Nigerian cinema - We welcome anyone who shares our
-            passion for Nollywood and is committed to contributing to the growth and success of this
+            supporting the growth and success of Nigerian cinema. We welcome anyone who shares our
+            passion for filmmaking and is committed to contributing to the growth and success of this
             vibrant industry.`,
             ]?.map((i, idx) => (
               <p key={idx} className='text-secondary-18 leading-[24px] tracking-[0.005em]'>
@@ -46,7 +46,7 @@ const About = () => {
               {[
                 { title: `Our Story`, link: `our-story` },
                 { title: `Mission, Vision & Values`, link: `mission` },
-                { title: `Who we are!`, link: `who-are-we` },
+                { title: `What we do`, link: `what-we-do` },
                 { title: `Contact Us`, link: `contact-us` },
               ]?.map((i, idx) => (
                 <div
@@ -75,7 +75,7 @@ const About = () => {
           <div className='absolute top-[87px] left-[162px] hidden xl:flex'>
             <Icon name='missionDesignAsset2' />
           </div>
-          <h4 className='mb-[0.95rem] text-primary-20 font-[600] text-[40px] leading-[61px]'>
+          <h4 className='mb-[0.95rem] text-primary-20 font-[600] text-center text-[28px] leading-[40px] sm:text-[40px] sm:leading-[61px]'>
             Our Mission, Vision and Values
           </h4>
           <p className='max-w-[526.39px] text-secondary-21 leading-[27px]/80 mb-[3.7rem] text-center'>
@@ -91,23 +91,23 @@ const About = () => {
               {[
                 {
                   title: `Our Mission`,
-                  body: `To grow knowledge and wealth in Africa and her people.`,
+                  body: `To raise successful filmmakers in and outside Nigeria.`,
                   icon: <Icon name='missionIcon' svgProp={{ className: 'text-info-11' }} />,
                 },
                 {
                   title: `Our Vision`,
-                  body: `To become the biggest provider of travel information and reservation in Africa.`,
+                  body: `To become the go-to resource portal for everything filmmaking.`,
                   icon: <Icon name='visionIcon' svgProp={{ className: 'text-info-11' }} />,
                 },
                 {
                   title: `Our Values`,
-                  body: `We are an online travel agency specializing in hotel bookings in Nigeria. We provide support, recommendations, and easy booking processes to ensure clients have a good stay.`,
+                  body: `We believe that true wealth can be built via knowledge sharing and community building. This is why we are dedicated to providing a community-oriented hub with quality filmmaking resources and learning opportunities.`,
                   icon: <Icon name='valuesIcon' svgProp={{ className: 'text-info-11' }} />,
                 },
               ]?.map((i, idx) => (
                 <div
                   key={idx}
-                  className='flex flex-col py-[3.31rem] px-[1.89rem] max-w-[410.89px] bg-white rounded-[15px] border border-extraColor-borderBottom-4/[0.02] h-[272.66px] gap-[7.57px]'
+                  className='flex flex-col py-[3.31rem] px-[1.89rem] max-w-[410.89px] bg-white rounded-[15px] border border-extraColor-borderBottom-4/[0.02] h-max sm:h-[320.66px] gap-[7.57px]'
                 >
                   <div className='w-[37.87px] min-h-[37.87px] grid place-items-center rounded-[8px] bg-info-11/[0.25]'>
                     {i?.icon}
@@ -121,17 +121,17 @@ const About = () => {
             </div>
           </div>
         </section>
-        <section className='flex flex-col gap-[2.5rem]' id='who-are-we'>
+        <section className='flex flex-col gap-[2.5rem]' id='what-we-do'>
           <div className='flex flex-col items-center w-full gap-4'>
             <div className='flex justify-center items-center gap-[2px]'>
               <span className='h-1 w-1 rounded-[50px] bg-primary-1'></span>
               <span className='w-[2.5rem] h-[2px] bg-primary-1 rounded-[24px]'></span>
             </div>
             <h4 className='font-[800] text-[24px] md:text-[32px] leading-[32px] md:leading-[40px] -tracking-[0.5px] text-primary-9 text-center'>
-              Who we are?
+              What we do
             </h4>
             <p className='max-w-[620px] font-[400] text-[14px] md:text-[16px] leading-[21px] md:leading-[24px] text-center tracking-[0.5px] text-secondary-1'>
-              We explore the niitty gritties of filmmaking and go behind the scenes to uncover the
+              We explore the nitty gritties of filmmaking and go behind the scenes to uncover the
               magic that brings these epic stories to life on the big screen.
             </p>
           </div>
@@ -140,7 +140,7 @@ const About = () => {
               <div key={idx} className='flex flex-col items-center gap-4'>
                 <div className='h-[120px] w-[120px] rounded-[50px] overflow-hidden'>
                   <LazyLoadImage
-                    placeholder={<Skeleton className='w-full h-full' />}
+                    placeholderSrc={`data:image/svg+xml;base64,${toBase64(shimmer(700, 475))}`}
                     src={niyi}
                     className='w-full h-full bg-center bg-cover'
                   />

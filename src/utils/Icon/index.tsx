@@ -67,6 +67,11 @@ import { ReactComponent as BookmarkIcon } from 'assets/svg/bookmarkIcon.svg';
 import { ReactComponent as LikeIcon } from 'assets/svg/likeIcon.svg';
 import { ReactComponent as AddThreadIcon } from 'assets/svg/addThreadIcon.svg';
 import { ReactComponent as ThreadResponse } from 'assets/svg/threadResponseIcon.svg';
+import { ReactComponent as FaqGen } from 'assets/svg/faqGeneral.svg';
+import { ReactComponent as FaqCancellation } from 'assets/svg/faqCancellation.svg';
+import { ReactComponent as FaqPayment } from 'assets/svg/faqPayment.svg';
+import { ReactComponent as FaqSub } from 'assets/svg/faqSub.svg';
+import { ReactComponent as NFMLogo } from 'assets/svg/nfmLogo.svg';
 
 export type iconTypes =
   | 'filmReel'
@@ -137,7 +142,12 @@ export type iconTypes =
   | 'BookmarkIcon'
   | 'likeIcon'
   | 'addThreadIcon'
-  | 'threadResponseIcon';
+  | 'threadResponseIcon'
+  | 'faqGen'
+  | 'faqSub'
+  | 'faqPay'
+  | 'faqCancel'
+  | 'nfmLogo';
 
 interface IconInterface {
   name: iconTypes;
@@ -215,6 +225,11 @@ const Icon = ({ name, svgProp }: IconInterface) => {
     likeIcon: <LikeIcon {...svgProp} />,
     addThreadIcon: <AddThreadIcon {...svgProp} />,
     threadResponseIcon: <ThreadResponse {...svgProp} />,
+    faqCancel: <FaqCancellation {...svgProp} />,
+    faqGen: <FaqGen {...svgProp} />,
+    faqPay: <FaqPayment {...svgProp} />,
+    faqSub: <FaqSub {...svgProp} />,
+    nfmLogo: <NFMLogo {...svgProp} />,
   };
 
   return icons[name];

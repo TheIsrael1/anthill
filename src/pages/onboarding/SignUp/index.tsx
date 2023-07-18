@@ -48,14 +48,21 @@ const SignUp = () => {
           </div>
           <div className='flex items-center justify-center gap-[0.75rem] w-full mb-[1.75rem]'>
             <Checkbox
-              className='border-primary-9/[0.38] data-[state=checked]:bg-primary-1 checked:!bg-primary-1'
+              className='border-primary-9/[0.38] data-[state=checked]:bg-primary-1 checked:!bg-primary-1 data-[state=checked]:!text-white checked:!text-white'
               id='Remember Me'
             />
             <Label
               htmlFor='Remember Me'
               className='text-[14px] leading-[21px] tracking-[0.15px] text-primary-9/[0.38]'
             >
-              I agree to the Nollywood Filmmaker Privacy Policy
+              I agree to the Nollywood Filmmaker{''}
+              <span
+                onClick={() => navigate(`/${CONSTANTS.ROUTES['privacy-policy']}`)}
+                className='text-primary-1 hover:underline cursor-pointer'
+              >
+                {' '}
+                Privacy Policy
+              </span>
             </Label>
           </div>
           <button className='w-full py-2 text-white bg-primary-1 shadow-3 rounded-[8px] font-[500] text-[15px] hover:opacity-90 transition-opacity duration-300 ease-in-out mb-[1.75rem]'>

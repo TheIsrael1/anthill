@@ -6,7 +6,7 @@ interface ILinksFilter {
 
 const LinksFilter = ({ tabs }: ILinksFilter) => {
   return (
-    <div className='flex flex-col gap-1 h-max w-full  rounded-[12px] overflow-hidden shadow-3'>
+    <div className='flex text-[14px] md:text-base flex-col gap-1 h-max w-full  rounded-[12px] overflow-hidden shadow-3'>
       {tabs?.map((i, idx) => (
         <div
           key={idx}

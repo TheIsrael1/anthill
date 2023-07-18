@@ -13,6 +13,13 @@ import BlogCard from 'components/general/BlogCard';
 import BtsCard from 'components/general/BtsCard';
 import BgTransitionSpan from 'components/animation/bg-transitions-span';
 import { useNavigate } from 'react-router-dom';
+import movie1 from 'assets/image/house-of-secrets.jpg?format=webp&w=240&h=153&imagetools';
+import movie2 from 'assets/image/hey-you.jpg?format=webp&w=240&h=153&imagetools';
+import movie3 from 'assets/image/king-of-thieves.jpg?format=webp&w=240&h=153&imagetools';
+import movie4 from 'assets/image/the-man-for-the-job.jpg?format=webp&w=240&h=153&imagetools';
+import { shimmer, toBase64 } from 'utils/general/shimmer';
+
+const fromTheMakersOf = [movie1, movie4, movie3, movie2];
 
 const Home = () => {
   const navigate = useNavigate();
@@ -32,7 +39,7 @@ const Home = () => {
           </h1>
           <p className='text-[16px] leading-[24px] tracking-[0.15px] text-secondary-1 mb-[2.5rem]'>
             Unlock your potential as a successful Nollywood filmmaker with access to the right tools
-            and resources Anthill studios and other industry professionals have to offer!
+            and resources Anthill Studios and other industry professionals have to offer!
           </p>
           <div className='flex items-center gap-4 mb-4'>
             <button
@@ -50,11 +57,11 @@ const Home = () => {
             </button>
           </div>
           <p className='text-primary-1 text-[14px] md:text-[16px] leading-[21px] md:leading-[24px] tracking-[0.15px]'>
-            From the makers of Elevator Baby, The Man for the Job, King of Thieves, The House of
-            Secrets, Mikolo, et al.
+            From the makers of Mikolo, The House of Secrets, The Man for the Job, King of Thieves,
+            Elevator Baby, et al.
           </p>
         </div>
-        <div className='relative flex justify-center max-w-full md:max-w-[calc(100%-590px)] flex-grow-0 flex-shrink-1 basis-auto mt-[5.5rem] overflow-hidden'>
+        <div className='relative flex mx-auto  justify-center max-w-full md:max-w-[calc(100%-590px)] flex-grow-0 flex-shrink-1 basis-auto mt-[5.5rem] overflow-hidden'>
           <LazyLoadImage
             effect='blur'
             className='hidden transition-all md:flex'
@@ -74,12 +81,17 @@ const Home = () => {
           Learn from the makers of
         </h4>
         <div className='grid items-center justify-center grid-cols-1 gap-4 sm:grid-cols-2 md:grid-cols-3 xl:grid-cols-4 '>
-          {[...Array(4)]?.map((_, idx) => (
+          {fromTheMakersOf?.map((i, idx) => (
             <div
               key={idx}
               className='w-[240px] h-[160px] rounded-[8px] border-b-4 border-warning-1 overflow-hidden'
             >
-              <LazyLoadImage alt='' src={filmImg} className='w-full h-full bg-top bg-cover' />
+              <LazyLoadImage
+                placeholderSrc={`data:image/svg+xml;base64,${toBase64(shimmer(700, 475))}`}
+                alt=''
+                src={i}
+                className='w-full h-full bg-top bg-cover'
+              />
             </div>
           ))}
         </div>

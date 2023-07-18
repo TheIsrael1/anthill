@@ -100,15 +100,15 @@ const Footer = () => {
         <div className='flex flex-col-reverse lg:grid lg:grid-cols-2 gap-x-[8rem]'>
           <div className='flex flex-col gap-4 pt-[calc(74px-0.875rem)]'>
             <h3 className='max-w-[340px] text-secondary-7 font-[800] text-[40px] leading-[48px] -tracking-[0.5px]'>
-              Ready to Get started?!
+              Ready to get started?!
             </h3>
             <p className='font-[400] text-[16px] leading-[24px] tracking-[0.15px] text-secondary-8 max-w-[478px]'>
-              You can also subscribe to our newsletters! We would love to send you updates regularly
-              on the filmmaking industry!
+              Subscribe to our newsletter to stay updated with the filmmaking industry. And nope, we
+              won’t spam your inbox. Promise!
             </p>
             <div className='w-full max-w-[36rem] h-[4.5rem] bg-white rounded-[8px] p-[0.75rem] flex items-center justify-between'>
               <input className='form-input flex-grow border-0 focus:!ring-0' />
-              <button className='h-full w-[10.45rem] bg-primary-1 text-white rounded-[8px] font-[500] text-[18px] leading-[24px] tracking-[0.15px] '>
+              <button className='h-full w-[10.45rem] bg-primary-1 text-white rounded-[8px] font-[500] text-[14px] sm:text-[18px] leading-[24px] tracking-[0.15px] '>
                 Subscribe
               </button>
             </div>
@@ -171,7 +171,7 @@ const Footer = () => {
       '
       >
         <span className='text-secondary-7 text-[12px] leading-[14px] tracking-[0.4px]'>
-          © 2023 Nollywoodfilmmaker.com
+          © 2023 Nollywood Filmmaker
         </span>
         <div className='flex items-center gap-[1.67rem]'>
           <Icon name='facebookIcon' />

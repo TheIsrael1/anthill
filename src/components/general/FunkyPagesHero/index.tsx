@@ -12,7 +12,7 @@ const FunkyPagesHero = ({ description, title, customBgClass }: IFunkyPagesHero) 
       <div className={`absolute w-full h-full bg-primary-1 ${customBgClass ? customBgClass : ``}`}>
         <Icon name='funkyPagesHero' />
       </div>
-      <div className='absolute flex justify-center w-full h-full px-2'>
+      <div className='absolute flex justify-center items-center md:items-start w-full h-full px-2'>
         <div className='w-max h-max mt-8 md:mt-[4.1875rem] z-[1]  flex flex-col items-center'>
           <h4 className='relative text-white font-[700] text-[32px] leading-[40px] tracking-[0.15px] text-center'>
             {title}

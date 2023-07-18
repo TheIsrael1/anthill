@@ -25,7 +25,10 @@ export type routePathTypes =
 "settings" |
 "subscriptions" |
 "logout" |
-"hire-talent"
+"hire-talent" |
+"reset-password" | 
+"new-password" |
+"privacy-policy"
 
 export interface routesInterface<T> {
     path: T
