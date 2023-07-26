@@ -18,7 +18,7 @@ const SingleBlog = () => {
 
   const { id } = useParams();
 
-  const { data, isLoading } = useQuery<any, any, apiInterface<contentApiItemInterface[]>>({
+  const { data } = useQuery<any, any, apiInterface<contentApiItemInterface[]>>({
     queryKey: ['get-blogs'],
     queryFn: () =>
       contentService.getSingleContent({
