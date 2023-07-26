@@ -11,11 +11,30 @@
 
 //Inserting custom styles to tailwind via @layer directive
 @layer utilities {
+  *{
+    &::-webkit-scrollbar-thumb{
+      width: 4px;
+      height: 4px;
+    }
+
+    &::-webkit-scrollbar-track{
+      width: 4px;
+      height: 4px;
+    }
+  }
+
    .no-scrollbar{
-    scrollbar-width: 0;
+    scrollbar-width: 0 !important;
 
     &::-webkit-scrollbar{
-      display: none;
+      display: none !important;
+  }
+  div{
+    scrollbar-width: 0 !important;
+
+    &::-webkit-scrollbar{
+      display: none !important;
+  }
   }
    }
 }

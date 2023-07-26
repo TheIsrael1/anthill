@@ -103,7 +103,7 @@ const SelectPlan = () => {
           </p>
           <div className='flex flex-col gap-[1.25rem] w-full'>
             <Input placeholder='Card Number' className='placeholder:text-primary-9/[0.38] w-full' />
-            <div className='grid grid-cols-1 md:grid-cols-2 gap-x-[1.25rem]'>
+            <div className='grid grid-cols-1 md:grid-cols-2 gap-[1.25rem]'>
               <Input
                 placeholder='Name on Card'
                 className='placeholder:text-primary-9/[0.38] w-full'
@@ -116,7 +116,7 @@ const SelectPlan = () => {
             <div className='flex justify-end'>
               <Dialog>
                 <DialogTrigger>
-                  <button className='w-[130px] h-[38px] bg-primary-1 rounded-[6px] flex items-center justify-center gap-2 group hover:opacity-90 transition-all duration-300 ease-in-out'>
+                  <button className='w-[130px] h-[38px] mb-8 bg-primary-1 rounded-[6px] flex items-center justify-center gap-2 group hover:opacity-90 transition-all duration-300 ease-in-out'>
                     <span className='font-[500] text-[14px] leading-[24px] tracking-[0.4px] text-white'>
                       PAY NOW
                     </span>

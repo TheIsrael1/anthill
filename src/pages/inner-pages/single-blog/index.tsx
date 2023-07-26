@@ -1,5 +1,5 @@
 import { LazyLoadImage } from 'react-lazy-load-image-component';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
 import blogImg from 'assets/image/blogImageBig.png?format=webp&imagetools';
 import dpIcon from 'assets/image/demoDp.jpg?format=webp&imagetools';
 
@@ -7,17 +7,37 @@ import Icon from 'utils/Icon';
 import { shimmer, toBase64 } from 'utils/general/shimmer';
 import { useState } from 'react';
 import BlogCard from 'components/general/BlogCard';
+import { useQuery } from '@tanstack/react-query';
+import contentService from 'services/content';
+import { processError } from 'helper/error';
+import { apiInterface, contentApiItemInterface } from 'types';
 
 const SingleBlog = () => {
   const navigate = useNavigate();
   const [liked, setLiked] = useState(false);
 
+  const { id } = useParams();
+
+  const { data, isLoading } = useQuery<any, any, apiInterface<contentApiItemInterface[]>>({
+    queryKey: ['get-blogs'],
+    queryFn: () =>
+      contentService.getSingleContent({
+        organization_id: import.meta.env.VITE_TIMBU_ORG_ID,
+        id,
+      }),
+    onError: (err) => {
+      processError(err);
+    },
+  });
+
+  console.log('dd', data);
+
   return (
-    <main className='w-full px-container-base '>
+    <main className='relative w-full px-container-base '>
       <div className='w-full my-[1.5rem] rounded-[1rem] bg-white py-[1rem] sm:py-[2.25rem] px-4 sm:px-[2.5rem] flex flex-col '>
         <div
           onClick={() => navigate(-1)}
-          className='mb-[1.37rem] gap-1 flex items-center w-max px-1 sm:px-2 py-1 rounded-[8px] cursor-pointer bg-slate-100 sm:bg-transparent hover:bg-slate-100 transition-colors duration-300 ease-in-out active:bg-slate-200'
+          className='mb-[1.37rem] gap-1 flex items-center w-max px-[2px] py-1 rounded-[8px] cursor-pointer  hover:bg-slate-100 transition-colors duration-300 ease-in-out active:bg-slate-200'
         >
           <Icon
             name='arrowBack'

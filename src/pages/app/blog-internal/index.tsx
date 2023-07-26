@@ -15,8 +15,25 @@ import {
   DropdownMenuItem,
   DropdownMenuTrigger,
 } from 'components/shadcn/dropdown-menu';
+import { useQuery } from '@tanstack/react-query';
+import contentService from 'services/content';
+import { processError } from 'helper/error';
+import ContentLoader from 'components/general/ContentLoader';
+import { apiInterface, contentApiItemInterface } from 'types';
 
 const BlogInternal = () => {
+  const { data, isLoading } = useQuery<any, any, apiInterface<contentApiItemInterface[]>>({
+    queryKey: ['get-blogs'],
+    queryFn: () =>
+      contentService.getContent({
+        organization_id: import.meta.env.VITE_TIMBU_ORG_ID,
+        search_value: ``,
+      }),
+    onError: (err) => {
+      processError(err);
+    },
+  });
+
   return (
     <div className='container w-full px-container-base flex flex-col py-[1.875rem]'>
       <FunkyPagesHero description='Explore Filmmaking blogs' title='Blogs' />
@@ -116,27 +133,28 @@ const BlogInternal = () => {
               </button>
             </div>
           </div>
-
-          <div className='grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3  gap-x-[1.5rem] gap-y-[2.5rem]'>
-            {[...Array(3)]?.map((_, idx) => (
-              <div key={idx} className='w-full h-full'>
-                <BlogCard
-                  authorImg={dpIcon}
-                  authorName={`Mohammad Reza`}
-                  authorRole={`Editor, Polar Studios`}
-                  blogImage={blogImg}
-                  category={`Production`}
-                  date={`18 April, 2022`}
-                  description={`
+          <ContentLoader isLoading={isLoading} numberOfBlocks={3}>
+            <div className='grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3  gap-x-[1.5rem] gap-y-[2.5rem]'>
+              {data?.items?.map((i, idx) => (
+                <div key={idx} className='w-full h-full'>
+                  <BlogCard
+                    authorImg={dpIcon}
+                    authorName={`Mohammad Reza`}
+                    authorRole={`Editor, Polar Studios`}
+                    blogImage={blogImg}
+                    category={`Production`}
+                    date={`18 April, 2022`}
+                    description={`
                     Filmmaking is an art form that requires a combination of technical skills and creativity.
                     As a filmmaker, it's essential to understand...
                     `}
-                  title={` "From Script to Screen: The Filmmaking Process"`}
-                  link={`inner-blog`}
-                />
-              </div>
-            ))}
-          </div>
+                    title={i?.title}
+                    link={`${i?.id}`}
+                  />
+                </div>
+              ))}
+            </div>
+          </ContentLoader>
         </>
       </PlanGuard>
     </div>

@@ -2,7 +2,7 @@ import ManageSubscriptions from 'components/modal/ManageSubscriptions';
 import CONSTANTS from 'constant';
 import usePlan from 'hooks/business-logic/usePlan';
 import { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useLocation, useNavigate } from 'react-router-dom';
 import useStore from 'store';
 import { ItitleLinks, planTypes, routePathTypes } from 'types';
 import Icon from 'utils/Icon';
@@ -41,7 +41,7 @@ export const sideNavLinks: ISideNavLinks = {
           svgProp={{
             width: 22.75,
             height: 22.75,
-            className: 'text-secondary-9 group-hover:text-primary-1',
+            className: 'text-current',
           }}
           name='fileIcon'
         />
@@ -57,7 +57,7 @@ export const sideNavLinks: ISideNavLinks = {
           svgProp={{
             width: 22.75,
             height: 22.75,
-            className: 'text-secondary-9 group-hover:text-primary-1',
+            className: 'text-current',
           }}
         />
       ),
@@ -71,7 +71,7 @@ export const sideNavLinks: ISideNavLinks = {
           svgProp={{
             width: 22.75,
             height: 22.75,
-            className: 'text-secondary-9 group-hover:text-primary-1',
+            className: 'text-current',
           }}
           name='pForumIcon'
         />
@@ -88,7 +88,7 @@ export const sideNavLinks: ISideNavLinks = {
           svgProp={{
             width: 22.75,
             height: 22.75,
-            className: 'text-secondary-9 group-hover:text-primary-1',
+            className: 'text-current',
           }}
           name='btsIcon'
         />
@@ -104,7 +104,7 @@ export const sideNavLinks: ISideNavLinks = {
           svgProp={{
             width: 22.75,
             height: 22.75,
-            className: 'text-secondary-9 group-hover:text-primary-1',
+            className: 'text-current',
           }}
         />
       ),
@@ -118,7 +118,7 @@ export const sideNavLinks: ISideNavLinks = {
           svgProp={{
             width: 22.75,
             height: 22.75,
-            className: 'text-secondary-9 group-hover:text-primary-1',
+            className: 'text-current',
           }}
           name='cvIcon'
         />
@@ -133,7 +133,7 @@ export const sideNavLinks: ISideNavLinks = {
           svgProp={{
             width: 22.75,
             height: 22.75,
-            className: 'text-secondary-9 group-hover:text-primary-1',
+            className: 'text-current',
           }}
           name='consultancyIcon'
         />
@@ -148,7 +148,7 @@ export const sideNavLinks: ISideNavLinks = {
           svgProp={{
             width: 22.75,
             height: 22.75,
-            className: 'text-secondary-9 group-hover:text-primary-1',
+            className: 'text-current',
           }}
           name='bigTIcon'
         />
@@ -165,7 +165,7 @@ export const sideNavLinks: ISideNavLinks = {
           svgProp={{
             width: 22.75,
             height: 22.75,
-            className: 'text-secondary-9 group-hover:text-primary-1',
+            className: 'text-current',
           }}
           name='onlineTrainingIcon'
         />
@@ -180,7 +180,7 @@ export const sideNavLinks: ISideNavLinks = {
           svgProp={{
             width: 22.75,
             height: 22.75,
-            className: 'text-secondary-9 group-hover:text-primary-1',
+            className: 'text-current',
           }}
           name='masterClassesIcon'
         />
@@ -195,7 +195,7 @@ export const sideNavLinks: ISideNavLinks = {
           svgProp={{
             width: 22.75,
             height: 22.75,
-            className: 'text-secondary-9 group-hover:text-primary-1',
+            className: 'text-current',
           }}
           name='threeDotIcon'
         />
@@ -231,6 +231,8 @@ const SideNav = () => {
 
   const { isAllowed } = usePlan({ currUserPlan: currentUserPlan });
 
+  const location = useLocation();
+
   return (
     <div
       className={`sticky top-0 bottom-0 ${
@@ -263,7 +265,13 @@ const SideNav = () => {
           <div
             onClick={() => navigate(`/app/${CONSTANTS.ROUTES.dashboard}`)}
             className={`flex gap-[0.625rem] items-center px-4 py-[0.625rem] hover:bg-primary-light 
-            ${isAllowed(`student`) ? `text-secondary-9` : `text-secondary-13`} hover:text-primary-1
+            ${
+              isAllowed(`student`) ? `text-secondary-9` : `text-secondary-13`
+            } hover:text-primary-1 ${
+              location?.pathname === `/app/${CONSTANTS.ROUTES.dashboard}`
+                ? `!bg-primary-light !text-primary-1`
+                : ``
+            }
             cursor-pointer rounded-[6px] transition duration-300 group`}
           >
             <div className='flex items-center'>
@@ -310,9 +318,13 @@ const SideNav = () => {
               <div
                 onClick={() => navigate(`/app/${i?.link}`)}
                 className={`flex gap-[0.625rem] items-center px-4 py-[0.625rem] hover:bg-primary-light cursor-pointer rounded-[6px]
+                ${isAllowed(i?.plan) ? `text-secondary-9` : `text-secondary-13`} 
                 ${
-                  isAllowed(i?.plan) ? `text-secondary-9` : `text-secondary-13`
-                } hover:text-primary-1
+                  location?.pathname === `/app/${i?.link}`
+                    ? `!bg-primary-light !text-primary-1`
+                    : ``
+                }
+                hover:text-primary-1
                 transition duration-300 group`}
               >
                 <div className='flex items-center'>
@@ -355,9 +367,13 @@ const SideNav = () => {
               <div
                 onClick={() => navigate(`/app/${i?.link}`)}
                 className={`flex gap-[0.625rem] items-center px-4 py-[0.625rem] hover:bg-primary-light cursor-pointer rounded-[6px]
+                ${isAllowed(i?.plan) ? `text-secondary-9` : `text-secondary-13`} 
                 ${
-                  isAllowed(i?.plan) ? `text-secondary-9` : `text-secondary-13`
-                } hover:text-primary-1
+                  location?.pathname === `/app/${i?.link}`
+                    ? `!bg-primary-light !text-primary-1`
+                    : ``
+                }
+                hover:text-primary-1
                 transition duration-300 group`}
               >
                 <div className='flex items-center'>
@@ -400,9 +416,13 @@ const SideNav = () => {
               <div
                 onClick={() => navigate(`/app/${i?.link}`)}
                 className={`flex gap-[0.625rem] items-center px-4 py-[0.625rem] hover:bg-primary-light cursor-pointer rounded-[6px] transition
+                ${isAllowed(i?.plan) ? `text-secondary-9` : `text-secondary-13`} 
                 ${
-                  isAllowed(i?.plan) ? `text-secondary-9` : `text-secondary-13`
-                } hover:text-primary-1
+                  location?.pathname === `/app/${i?.link}`
+                    ? `!bg-primary-light !text-primary-1`
+                    : ``
+                }
+                hover:text-primary-1
                 duration-300 group`}
               >
                 <div className='flex items-center'>

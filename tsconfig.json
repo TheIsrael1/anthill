@@ -22,7 +22,9 @@
     "noFallthroughCasesInSwitch": true,
     "paths": {
       "@/": ["src/*"]
-    }
+    },
+    "composite": true,
+    "types": ["vite/client"],
   },
   "include": ["src"],
   "references": [{ "path": "./tsconfig.node.json" }]

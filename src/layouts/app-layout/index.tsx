@@ -14,7 +14,10 @@ const AppLayout = () => {
       <main className='flex flex-col flex-grow bg-primary-15'>
         <ScrollToTop />
         <AppNav />
-        <section className='w-full h-full overflow-auto '>{outlet}</section>
+        <section className='relative max-w-[70.75rem] mx-auto w-full h-full overflow-auto no-scrollbar'>
+          <ScrollToTop />
+          {outlet}
+        </section>
       </main>
     </div>
   );

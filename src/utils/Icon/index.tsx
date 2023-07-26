@@ -32,6 +32,7 @@ import { ReactComponent as InstaIcn } from 'assets/svg/instaIcn.svg';
 import { ReactComponent as FacebookIcn } from 'assets/svg/facebookIcn.svg';
 import { ReactComponent as ExternalLinkIcon } from 'assets/svg/externalLinkIcon.svg';
 import { ReactComponent as ArrowBack } from 'assets/svg/arrowBack.svg';
+import { ReactComponent as ArrowBackTailess } from 'assets/svg/arrowBackTailess.svg';
 import { ReactComponent as AvatarBig } from 'assets/svg/avatarBig.svg';
 import { ReactComponent as Envelope } from 'assets/svg/envelopeIcon.svg';
 import { ReactComponent as VerticalDot } from 'assets/svg/verticalDotIcon.svg';
@@ -72,6 +73,8 @@ import { ReactComponent as FaqCancellation } from 'assets/svg/faqCancellation.sv
 import { ReactComponent as FaqPayment } from 'assets/svg/faqPayment.svg';
 import { ReactComponent as FaqSub } from 'assets/svg/faqSub.svg';
 import { ReactComponent as NFMLogo } from 'assets/svg/nfmLogo.svg';
+import { ReactComponent as Location } from 'assets/svg/location.svg';
+import { ReactComponent as BigPlus } from 'assets/svg/bigPlusIcon.svg';
 
 export type iconTypes =
   | 'filmReel'
@@ -108,6 +111,7 @@ export type iconTypes =
   | 'facebookIcon'
   | 'externalLinkIcon'
   | 'arrowBack'
+  | 'arrowBackTailess'
   | 'avatarBig'
   | 'envelope'
   | 'verticalDot'
@@ -147,7 +151,9 @@ export type iconTypes =
   | 'faqSub'
   | 'faqPay'
   | 'faqCancel'
-  | 'nfmLogo';
+  | 'nfmLogo'
+  | 'location'
+  | 'bigPlus';
 
 interface IconInterface {
   name: iconTypes;
@@ -230,6 +236,9 @@ const Icon = ({ name, svgProp }: IconInterface) => {
     faqPay: <FaqPayment {...svgProp} />,
     faqSub: <FaqSub {...svgProp} />,
     nfmLogo: <NFMLogo {...svgProp} />,
+    arrowBackTailess: <ArrowBackTailess {...svgProp} />,
+    location: <Location {...svgProp} />,
+    bigPlus: <BigPlus />,
   };
 
   return icons[name];

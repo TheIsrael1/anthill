@@ -1,11 +1,14 @@
 import Icon from 'utils/Icon';
 import { Avatar, AvatarFallback, AvatarImage } from 'components/shadcn/ui/avatar';
+import demoCustomer from 'assets/image/demo-customer.jfif';
 
 const CommentThreadCard = () => {
   return (
     <div className='h-max min-h-[16.5rem] w-full rounded-[0.375rem] bg-white p-[1.5rem] flex flex-col'>
       <div className='flex items-center gap-4 mb-4'>
-        <div className='h-[2.5rem] w-[2.5rem] bg-slate-300 overflow-hidden rounded-[8px] '></div>
+        <div className='h-[2.5rem] w-[2.5rem] bg-slate-300 overflow-hidden rounded-[8px] '>
+          <img src={demoCustomer} className='w-full h-full bg-cover bg-center' />
+        </div>
         <div className='flex flex-col'>
           <h6 className='leading-[1.5rem] tracking-[0.00938rem] text-primary-9'>Elizabeth Ojo</h6>
           <span className='text-[14px] text-primary-9/60 leading-[1.25rem] tracking-[0.00938rem]'>

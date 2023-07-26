@@ -27,6 +27,8 @@ export type routePathTypes =
 "logout" |
 "hire-talent" |
 "reset-password" | 
+"forgot-password" |
+"verify-email" |
 "new-password" |
 "privacy-policy"
 
@@ -50,5 +52,30 @@ export interface ItitleLinks<T, L>{
 }
   
 
+export interface apiInterface<T>{
+items: T
+next_page: number
+page: number
+previous_page: number
+size: number
+total: number
+}
+
+export interface contentApiItemInterface{
+  content: string
+  date_created: string
+  id: string
+  is_deleted: boolean
+  last_updated: string
+  meta_description: string
+  photos: {
+    filename: string
+    id: string
+    is_public: boolean
+    url: string
+  }[]
+  subtitle: string
+  title: string
+}
 
   

@@ -29,6 +29,8 @@ const ROUTES: Record<routePathTypes, routePathTypes> = {
   'new-password': 'new-password',
   'reset-password': 'reset-password',
   'privacy-policy': 'privacy-policy',
+  'forgot-password': 'forgot-password',
+  'verify-email': 'verify-email',
 };
 
 const PLAN_PERMISSIONS: Record<routePathTypes, planTypes> = {
@@ -60,6 +62,8 @@ const PLAN_PERMISSIONS: Record<routePathTypes, planTypes> = {
   'new-password': 'starter',
   'reset-password': 'starter',
   'privacy-policy': 'starter',
+  'forgot-password': 'starter',
+  'verify-email': 'starter',
 };
 
 const CONSTANTS = { ROUTES, PLAN_PERMISSIONS };

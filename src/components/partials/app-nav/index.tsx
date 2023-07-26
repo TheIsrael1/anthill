@@ -133,15 +133,12 @@ const AppNav = () => {
             </DropdownMenu>
           </div>
         </div>
-        <div className='w-full  flex md:hidden px-container-base justify-between items-center py-[1.875rem] '>
+        <div className='w-full  flex md:hidden px-container-base justify-between items-center py-[.875rem] '>
           <div
             className='flex items-center gap-[0.39rem] md:gap-[0.625rem] cursor-pointer'
             onClick={() => navigate(`/`)}
           >
-            <Icon
-              name='filmReel'
-              svgProp={{ className: 'w-[20px] h-[20px] md:w-auto md:h-auto' }}
-            />
+            <Icon name='nfmLogo' svgProp={{ width: 34.75, height: 34.75 }} />
             <h4 className='font-[600] md:font-[500] text-[16px] md:text-[24px] leading-[20px] md:leading-[24px] tracking-[0.15px] text-primary-8'>
               Nollywood Filmmaker.com
             </h4>

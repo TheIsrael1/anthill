@@ -1,4 +1,4 @@
-import { useNavigate } from 'react-router-dom';
+import { useLocation, useNavigate } from 'react-router-dom';
 import { ItitleLinks, routePathTypes } from 'types';
 import Icon from 'utils/Icon';
 import Menu from '../Menu';
@@ -33,6 +33,9 @@ export const navLinks: ItitleLinks<navTitleTypes, routePathTypes>[] = [
 
 export const ExternalNav = () => {
   const navigate = useNavigate();
+  const location = useLocation();
+
+  console.log('loc', location?.pathname);
 
   return (
     <nav className='container sticky top-0 left-0 right-0 z-10 w-full bg-white border-b px-container-base lg:px-container-lg border-extraColor-borderBottom-3 md:border-0'>
@@ -54,10 +57,14 @@ export const ExternalNav = () => {
                 onClick={() => navigate(i?.link)}
                 className='relative py-1 transition-all cursor-pointer group w-max'
               >
-                <span className='text-secondary-1 group-hover:text-primary-1 transition-colors duration-300 ease-in-out font-[400] text-[16px] leading-[24px] tracking-[0.15px]'>
+                <span
+                  className={` group-hover:text-primary-1 ${
+                    `/${i?.link}` === location?.pathname ? `text-primary-1` : `text-secondary-1`
+                  } transition-colors duration-300 ease-in-out font-[400] text-[16px] leading-[24px] tracking-[0.15px]`}
+                >
                   {i?.title}
                 </span>
-                <CoolUnderline />
+                <CoolUnderline fixed={`/${i?.link}` === location?.pathname} />
               </div>
             ))}
           </div>

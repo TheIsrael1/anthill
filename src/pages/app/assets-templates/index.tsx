@@ -5,6 +5,9 @@ import SearchComboBox from 'components/general/SearchComboBox';
 import PlanGuard from 'guards/PlanGuard';
 import { useState } from 'react';
 import filmImg from 'assets/image/assetFilmImg.png';
+// import { useQuery } from '@tanstack/react-query';
+// import contentService from 'services/content';
+// import { processError } from 'helper/error';
 
 type filterTypes =
   | 'All'
@@ -22,6 +25,18 @@ const generalFilters: filterTypes[] = [
 
 const AssetsTemplates = () => {
   const [currFilter, setCurrFilter] = useState<filterTypes>('All');
+
+  // const { data, isLoading } = useQuery({
+  //   queryKey: ['get-assets-templates'],
+  //   queryFn: () =>
+  //     contentService.getContent({
+  //       organization_id: import.meta.env.VITE_TIMBU_ORG_ID,
+  //       search_value: ``,
+  //     }),
+  //   onError: (err) => {
+  //     processError(err);
+  //   },
+  // });
 
   return (
     <div className='container w-full px-container-base flex flex-col py-[1.875rem]'>

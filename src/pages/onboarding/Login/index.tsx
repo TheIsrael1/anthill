@@ -25,11 +25,11 @@ const Login = () => {
       <div className='w-full md:max-w-[calc(96px+494px)] mx-auto bg-white px-4 md:px-[3rem]'>
         <div className='flex flex-col items-start justify-center w-full mx-auto'>
           <div
-            className='flex items-center gap-2 cursor-pointer mb-[2.125rem]'
+            className='flex items-center cursor-pointer mb-[2.125rem]'
             onClick={() => navigate(`/`)}
           >
-            <Icon name='filmReel' svgProp={{ width: 28, height: 28 }} />
-            <h4 className='font-[700] text-[22px]   md:text-[28px] leading-[24px] tracking-[0.15px] text-primary-9/[0.87]'>
+            <Icon name='nfmLogo' svgProp={{ width: 40, height: 40 }} />
+            <h4 className='font-[700] text-[22px] whitespace-nowrap   md:text-[28px] leading-[24px] tracking-[0.15px] text-primary-9/[0.87]'>
               Nollywood Filmmaker.com
             </h4>
           </div>
@@ -44,7 +44,10 @@ const Login = () => {
           <div className='flex flex-col w-full gap-4 mb-[1.25rem]'>
             <Input className='w-full placeholder:text-primary-9/[0.38]' placeholder='Email' />
             <Input className='w-full placeholder:text-primary-9/[0.38]' placeholder='Password' />
-            <button className='place-self-end text-primary-1 text-[14px] leading-[21px] tracking-[0.15px] cursor-pointer hover:underline'>
+            <button
+              onClick={() => navigate(`/${CONSTANTS.ROUTES['forgot-password']}`)}
+              className='place-self-end text-primary-1 text-[14px] leading-[21px] tracking-[0.15px] cursor-pointer hover:underline'
+            >
               Forgot Password?
             </button>
           </div>

@@ -10,6 +10,7 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@hookform/resolvers": "^3.1.1",
     "@radix-ui/react-accordion": "^1.1.2",
     "@radix-ui/react-avatar": "^1.0.3",
     "@radix-ui/react-checkbox": "^1.0.4",
@@ -30,6 +31,7 @@
     "prettier": "^2.8.8",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
+    "react-hook-form": "^7.45.2",
     "react-hot-toast": "^2.4.1",
     "react-lazy-load-image-component": "^1.5.6",
     "react-loading": "^2.0.3",
@@ -45,9 +47,11 @@
     "usehooks-ts": "^2.9.1",
     "vite-plugin-svgr": "^3.2.0",
     "vite-tsconfig-paths": "^4.2.0",
+    "zod": "^3.21.4",
     "zustand": "^4.3.8"
   },
   "devDependencies": {
+    "@hookform/devtools": "^4.3.1",
     "@types/react": "^18.0.28",
     "@types/react-dom": "^18.0.11",
     "@types/react-lazy-load-image-component": "^1.5.3",

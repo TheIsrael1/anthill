@@ -49,8 +49,8 @@ const Faq = () => {
   return (
     <main className='container px-container-base lg:px-container-lg mt-[2.625rem] flex flex-col'>
       <div className='w-full h-[20rem] rounded-[8px]  relative overflow-hidden mb-[1.5rem]'>
-        <div className='absolute flex justify-center w-full h-full'>
-          <Icon name='faqBanner' />
+        <div className='absolute flex justify-center w-full h-full bg-primary-1/10 sm:bg-transparent'>
+          <Icon name='faqBanner' svgProp={{ className: 'hidden sm:flex' }} />
         </div>
         <div className='absolute flex justify-center w-full h-full'>
           <div className='flex flex-col items-center justify-center w-full h-full gap-[1.125rem] px-4'>
