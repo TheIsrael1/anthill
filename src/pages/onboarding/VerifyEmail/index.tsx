@@ -45,7 +45,7 @@ const VerifyEmail = () => {
           </div>
           <div className='flex flex-col w-full gap-4 mb-[1.25rem]'>
             <button
-              onClick={() => navigate(`/app/${CONSTANTS.ROUTES['blogs']}?key=forgot-password`)}
+              onClick={() => navigate(`/${CONSTANTS.ROUTES['login']}`)}
               className='w-full py-2 text-white bg-primary-1 shadow-3 rounded-[8px] font-[500] text-[15px] hover:opacity-90 transition-opacity duration-300 ease-in-out mb-[1.75rem]'
             >
               <span className='leading-[0.46px]'>Skip for now</span>

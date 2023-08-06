@@ -6,9 +6,9 @@ const baseURL = import.meta.env.VITE_USE_PROXY === 'true' ? '/api' : import.meta
 const axiosInstance = axios.create({
   baseURL,
   withCredentials: true,
-  headers: {
-    API_KEY: import.meta.env.VITE_API_KEY,
-    API_ID: import.meta.env.VITE_API_ID,
+  params: {
+    Apikey: import.meta.env.VITE_API_KEY,
+    Appid: import.meta.env.VITE_API_ID,
   },
 });
 

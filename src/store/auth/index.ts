@@ -1,5 +1,5 @@
 import { StateCreator } from 'zustand';
-import { planTypes } from 'types';
+import { authDetailsInterface, planTypes } from 'types';
 
 
 export type AuthStateType = {
@@ -9,6 +9,8 @@ export type AuthStateType = {
     setLoggedIn: (arg: boolean) => void;
     setPlan: (arg: planTypes) => void;
     setAuthLoading: (arg: boolean) => void;
+    authDetails: authDetailsInterface
+    setAuthDetails: (arg: authDetailsInterface) => void
 }
 
 
@@ -25,6 +27,11 @@ setAuthLoading: (arg) => {
   setPlan: (arg) => {
     set({ plan: arg });
   },
+  authDetails: {
+  },
+  setAuthDetails: (arg) =>{
+    set({authDetails: arg})
+  }
 })
 
 export default authSlice;

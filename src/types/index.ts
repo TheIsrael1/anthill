@@ -61,6 +61,11 @@ size: number
 total: number
 }
 
+export interface apiInterfaceV2<T>{
+data: T
+message: string
+}
+
 export interface contentApiItemInterface{
   content: string
   date_created: string
@@ -78,4 +83,13 @@ export interface contentApiItemInterface{
   title: string
 }
 
-  
+export interface authDetailsInterface{
+  access_token?: string
+  data?: {
+    biz_partner_id?: string
+    first_name?: string
+    last_name?: string
+    oragnization_id?: string
+  }
+  refresh_token?: string
+}

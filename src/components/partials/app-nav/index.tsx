@@ -12,6 +12,7 @@ import { useMemo } from 'react';
 import { useNavigate } from 'react-router-dom';
 // import { useWindowSize } from 'usehooks-ts';
 import Menu from '../Menu';
+import useStore from 'store';
 
 export type IDropNavTitles = 'Profile' | 'Chat' | 'Settings' | 'Subscription' | 'FAQ' | 'Logout';
 
@@ -40,6 +41,7 @@ export const menuLinks: IDropNavLinks = {
 
 const AppNav = () => {
   const navigate = useNavigate();
+  const { authDetails } = useStore((store) => store);
 
   // const { width } = useWindowSize();
 
@@ -80,7 +82,9 @@ const AppNav = () => {
                 <DropdownMenuLabel className='flex gap-[0.625rem] items-center !py-[0.875rem] !px-[1.25rem]'>
                   <Icon name='demoDp' />
                   <div className='flex flex-col text-[14px] tracking-[0.15px]'>
-                    <h6 className='text-textColor-primary font-[600] font-inter'>John Doe</h6>
+                    <h6 className='text-textColor-primary font-[600] font-inter'>
+                      {authDetails?.data?.first_name} {authDetails?.data?.last_name}
+                    </h6>
                     <span className='text-textColor-disabled font-[400] text-[12px] leading-[14px] tracking-[0.4px]'>
                       User
                     </span>

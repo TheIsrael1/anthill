@@ -15,6 +15,8 @@ import { useMutation } from '@tanstack/react-query';
 import { processError } from 'helper/error';
 import customerService from 'services/customer';
 import BtnLoader from 'components/Hocs/BtnLoader';
+import { customerLoginInterface } from '../Login/login.model';
+import { useEffect } from 'react';
 
 const SignUp = () => {
   const navigate = useNavigate();
@@ -31,18 +33,39 @@ const SignUp = () => {
   });
 
   const { mutate, isLoading } = useMutation<any, any, SignUpFormInterface>({
-    mutationFn: ({ first_name, last_name }) =>
+    mutationFn: ({ first_name, last_name, email, password }) =>
       customerService.createCustomer({
         first_name,
         last_name,
+        email,
         organization_id: import.meta.env.VITE_TIMBU_ORG_ID,
+        contact_infos: [
+          {
+            contact_data: `${email}`,
+            contact_type: 'email',
+          },
+        ],
+        password,
       }),
-    onSuccess: (data) => {
-      console.log('d', data);
+    onSuccess: (_, variables) => {
+      doLoginAttempt({
+        email: `${variables?.email}`,
+        app_url: `${import.meta.env.VITE_BASE_URL}/login?email=${variables?.email}`,
+        organization_id: import.meta.env.VITE_TIMBU_ORG_ID,
+        password: `${variables?.password}`,
+      });
+      navigate(`/${CONSTANTS.ROUTES['verify-email']}`);
     },
     onError: (err) => {
       processError(err);
     },
+  });
+
+  const { mutate: doLoginAttempt } = useMutation<any, any, customerLoginInterface>({
+    mutationFn: (params) =>
+      customerService.customerLogin({
+        ...params,
+      }),
   });
 
   const onSubmit: SubmitHandler<SignUpFormInterface> = (data) => {
@@ -97,6 +120,21 @@ const SignUp = () => {
                   {...register('last_name')}
                   className='w-full placeholder:text-primary-9/[0.38]'
                   placeholder='Last name'
+                />
+              </InputErrorWrapper>
+              <InputErrorWrapper error={errors?.email?.message}>
+                <Input
+                  {...register('email')}
+                  className='w-full placeholder:text-primary-9/[0.38]'
+                  placeholder='Email'
+                />
+              </InputErrorWrapper>
+              <InputErrorWrapper error={errors?.password?.message}>
+                <Input
+                  {...register('password')}
+                  className='w-full placeholder:text-primary-9/[0.38] !ring-0 !border-slate-200'
+                  placeholder='Password'
+                  type='password'
                 />
               </InputErrorWrapper>
               {/* <Input className='w-full placeholder:text-primary-9/[0.38]' placeholder='Password' /> */}

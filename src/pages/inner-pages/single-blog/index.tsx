@@ -10,7 +10,8 @@ import BlogCard from 'components/general/BlogCard';
 import { useQuery } from '@tanstack/react-query';
 import contentService from 'services/content';
 import { processError } from 'helper/error';
-import { apiInterface, contentApiItemInterface } from 'types';
+import { apiInterfaceV2, contentApiItemInterface } from 'types';
+import ReactMarkdown from 'react-markdown';
 
 const SingleBlog = () => {
   const navigate = useNavigate();
@@ -18,8 +19,8 @@ const SingleBlog = () => {
 
   const { id } = useParams();
 
-  const { data } = useQuery<any, any, apiInterface<contentApiItemInterface[]>>({
-    queryKey: ['get-blogs'],
+  const { data } = useQuery<any, any, apiInterfaceV2<contentApiItemInterface>>({
+    queryKey: ['get-blogs', id],
     queryFn: () =>
       contentService.getSingleContent({
         organization_id: import.meta.env.VITE_TIMBU_ORG_ID,
@@ -29,8 +30,6 @@ const SingleBlog = () => {
       processError(err);
     },
   });
-
-  console.log('dd', data);
 
   return (
     <main className='relative w-full px-container-base '>
@@ -47,7 +46,7 @@ const SingleBlog = () => {
         </div>
         <div className='flex flex-col md:flex-row gap-4 justify-between w-full mb-[1.6rem]'>
           <h5 className='text-[1.5rem] font-[500] leading-[113%] text-secondary-9/[0.87]'>
-            "From Script to Screen: The Filmmaking Process"
+            {data?.data?.title}
           </h5>
           <div className='flex items-center gap-1'>
             <span className='text-secondary-9/60 leading-[175%]'>Bookmark</span>
@@ -81,32 +80,40 @@ const SingleBlog = () => {
             />
           </div>
         </div>
-        <p className='text-primary-9/[0.87] leading-[2rem] tracking-[0.00938rem] mb-[2.5rem]'>
-          But I must explain to you how all this mistaken idea of denouncing pleasure and praising
-          pain was born and I will give you a complete account of the system, and expound the actual
-          teachings of the great explorer of the truth, the master-builder of human happiness. No
-          one rejects, dislikes, or avoids pleasure itself, because it is pleasure, but because
-          those who do not know how to pursue pleasure rationally encounter consequences that are
-          extremely painful. Nor again is there anyone who loves or pursues or desires to obtain
-          pain of itself, because it is pain, but because occasionally circumstances occur in which
-          toil and pain can procure him some great pleasure. To take a trivial example, which of us
-          ever undertakes laborious physical exercise, except to obtain some advantage from it? But
-          who has any right to find fault with a man who chooses to enjoy a pleasure that has no
-          annoying consequences, or one who avoids a pain that produces no resultant pleasure?
-          <br />
-          <br />
-          But I must explain to you how all this mistaken idea of denouncing pleasure and praising
-          pain was born and I will give you a complete account of the system, and expound the actual
-          teachings of the great explorer of the truth, the master-builder of human happiness. No
-          one rejects, dislikes, or avoids pleasure itself, because it is pleasure, but because
-          those who do not know how to pursue pleasure rationally encounter consequences that are
-          extremely painful. Nor again is there anyone who loves or pursues or desires to obtain
-          pain of itself, because it is pain, but because occasionally circumstances occur in which
-          toil and pain can procure him some great pleasure. To take a trivial example, which of us
-          ever undertakes laborious physical exercise, except to obtain some advantage from it? But
-          who has any right to find fault with a man who chooses to enjoy a pleasure that has no
-          annoying consequences, or one who avoids a pain that produces no resultant pleasure?
-        </p>
+
+        <ReactMarkdown
+          components={{
+            h1: ({ node, ...props }) => (
+              <h1
+                {...props}
+                className='text-[1.2rem] font-[500] text-secondary-9/[0.87] my-[1rem]'
+              />
+            ),
+            b: ({ node, ...props }) => <span {...props} className='' />,
+            i: ({ node, ...props }) => <span {...props} className='' />,
+            blockquote: ({ node, ...props }) => (
+              <span
+                {...props}
+                className='text-primary-9/[0.87] leading-[2rem] tracking-[0.00938rem] mb-[2.5rem]'
+              />
+            ),
+            ol: ({ node, ...props }) => <ol {...props} className='' />,
+            ul: ({ node, ...props }) => <ul {...props} className='' />,
+            a: ({ node, ...props }) => <a {...props} className='' />,
+            img: ({ node, ...props }) => (
+              <div>
+                {' '}
+                <img {...props} className='' />
+              </div>
+            ),
+            p: ({ node, ...props }) => (
+              <p
+                {...props}
+                className='text-primary-9/[0.87] leading-[2rem] tracking-[0.00938rem] mb-[1.5rem]'
+              />
+            ),
+          }}
+        >{`${data?.data?.content}`}</ReactMarkdown>
         <div className='flex items-center gap-2 mb-[1.5rem]'>
           <Icon name='gearIcon' svgProp={{ className: 'text-primary-1' }} />
           <span className='text-primary-1 leading-[175%] tracking-[0.00938rem]'>
