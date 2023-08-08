@@ -93,7 +93,7 @@ const AppNav = () => {
                 <DropdownMenuSeparator className='border-b border-b-extraColor-divider' />
                 {menuLinks['level1']?.map((i, idx) => (
                   <DropdownMenuItem
-                    onClick={() => navigate(`/${i?.link}`)}
+                    onClick={() =>{ navigate(`/app/${i?.link}`)}}
                     key={idx}
                     className='!py-[0.75rem] !px-[1.25rem] text-textColor-primary text-[14px] leading-[21px] tracking-[0.15px] flex items-center gap-[0.75rem] cursor-pointer'
                   >

@@ -57,6 +57,7 @@ import { ReactComponent as ListButton } from 'assets/svg/listButton.svg';
 import { ReactComponent as FaqBannerSvg } from 'assets/svg/faqBannerSvg.svg';
 import { ReactComponent as PhoneIcon } from 'assets/svg/phoneIcon.svg';
 import { ReactComponent as StartIcon } from 'assets/svg/starIcon.svg';
+import { ReactComponent as OutlinedStar } from 'assets/svg/outlinedStar.svg';
 import { ReactComponent as LinkFilterIcon } from 'assets/svg/linkFilterIcon.svg';
 import { ReactComponent as MissionIcon } from 'assets/svg/missionIcon.svg';
 import { ReactComponent as VisionIcon } from 'assets/svg/visionIcon.svg';
@@ -75,6 +76,14 @@ import { ReactComponent as FaqSub } from 'assets/svg/faqSub.svg';
 import { ReactComponent as NFMLogo } from 'assets/svg/nfmLogo.svg';
 import { ReactComponent as Location } from 'assets/svg/location.svg';
 import { ReactComponent as BigPlus } from 'assets/svg/bigPlusIcon.svg';
+import { ReactComponent as ProfileCover } from 'assets/svg/profileCover.svg';
+import { ReactComponent as CheckIcon } from 'assets/svg/checkIcon.svg';
+import { ReactComponent as FlagIcon } from 'assets/svg/flagIcon.svg';
+import { ReactComponent as LanguageIcon } from 'assets/svg/languageIcon.svg';
+import { ReactComponent as SkypeIcon } from 'assets/svg/skypeIcon.svg';
+import { ReactComponent as ColorFillIcon } from 'assets/svg/colorFillIcon.svg';
+import { ReactComponent as OutlinedLocation } from 'assets/svg/outlinedLocation.svg';
+import { ReactComponent as CalenderIcon } from 'assets/svg/calenderIcon.svg';
 
 export type iconTypes =
   | 'filmReel'
@@ -153,7 +162,18 @@ export type iconTypes =
   | 'faqCancel'
   | 'nfmLogo'
   | 'location'
-  | 'bigPlus';
+  | 'bigPlus'
+  | 'profileCover'
+  | 'outlinedStar'
+  | 'flagIcon'
+  | 'languageIcon'
+  | 'skypeIcon'
+  | 'checkIcon'
+  | 'colorFillIcon'
+  | 'outlinedLocation'
+  | 'calenderIcon';
+
+  
 
 interface IconInterface {
   name: iconTypes;
@@ -220,6 +240,7 @@ const Icon = ({ name, svgProp }: IconInterface) => {
     faqBanner: <FaqBannerSvg {...svgProp} />,
     phoneIcon: <PhoneIcon {...svgProp} />,
     starIcon: <StartIcon {...svgProp} />,
+    outlinedStar: <OutlinedStar {...svgProp}/>,
     linkFilterIcon: <LinkFilterIcon {...svgProp} />,
     missionIcon: <MissionIcon {...svgProp} />,
     valuesIcon: <ValuesIcon {...svgProp} />,
@@ -239,6 +260,14 @@ const Icon = ({ name, svgProp }: IconInterface) => {
     arrowBackTailess: <ArrowBackTailess {...svgProp} />,
     location: <Location {...svgProp} />,
     bigPlus: <BigPlus />,
+    profileCover: <ProfileCover {...svgProp}/>,
+    checkIcon: <CheckIcon {...svgProp} />,
+    flagIcon: <FlagIcon {...svgProp} />,
+    languageIcon: <LanguageIcon {...svgProp} />,
+    skypeIcon: <SkypeIcon {...svgProp} />,
+    colorFillIcon: <ColorFillIcon {...svgProp} />,
+    outlinedLocation: <OutlinedLocation {...svgProp} />,
+    calenderIcon: <CalenderIcon {...svgProp} />,
   };
 
   return icons[name];

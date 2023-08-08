@@ -11,6 +11,7 @@ import MasterClasses from 'pages/app/master-classes';
 import OnlineTraining from 'pages/app/online-training';
 import ProfessionalForums from 'pages/app/professional-forums';
 import ServiceAd from 'pages/app/service-ad';
+import Profile from 'pages/app/user-profile';
 import SingleBlog from 'pages/inner-pages/single-blog';
 import SingleBts from 'pages/inner-pages/single-bts';
 import { routeTypes, routesInterface } from 'types';
@@ -75,6 +76,11 @@ const internalRoute: routeTypes = [
     element: <ServiceAd />,
     path: 'service-ad',
     plan: 'professional',
+  },
+  {
+    element: <Profile />,
+    path: 'profile',
+    plan: 'student',
   },
 ];
 
