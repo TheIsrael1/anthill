@@ -1,5 +1,6 @@
 import EmptyContent from '../EmptyContent';
 import { useState } from 'react';
+import AddPersonalInfoModal from 'components/modal/CvProfileModals/AddPersonalInfoModal';
 
 import Icon from 'utils/Icon';
 const PersonalInformationSection = () => {
@@ -20,18 +21,22 @@ const PersonalInformationSection = () => {
           <h4 className='relative font-[700] text-sm leading-[40px] tracking-[0.15px]'>
             Personal Information
           </h4>
-          <button className=' px-5  py-1 bg-primary-1 rounded-full flex items-center justify-center gap-2 group hover:opacity-90 transition-all duration-300 ease-in-out'>
-            <span className='font-light text-sm leading-[24px] tracking-[0.4px] text-white'>
-              Edit
-            </span>
-            <Icon
-              name='editPen'
-              svgProp={{
-                className:
-                  'text-primary-1 cursor-pointer hover:opacity-95 transition-opacity duration-300 ease-in-out active:opacity-100',
-              }}
-            />
-          </button>
+          <AddPersonalInfoModal
+            trigger={
+              <button className=' px-5  py-1 bg-primary-1 rounded-full flex items-center justify-center gap-2 group hover:opacity-90 transition-all duration-300 ease-in-out'>
+                <span className='font-light text-sm leading-[24px] tracking-[0.4px] text-white'>
+                  Edit
+                </span>
+                <Icon
+                  name='editPen'
+                  svgProp={{
+                    className:
+                      'text-primary-1 cursor-pointer hover:opacity-95 transition-opacity duration-300 ease-in-out active:opacity-100',
+                  }}
+                />
+              </button>
+            }
+          />
         </div>
         <section className='grid grid-cols-1 md:grid-cols-2 gap-10 border-b-2 py-8'>
           <div className='flex items-start gap-4  col-span-1'>
