@@ -12,6 +12,7 @@ import contentService from 'services/content';
 import { processError } from 'helper/error';
 import { apiInterfaceV2, contentApiItemInterface } from 'types';
 import ReactMarkdown from 'react-markdown';
+import remarkGfm from 'remark-gfm';
 
 const SingleBlog = () => {
   const navigate = useNavigate();
@@ -82,6 +83,7 @@ const SingleBlog = () => {
         </div>
 
         <ReactMarkdown
+          remarkPlugins={[remarkGfm]}
           components={{
             h1: ({ node, ...props }) => (
               <h1
@@ -110,7 +112,7 @@ const SingleBlog = () => {
               <p
                 {...props}
                 className='text-primary-9/[0.87] leading-[2rem] tracking-[0.00938rem] mb-[1.5rem]'
-              />
+              ></p>
             ),
           }}
         >{`${data?.data?.content}`}</ReactMarkdown>
