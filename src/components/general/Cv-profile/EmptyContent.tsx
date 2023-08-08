@@ -22,7 +22,7 @@ const EmptyContent = ({ description, IconSize }: IEmptyContent) => {
         </div>
 
         <button className=' px-4  bg-primary-1 rounded-[15px] flex items-center justify-center gap-2 group hover:opacity-90 transition-all duration-300 ease-in-out'>
-          <span className='font-[500] text-sm leading-[24px] tracking-[0.4px] text-white'>
+          <span className='font-[500] text-xs md:text-sm leading-[24px] tracking-[0.4px] text-white'>
             Add {description || 'UPGRADE'}
           </span>
           <Icon

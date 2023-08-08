@@ -75,6 +75,8 @@ import { ReactComponent as FaqSub } from 'assets/svg/faqSub.svg';
 import { ReactComponent as NFMLogo } from 'assets/svg/nfmLogo.svg';
 import { ReactComponent as Location } from 'assets/svg/location.svg';
 import { ReactComponent as BigPlus } from 'assets/svg/bigPlusIcon.svg';
+import { ReactComponent as EditPen } from 'assets/svg/editPen.svg';
+import { ReactComponent as Mail } from 'assets/svg/mail.svg';
 
 export type iconTypes =
   | 'filmReel'
@@ -153,7 +155,9 @@ export type iconTypes =
   | 'faqCancel'
   | 'nfmLogo'
   | 'location'
-  | 'bigPlus';
+  | 'bigPlus'
+  | 'editPen'
+  | 'mail';
 
 interface IconInterface {
   name: iconTypes;
@@ -239,6 +243,8 @@ const Icon = ({ name, svgProp }: IconInterface) => {
     arrowBackTailess: <ArrowBackTailess {...svgProp} />,
     location: <Location {...svgProp} />,
     bigPlus: <BigPlus />,
+    editPen: <EditPen />,
+    mail: <Mail {...svgProp} />,
   };
 
   return icons[name];
