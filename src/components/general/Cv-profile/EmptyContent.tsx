@@ -3,9 +3,10 @@ import Icon from 'utils/Icon';
 interface IEmptyContent {
   description: string;
   IconSize?: string;
+  modal?: any;
 }
 
-const EmptyContent = ({ description, IconSize }: IEmptyContent) => {
+const EmptyContent = ({ description, IconSize, modal }: IEmptyContent) => {
   const iconWidth: string = IconSize ? IconSize : '400';
   const iconHeight: string = IconSize ? IconSize : '400';
 
@@ -21,18 +22,22 @@ const EmptyContent = ({ description, IconSize }: IEmptyContent) => {
           />
         </div>
 
-        <button className=' px-4  bg-primary-1 rounded-[15px] flex items-center justify-center gap-2 group hover:opacity-90 transition-all duration-300 ease-in-out'>
-          <span className='font-[500] text-xs md:text-sm leading-[24px] tracking-[0.4px] text-white'>
-            Add {description || 'UPGRADE'}
-          </span>
-          <Icon
-            name='addThreadIcon'
-            svgProp={{
-              className:
-                'text-primary-1 cursor-pointer hover:opacity-95 transition-opacity duration-300 ease-in-out active:opacity-100',
-            }}
-          />
-        </button>
+        {modal ? (
+          modal
+        ) : (
+          <button className=' px-4  bg-primary-1 rounded-[15px] flex items-center justify-center gap-2 group hover:opacity-90 transition-all duration-300 ease-in-out'>
+            <span className='font-[500] text-xs md:text-sm leading-[24px] tracking-[0.4px] text-white'>
+              Add {description || 'UPGRADE'}
+            </span>
+            <Icon
+              name='addThreadIcon'
+              svgProp={{
+                className:
+                  'text-primary-1 cursor-pointer hover:opacity-95 transition-opacity duration-300 ease-in-out active:opacity-100',
+              }}
+            />
+          </button>
+        )}
       </section>
     </>
   );

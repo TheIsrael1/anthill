@@ -11,7 +11,28 @@ const PersonalInformationSection = () => {
         <h4 className='relative font-[700] text-sm leading-[40px] tracking-[0.15px]'>
           Personal Information
         </h4>
-        <EmptyContent description='Personal Information' />
+        <EmptyContent
+          description='Personal Information'
+          modal={
+            <AddPersonalInfoModal
+              title='Add Personal Information'
+              trigger={
+                <button className=' px-4  bg-primary-1 rounded-[15px] flex items-center justify-center gap-2 group hover:opacity-90 transition-all duration-300 ease-in-out'>
+                  <span className='font-[500] text-xs md:text-sm leading-[24px] tracking-[0.4px] text-white'>
+                    Add Personal Information
+                  </span>
+                  <Icon
+                    name='addThreadIcon'
+                    svgProp={{
+                      className:
+                        'text-primary-1 cursor-pointer hover:opacity-95 transition-opacity duration-300 ease-in-out active:opacity-100',
+                    }}
+                  />
+                </button>
+              }
+            />
+          }
+        />
       </section>
     );
   } else {
@@ -22,6 +43,7 @@ const PersonalInformationSection = () => {
             Personal Information
           </h4>
           <AddPersonalInfoModal
+            title='Edit Personal Information'
             trigger={
               <button className=' px-5  py-1 bg-primary-1 rounded-full flex items-center justify-center gap-2 group hover:opacity-90 transition-all duration-300 ease-in-out'>
                 <span className='font-light text-sm leading-[24px] tracking-[0.4px] text-white'>

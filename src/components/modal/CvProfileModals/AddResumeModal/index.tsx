@@ -9,9 +9,10 @@ import Icon from 'utils/Icon';
 interface IManageSubscriptions {
   trigger: JSX.Element;
   triggerClassName?: string;
+  title?: string;
 }
 
-const AddResumeModal = ({ trigger, triggerClassName }: IManageSubscriptions) => {
+const AddResumeModal = ({ trigger, triggerClassName, title }: IManageSubscriptions) => {
   const currUserPlan = useStore((state) => state?.plan);
   const setCurrUserPlan = useStore((state) => state?.setPlan);
 
@@ -38,27 +39,11 @@ const AddResumeModal = ({ trigger, triggerClassName }: IManageSubscriptions) => 
       <DialogContent className='h-screen bg-white max-w-full overflow-x-hidden md:h-5/6  sm:w-[65vw] md:!max-w-[1000px] pt-[3rem] px-6 lg:px-[2rem] overflow-auto'>
         <div className='flex flex-col w-full '>
           <h4 className='font-[500] text-sm md:text-lg leading-[28px] tracking-[0.17px] text-primary-9/[0.87] mb-[1.72rem]'>
-            Add Resume
+            {title || `Upload Resume`}
           </h4>
           <div className='flex flex-col w-full gap-[0.87rem]'>
             <form>
               <section className='grid grid-cols-1 md:grid-cols-[1fr_1fr] gap-6 border-t-2 border-b-2 pt-10 pb-[3rem] sm:pb-[4rem] md:pb-[2rem] lg:pb-[7rem] mb-4 sm:mb-4 md:mb-1 lg:mb-1 '>
-                <Input
-                  placeholder='Card Number'
-                  className='placeholder:text-primary-9/[0.38] w-full'
-                />
-                <Input
-                  placeholder='Card Number'
-                  className='placeholder:text-primary-9/[0.38] w-full'
-                />
-                <Input
-                  placeholder='Card Number'
-                  className='placeholder:text-primary-9/[0.38] w-full'
-                />
-                <Input
-                  placeholder='Card Number'
-                  className='placeholder:text-primary-9/[0.38] w-full'
-                />
                 <Input
                   placeholder='Card Number'
                   className='placeholder:text-primary-9/[0.38] w-full'

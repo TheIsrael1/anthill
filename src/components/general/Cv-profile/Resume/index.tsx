@@ -1,5 +1,6 @@
 import { Avatar, AvatarFallback, AvatarImage } from 'components/shadcn/ui/avatar';
 import Icon from 'utils/Icon';
+import AddResumeModal from 'components/modal/CvProfileModals/AddResumeModal';
 export default function ResumeSectionCvProfile() {
   return (
     <div className=' bg-white p-6 pt-1 rounded-md '>
@@ -22,11 +23,16 @@ export default function ResumeSectionCvProfile() {
             <p className='text-sm opacity-50'>No Resume has been uploaded yet</p>
           </div>
         </div>
-        <button className=' px-5  py-1 bg-primary-1 rounded-full flex items-center justify-center gap-2 group hover:opacity-90 transition-all duration-300 ease-in-out'>
-          <span className='font-light text-sm leading-[24px] tracking-[0.4px] text-white'>
-            Upload
-          </span>
-        </button>
+        <AddResumeModal
+          title='Upload Resume'
+          trigger={
+            <button className=' px-5  py-1 bg-primary-1 rounded-full flex items-center justify-center gap-2 group hover:opacity-90 transition-all duration-300 ease-in-out'>
+              <span className='font-light text-sm leading-[24px] tracking-[0.4px] text-white'>
+                Upload
+              </span>
+            </button>
+          }
+        />
       </section>
     </div>
   );
