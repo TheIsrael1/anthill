@@ -13,7 +13,7 @@ export default function ResumeSectionCvProfile() {
               name='mail'
               svgProp={{
                 className:
-                  '  rounded-2xl w-8  text-lg  cursor-pointer hover:opacity-95 transition-opacity duration-300 ease-in-out active:opacity-100',
+                  '  rounded-2xl w-6  text-lg  cursor-pointer hover:opacity-95 transition-opacity duration-300 ease-in-out active:opacity-100',
               }}
             />
           </div>

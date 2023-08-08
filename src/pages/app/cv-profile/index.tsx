@@ -30,8 +30,8 @@ const CVProfile = () => {
             <PersonalInformationSection />
             <ResumeSectionCvProfile />
             <FreeRangeSectionCvProfile />
-            <EducationSectionCvProfile />
             <ExperienceSectionCvProfile />
+            <EducationSectionCvProfile />
             <ProjectSectionCvProfile />
           </div>
           <div className='col-span-3 md:col-span-1'>

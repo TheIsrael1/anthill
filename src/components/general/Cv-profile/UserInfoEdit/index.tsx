@@ -2,7 +2,7 @@ import { Avatar, AvatarFallback, AvatarImage } from 'components/shadcn/ui/avatar
 import Icon from 'utils/Icon';
 export default function UserInfoEditSection() {
   return (
-    <section className='flex justify-between bg-white rounded-md p-4 items-center'>
+    <section className='flex justify-between bg-white rounded-md p-4 px-8 items-center'>
       <div className='flex items-start gap-2'>
         <Avatar>
           <AvatarImage src='https://github.com/shadcn.png' alt='@shadcn' />

@@ -77,6 +77,8 @@ import { ReactComponent as Location } from 'assets/svg/location.svg';
 import { ReactComponent as BigPlus } from 'assets/svg/bigPlusIcon.svg';
 import { ReactComponent as EditPen } from 'assets/svg/editPen.svg';
 import { ReactComponent as Mail } from 'assets/svg/mail.svg';
+import { ReactComponent as EditPenBlue } from 'assets/svg/editPenBlue.svg';
+import { ReactComponent as ExternalLinkBlue } from 'assets/svg/externalLinkBlue.svg';
 
 export type iconTypes =
   | 'filmReel'
@@ -157,7 +159,9 @@ export type iconTypes =
   | 'location'
   | 'bigPlus'
   | 'editPen'
-  | 'mail';
+  | 'mail'
+  | 'editPenBlue'
+  | 'externalLinkBlue';
 
 interface IconInterface {
   name: iconTypes;
@@ -245,6 +249,8 @@ const Icon = ({ name, svgProp }: IconInterface) => {
     bigPlus: <BigPlus />,
     editPen: <EditPen />,
     mail: <Mail {...svgProp} />,
+    editPenBlue: <EditPenBlue {...svgProp} />,
+    externalLinkBlue: <ExternalLinkBlue {...svgProp} />,
   };
 
   return icons[name];
