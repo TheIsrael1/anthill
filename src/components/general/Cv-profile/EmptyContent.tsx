@@ -1,9 +1,10 @@
 import Icon from 'utils/Icon';
+import React from 'react';
 
 interface IEmptyContent {
   description: string;
   IconSize?: string;
-  modal?: any;
+  modal?: React.ReactNode;
 }
 
 const EmptyContent = ({ description, IconSize, modal }: IEmptyContent) => {

@@ -4,7 +4,8 @@ import AddPersonalInfoModal from 'components/modal/CvProfileModals/AddPersonalIn
 
 import Icon from 'utils/Icon';
 const PersonalInformationSection = () => {
-  const [data, setData] = useState(['test']);
+  const [data, setData] = useState<string[]>(['test']);
+
   if (data.length <= 0) {
     return (
       <section className='bg-white p-8 rounded-md'>
