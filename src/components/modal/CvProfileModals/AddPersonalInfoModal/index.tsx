@@ -44,30 +44,48 @@ const AddPersonalInfoModal = ({ trigger, triggerClassName, title }: Iprops) => {
           <div className='flex flex-col w-full gap-[0.87rem]'>
             <form>
               <section className='grid grid-cols-1 md:grid-cols-[1fr_1fr] gap-6 border-t-2 border-b-2 pt-10 pb-[3rem] sm:pb-[4rem] md:pb-[2rem] lg:pb-[7rem] mb-4 sm:mb-4 md:mb-1 lg:mb-1 '>
-                <Input
-                  placeholder='Card Number'
-                  className='placeholder:text-primary-9/[0.38] w-full'
-                />
-                <Input
-                  placeholder='Card Number'
-                  className='placeholder:text-primary-9/[0.38] w-full'
-                />
-                <Input
-                  placeholder='Card Number'
-                  className='placeholder:text-primary-9/[0.38] w-full'
-                />
-                <Input
-                  placeholder='Card Number'
-                  className='placeholder:text-primary-9/[0.38] w-full'
-                />
-                <Input
-                  placeholder='Card Number'
-                  className='placeholder:text-primary-9/[0.38] w-full'
-                />
-                <Input
-                  placeholder='Card Number'
-                  className='placeholder:text-primary-9/[0.38] w-full'
-                />
+                <div className='relative'>
+                  <Input className='placeholder:text-primary-9/[0.38] w-full  border-gray-300 rounded-md p-2 py-4 pl-3 text-secondary-3 w-full' />
+
+                  <label className='absolute top-[-20%] left-2 bg-white rounded-full font-extralight text-secondary-1 text-xs px-1'>
+                    Email
+                  </label>
+                </div>
+                <div className='relative'>
+                  <Input className='placeholder:text-primary-9/[0.38] w-full  border-gray-300 rounded-md p-2 py-4 pl-3 text-secondary-3 w-full' />
+
+                  <label className='absolute top-[-20%] left-2 bg-white rounded-full font-extralight text-secondary-1 text-xs px-1'>
+                    Phone Number
+                  </label>
+                </div>
+                <div className='relative'>
+                  <Input className='placeholder:text-primary-9/[0.38] w-full  border-gray-300 rounded-md p-2 py-4 pl-3 text-secondary-3 w-full' />
+
+                  <label className='absolute top-[-20%] left-2 bg-white rounded-full font-extralight text-secondary-1 text-xs px-1'>
+                    Twitter
+                  </label>
+                </div>
+                <div className='relative'>
+                  <Input className='placeholder:text-primary-9/[0.38] w-full  border-gray-300 rounded-md p-2 py-4 pl-3 text-secondary-3 w-full' />
+
+                  <label className='absolute top-[-20%] left-2 bg-white rounded-full font-extralight text-secondary-1 text-xs px-1'>
+                    Linkedin
+                  </label>
+                </div>
+                <div className='relative'>
+                  <Input className='placeholder:text-primary-9/[0.38] w-full  border-gray-300 rounded-md p-2 py-4 pl-3 text-secondary-3 w-full' />
+
+                  <label className='absolute top-[-20%] left-2 bg-white rounded-full font-extralight text-secondary-1 text-xs px-1'>
+                    Date of Birth
+                  </label>
+                </div>
+                <div className='relative'>
+                  <Input className='placeholder:text-primary-9/[0.38] w-full  border-gray-300 rounded-md p-2 py-4 pl-3 text-secondary-3 w-full' />
+
+                  <label className='absolute top-[-20%] left-2 bg-white rounded-full font-extralight text-secondary-1 text-xs px-1'>
+                    Location
+                  </label>
+                </div>
               </section>
             </form>
             <DialogFooter>

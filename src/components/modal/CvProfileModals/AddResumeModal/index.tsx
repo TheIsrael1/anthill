@@ -43,15 +43,14 @@ const AddResumeModal = ({ trigger, triggerClassName, title }: IManageSubscriptio
           </h4>
           <div className='flex flex-col w-full gap-[0.87rem]'>
             <form>
-              <section className='grid grid-cols-1 md:grid-cols-[1fr_1fr] gap-6 border-t-2 border-b-2 pt-10 pb-[3rem] sm:pb-[4rem] md:pb-[2rem] lg:pb-[7rem] mb-4 sm:mb-4 md:mb-1 lg:mb-1 '>
-                <Input
-                  placeholder='Card Number'
-                  className='placeholder:text-primary-9/[0.38] w-full'
-                />
-                <Input
-                  placeholder='Card Number'
-                  className='placeholder:text-primary-9/[0.38] w-full'
-                />
+              <section className=' border-t-2 border-b-2 pt-4 pb-[3rem] sm:pb-[4rem] md:pb-[2rem] lg:pb-[10rem] mb-4 sm:mb-4 md:mb-1 lg:mb-1 '>
+                <p className='text-sm text-gray-400'>Upload Resume</p>
+                <div className='flex justify-center items-center gap-3 py-4 mt-4 border rounded-lg hover:cursor-pointer'>
+                  <Icon name='uploadIcon'></Icon>
+                  <p className='text-sm'>
+                    Drop a file to add, <span className='text-primary-1'>or Choose File</span>
+                  </p>
+                </div>
               </section>
             </form>
             <DialogFooter>
