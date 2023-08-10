@@ -54,7 +54,7 @@ const AddFreeRangeModal = ({ trigger, triggerClassName, title }: IManageSubscrip
                     Currency
                   </label>
                 </div>
-                <div className='grid grid-cols-[1fr_1fr] gap-2 mt-8'>
+                <div className='grid grid-cols-1 md:grid-cols-[1fr_1fr] gap-2 mt-8'>
                   <div className='relative'>
                     <Input
                       placeholder='$ 000'

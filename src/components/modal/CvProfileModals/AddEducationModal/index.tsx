@@ -5,6 +5,7 @@ import { useState } from 'react';
 import useStore from 'store';
 import { planTypes } from 'types';
 import Icon from 'utils/Icon';
+import AddEducationForm from './addEducationForm';
 
 interface IManageSubscriptions {
   trigger: JSX.Element;
@@ -42,54 +43,7 @@ const AddEducationModal = ({ trigger, triggerClassName, title }: IManageSubscrip
             {title || 'Add Education'}
           </h4>
           <div className='flex flex-col w-full gap-[0.87rem]'>
-            <form>
-              <section className='grid grid-cols-1 md:grid-cols-[1fr_1fr] gap-6 border-t-2 border-b-2 pt-10 pb-[3rem] sm:pb-[4rem] md:pb-[2rem] lg:pb-[7rem] mb-4 sm:mb-4 md:mb-1 lg:mb-1 '>
-                <Input
-                  placeholder='Card Number'
-                  className='placeholder:text-primary-9/[0.38] w-full'
-                />
-                <Input
-                  placeholder='Card Number'
-                  className='placeholder:text-primary-9/[0.38] w-full'
-                />
-                <Input
-                  placeholder='Card Number'
-                  className='placeholder:text-primary-9/[0.38] w-full'
-                />
-                <Input
-                  placeholder='Card Number'
-                  className='placeholder:text-primary-9/[0.38] w-full'
-                />
-                <Input
-                  placeholder='Card Number'
-                  className='placeholder:text-primary-9/[0.38] w-full'
-                />
-                <Input
-                  placeholder='Card Number'
-                  className='placeholder:text-primary-9/[0.38] w-full'
-                />
-              </section>
-            </form>
-            <DialogFooter>
-              <div className='flex items-center justify-end w-full gap-4'>
-                <button
-                  onClick={() => setModalOpen(false)}
-                  className='w-max px-[0.87rem] h-[38px] shadow-9 bg-white rounded-[6px] flex items-center justify-center gap-2 group hover:opacity-90 transition-all duration-300 ease-in-out'
-                >
-                  <span className='font-[500] text-xs leading-[24px] tracking-[0.4px] text-primary-1 whitespace-nowrap'>
-                    {`Cancel`.toUpperCase()}
-                  </span>
-                </button>
-                <button
-                  //     onClick={() => doSubSelection()}
-                  className='w-[130px] h-[38px] bg-primary-1 rounded-[6px] flex items-center justify-center gap-2 group hover:opacity-90 transition-all duration-300 ease-in-out'
-                >
-                  <span className='font-[500] text-xs  leading-[24px] tracking-[0.4px] text-white'>
-                    {`Save Changes`.toUpperCase()}
-                  </span>
-                </button>
-              </div>
-            </DialogFooter>
+            <AddEducationForm setModalOpen={setModalOpen} />
           </div>
         </div>
       </DialogContent>
