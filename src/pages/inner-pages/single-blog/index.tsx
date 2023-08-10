@@ -84,7 +84,7 @@ const SingleBlog = () => {
         </div>
 
         <div className='w-full my-4'>
-          <TextContentLoader isLoading={isLoading} className='my-1'>
+          <TextContentLoader isLoading={isLoading} className='py-1'>
             <ReactMarkdown
               remarkPlugins={[remarkGfm]}
               components={{
