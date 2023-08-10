@@ -89,6 +89,7 @@ import { ReactComponent as ColorFillIcon } from 'assets/svg/colorFillIcon.svg';
 import { ReactComponent as OutlinedLocation } from 'assets/svg/outlinedLocation.svg';
 import { ReactComponent as CalenderIcon } from 'assets/svg/calenderIcon.svg';
 import { ReactComponent as UploadIcon } from 'assets/svg/upload.svg';
+import { ReactComponent as CalendarIconBlack } from 'assets/svg/calendarBlack.svg';
 
 export type iconTypes =
   | 'filmReel'
@@ -181,7 +182,8 @@ export type iconTypes =
   | 'colorFillIcon'
   | 'outlinedLocation'
   | 'calenderIcon'
-  | 'uploadIcon';
+  | 'uploadIcon'
+  | 'calendarIconBlack';
 
 interface IconInterface {
   name: iconTypes;
@@ -281,6 +283,7 @@ const Icon = ({ name, svgProp }: IconInterface) => {
     outlinedLocation: <OutlinedLocation {...svgProp} />,
     calenderIcon: <CalenderIcon {...svgProp} />,
     uploadIcon: <UploadIcon {...svgProp} />,
+    calendarIconBlack: <CalendarIconBlack {...svgProp} />,
   };
 
   return icons[name];
