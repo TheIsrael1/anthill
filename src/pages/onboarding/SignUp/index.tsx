@@ -16,10 +16,12 @@ import { processError } from 'helper/error';
 import customerService from 'services/customer';
 import BtnLoader from 'components/Hocs/BtnLoader';
 import { customerLoginInterface } from '../Login/login.model';
-import { useEffect } from 'react';
+import { authDetailsInterface } from 'types';
+import useStore from 'store';
 
 const SignUp = () => {
   const navigate = useNavigate();
+  const { setAuthDetails } = useStore((store) => store);
 
   const {
     register,
@@ -32,7 +34,7 @@ const SignUp = () => {
     mode: 'all',
   });
 
-  const { mutate, isLoading } = useMutation<any, any, SignUpFormInterface>({
+  const { mutate, isLoading } = useMutation<authDetailsInterface, any, SignUpFormInterface>({
     mutationFn: ({ first_name, last_name, email, password }) =>
       customerService.createCustomer({
         first_name,
@@ -54,7 +56,6 @@ const SignUp = () => {
         organization_id: import.meta.env.VITE_TIMBU_ORG_ID,
         password: `${variables?.password}`,
       });
-      navigate(`/${CONSTANTS.ROUTES['verify-email']}`);
     },
     onError: (err) => {
       processError(err);
@@ -66,6 +67,13 @@ const SignUp = () => {
       customerService.customerLogin({
         ...params,
       }),
+    onSuccess: (data) => {
+      setAuthDetails(data);
+      navigate(`/${CONSTANTS.ROUTES['select-plan']}`);
+    },
+    onError: (err) => {
+      processError(err);
+    },
   });
 
   const onSubmit: SubmitHandler<SignUpFormInterface> = (data) => {
