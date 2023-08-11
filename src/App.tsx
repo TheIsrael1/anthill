@@ -8,6 +8,8 @@ import checkOutRoutes from 'routes/checkout';
 import { Toaster, resolveValue } from 'react-hot-toast';
 
 function App() {
+  // TODO: refresh auth on reload
+
   return (
     <>
       <Toaster position='top-right'>

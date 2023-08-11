@@ -12,6 +12,8 @@ import contentService from 'services/content';
 import { processError } from 'helper/error';
 import { apiInterfaceV2, contentApiItemInterface } from 'types';
 import ReactMarkdown from 'react-markdown';
+import remarkGfm from 'remark-gfm';
+import TextContentLoader from 'components/Loaders/TextContentLoader';
 
 const SingleBlog = () => {
   const navigate = useNavigate();
@@ -19,7 +21,7 @@ const SingleBlog = () => {
 
   const { id } = useParams();
 
-  const { data } = useQuery<any, any, apiInterfaceV2<contentApiItemInterface>>({
+  const { data, isLoading } = useQuery<any, any, apiInterfaceV2<contentApiItemInterface>>({
     queryKey: ['get-blogs', id],
     queryFn: () =>
       contentService.getSingleContent({
@@ -81,39 +83,44 @@ const SingleBlog = () => {
           </div>
         </div>
 
-        <ReactMarkdown
-          components={{
-            h1: ({ node, ...props }) => (
-              <h1
-                {...props}
-                className='text-[1.2rem] font-[500] text-secondary-9/[0.87] my-[1rem]'
-              />
-            ),
-            b: ({ node, ...props }) => <span {...props} className='' />,
-            i: ({ node, ...props }) => <span {...props} className='' />,
-            blockquote: ({ node, ...props }) => (
-              <span
-                {...props}
-                className='text-primary-9/[0.87] leading-[2rem] tracking-[0.00938rem] mb-[2.5rem]'
-              />
-            ),
-            ol: ({ node, ...props }) => <ol {...props} className='' />,
-            ul: ({ node, ...props }) => <ul {...props} className='' />,
-            a: ({ node, ...props }) => <a {...props} className='' />,
-            img: ({ node, ...props }) => (
-              <div>
-                {' '}
-                <img {...props} className='' />
-              </div>
-            ),
-            p: ({ node, ...props }) => (
-              <p
-                {...props}
-                className='text-primary-9/[0.87] leading-[2rem] tracking-[0.00938rem] mb-[1.5rem]'
-              />
-            ),
-          }}
-        >{`${data?.data?.content}`}</ReactMarkdown>
+        <div className='w-full my-4'>
+          <TextContentLoader isLoading={isLoading} className='py-1'>
+            <ReactMarkdown
+              remarkPlugins={[remarkGfm]}
+              components={{
+                h1: ({ node, ...props }) => (
+                  <h1
+                    {...props}
+                    className='text-[1.2rem] font-[500] text-secondary-9/[0.87] my-[1rem]'
+                  />
+                ),
+                b: ({ node, ...props }) => <span {...props} className='' />,
+                i: ({ node, ...props }) => <span {...props} className='' />,
+                blockquote: ({ node, ...props }) => (
+                  <span
+                    {...props}
+                    className='text-primary-9/[0.87] leading-[2rem] tracking-[0.00938rem] mb-[2.5rem]'
+                  />
+                ),
+                ol: ({ node, ...props }) => <ol {...props} className='' />,
+                ul: ({ node, ...props }) => <ul {...props} className='' />,
+                a: ({ node, ...props }) => <a {...props} className='' />,
+                img: ({ node, ...props }) => (
+                  <div>
+                    {' '}
+                    <img {...props} className='' />
+                  </div>
+                ),
+                p: ({ node, ...props }) => (
+                  <p
+                    {...props}
+                    className='text-primary-9/[0.87] leading-[2rem] tracking-[0.00938rem] mb-[1.5rem]'
+                  ></p>
+                ),
+              }}
+            >{`${data?.data?.content}`}</ReactMarkdown>
+          </TextContentLoader>
+        </div>
         <div className='flex items-center gap-2 mb-[1.5rem]'>
           <Icon name='gearIcon' svgProp={{ className: 'text-primary-1' }} />
           <span className='text-primary-1 leading-[175%] tracking-[0.00938rem]'>
