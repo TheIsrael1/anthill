@@ -6,6 +6,7 @@ import useStore from 'store';
 import { planTypes } from 'types';
 import Icon from 'utils/Icon';
 import AddSkillsForm from './addSkillsForm';
+import ListInput from './ListInput';
 
 interface Iprop {
   trigger: JSX.Element;
