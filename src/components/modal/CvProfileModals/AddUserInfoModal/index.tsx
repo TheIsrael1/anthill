@@ -1,11 +1,7 @@
 import { Dialog, DialogContent, DialogTrigger, DialogFooter } from 'components/shadcn/dialog';
-import { Input } from 'components/shadcn/input';
-import { availableSubs, subTypes } from 'pages/onboarding/SelectPlan';
+
 import { useState } from 'react';
-import useStore from 'store';
-import { planTypes } from 'types';
-import Icon from 'utils/Icon';
-import profilePicture from 'assets/image/profilePicture.png';
+
 import AddUserInfoForm from './addUserInfoForm';
 
 interface Iprop {
