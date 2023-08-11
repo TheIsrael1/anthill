@@ -16,6 +16,7 @@ import { ReactComponent as PForumIcon } from 'assets/svg/pForumIcon.svg';
 import { ReactComponent as SearchIcon } from 'assets/svg/searchIcon.svg';
 import { ReactComponent as ThreeDotIcon } from 'assets/svg/threeDotIcon.svg';
 import { ReactComponent as PadLock } from 'assets/svg/padLock.svg';
+import { ReactComponent as PadLockV2 } from 'assets/svg/padLockV2.svg';
 import { ReactComponent as StudentIcon } from 'assets/svg/studentIcon.svg';
 import { ReactComponent as DemoDp } from 'assets/svg/demoDp.svg';
 import { ReactComponent as ExternalLink } from 'assets/svg/externalLink.svg';
@@ -105,6 +106,7 @@ export type iconTypes =
   | 'searchIcon'
   | 'threeDotIcon'
   | 'padLock'
+  | 'padLockV2'
   | 'studentIcon'
   | 'demoDp'
   | 'funkyPagesHero'
@@ -201,6 +203,7 @@ const Icon = ({ name, svgProp }: IconInterface) => {
     searchIcon: <SearchIcon {...svgProp} />,
     threeDotIcon: <ThreeDotIcon {...svgProp} />,
     padLock: <PadLock {...svgProp} />,
+    padLockV2: <PadLockV2 {...svgProp} />,
     studentIcon: <StudentIcon {...svgProp} />,
     demoDp: <DemoDp {...svgProp} />,
     funkyPagesHero: <FunkyPagesHero {...svgProp} />,
