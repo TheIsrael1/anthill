@@ -24,13 +24,13 @@ import {
 
 const FormSchema = z.object({
   title: z.string().min(2, {
-    message: 'Please enter a valid course of study.',
+    message: 'Please enter a valid title',
   }),
   link: z.string().min(2, {
-    message: 'Please enter a valid Place of Work.',
+    message: 'Please enter a valid link',
   }),
   role: z.string().min(2, {
-    message: 'Please enter a valid Place of Work.',
+    message: 'Please enter a valid role',
   }),
 });
 interface Iprops {

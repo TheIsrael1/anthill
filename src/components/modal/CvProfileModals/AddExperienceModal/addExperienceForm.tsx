@@ -28,13 +28,13 @@ import { Popover, PopoverContent, PopoverTrigger } from 'components/shadcn/ui/po
 import Icon from 'utils/Icon';
 const FormSchema = z.object({
   role: z.string().min(2, {
-    message: 'Please enter a valid course of study.',
+    message: 'Please enter a valid role.',
   }),
   placeOfWork: z.string().min(2, {
     message: 'Please enter a valid Place of Work.',
   }),
   jobMode: z.string({
-    required_error: 'Place of study is required.',
+    required_error: 'Job Mode is required.',
   }),
   startDate: z.date({
     required_error: 'Start date is required.',

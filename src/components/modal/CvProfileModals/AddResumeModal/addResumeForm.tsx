@@ -3,7 +3,7 @@ import { useForm, Controller } from 'react-hook-form';
 import React from 'react';
 import * as z from 'zod';
 
-import { Form } from 'components/shadcn/ui/form';
+import { Form, FormField } from 'components/shadcn/ui/form';
 import { Input } from 'components/shadcn/input';
 import { toast } from 'components/shadcn/ui/use-toast';
 
@@ -43,7 +43,7 @@ export default function AddResumeForm({ setModalOpen }: Iprops) {
       {}
       <form onSubmit={form.handleSubmit(onSubmit)} className='w-full space-y-6'>
         <section className=' border-t-2 border-b-2 pt-4 pb-[3rem] sm:pb-[4rem] md:pb-[2rem] lg:pb-[10rem] mb-4 sm:mb-4 md:mb-1 lg:mb-1 '>
-          <Controller
+          <FormField
             name='file'
             control={form.control}
             render={({ field }) => (
