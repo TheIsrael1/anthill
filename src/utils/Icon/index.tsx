@@ -85,6 +85,7 @@ import { ReactComponent as SkypeIcon } from 'assets/svg/skypeIcon.svg';
 import { ReactComponent as ColorFillIcon } from 'assets/svg/colorFillIcon.svg';
 import { ReactComponent as OutlinedLocation } from 'assets/svg/outlinedLocation.svg';
 import { ReactComponent as CalenderIcon } from 'assets/svg/calenderIcon.svg';
+import { ReactComponent as LinkIcon } from 'assets/svg/linkIcon.svg';
 
 export type iconTypes =
   | 'filmReel'
@@ -173,6 +174,7 @@ export type iconTypes =
   | 'checkIcon'
   | 'colorFillIcon'
   | 'outlinedLocation'
+  | 'linkIcon'
   | 'calenderIcon';
 
   
@@ -271,6 +273,7 @@ const Icon = ({ name, svgProp }: IconInterface) => {
     colorFillIcon: <ColorFillIcon {...svgProp} />,
     outlinedLocation: <OutlinedLocation {...svgProp} />,
     calenderIcon: <CalenderIcon {...svgProp} />,
+    linkIcon: <LinkIcon {...svgProp} />,
   };
 
   return icons[name];

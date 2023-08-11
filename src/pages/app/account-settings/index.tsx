@@ -1,3 +1,8 @@
+import Account from "components/app/account-settings/Account";
+import BillingAndPlan from "components/app/account-settings/BillingAndPlan";
+import Connections from "components/app/account-settings/Connections";
+import Notification from "components/app/account-settings/Notification";
+import Security from "components/app/account-settings/Security";
 import PlanGuard from "guards/PlanGuard";
 import { useState } from "react";
 import Icon from "utils/Icon";
@@ -10,14 +15,29 @@ interface Filter {
     name: filterTypes,
     icon: JSX.Element
 }
-
 const settingsFilters: Filter[] = [
     { name: 'ACCOUNT', icon: <Icon name='profileIcon'/> },
     { name: 'SECURITY', icon: <Icon name='padLockV2'/> },
-    { name: 'BILLINGS AND PLANS', icon: <Icon name='profileIcon'/> },
+    { name: 'BILLINGS AND PLANS', icon: <Icon name='fileIcon'/> },
     { name: 'NOTIFICATION', icon: <Icon name='notificationIcon'/> },
-    { name: 'CONNECTIONS', icon: <Icon name='profileIcon'/> }
+    { name: 'CONNECTIONS', icon: <Icon name='linkIcon'/> }
 ]
+
+interface Tabs {
+    title: filterTypes;
+}
+
+const DisplayTab = ({ title }: Tabs) => {
+    const components: Record<filterTypes, JSX.Element> = {
+        ACCOUNT: <Account />,
+        SECURITY: <Security />,
+        'BILLINGS AND PLANS': <BillingAndPlan />,
+        NOTIFICATION: <Notification />,
+        CONNECTIONS: <Connections />,
+    };
+
+    return components[title];
+};
 
 
 const AccountSettings = () => {
@@ -30,7 +50,7 @@ const AccountSettings = () => {
                 {/* to be refactored */}
                 <div className='relative grid w-full'>
                     <div className='grid justify-start max-w-full'>
-                        <div className='w-full px-2 overflow-auto no-scrollbar whitespace-nowrap flex'>
+                        <div className='w-full overflow-auto no-scrollbar whitespace-nowrap flex'>
                         {settingsFilters?.map((i, idx) => (
                             <button
                             key={idx}
@@ -47,6 +67,11 @@ const AccountSettings = () => {
                         ))}
                         </div>
                     </div>
+
+                    <div className="mt-7">
+                        <DisplayTab title={currFilter} />
+                    </div>
+                    
                 </div>
             </PlanGuard>
         </div>
