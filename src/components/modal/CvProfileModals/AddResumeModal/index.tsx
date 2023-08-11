@@ -26,37 +26,6 @@ const AddResumeModal = ({ trigger, triggerClassName, title }: Iprops) => {
           </h4>
           <div className='flex flex-col w-full gap-[0.87rem]'>
             <AddResumeForm setModalOpen={setModalOpen} />
-            <form>
-              <section className=' border-t-2 border-b-2 pt-4 pb-[3rem] sm:pb-[4rem] md:pb-[2rem] lg:pb-[10rem] mb-4 sm:mb-4 md:mb-1 lg:mb-1 '>
-                <p className='text-sm text-gray-400'>Upload Resume</p>
-                <div className='flex justify-center items-center gap-3 py-4 mt-4 border rounded-lg hover:cursor-pointer'>
-                  <Icon name='uploadIcon'></Icon>
-                  <p className='text-sm'>
-                    Drop a file to add, <span className='text-primary-1'>or Choose File</span>
-                  </p>
-                </div>
-              </section>
-            </form>
-            <DialogFooter>
-              <div className='flex items-center justify-end w-full gap-4'>
-                <button
-                  onClick={() => setModalOpen(false)}
-                  className='w-max px-[0.87rem] h-[38px] shadow-9 bg-white rounded-[6px] flex items-center justify-center gap-2 group hover:opacity-90 transition-all duration-300 ease-in-out'
-                >
-                  <span className='font-[500] text-xs leading-[24px] tracking-[0.4px] text-primary-1 whitespace-nowrap'>
-                    {`Cancel`.toUpperCase()}
-                  </span>
-                </button>
-                <button
-                  //     onClick={() => doSubSelection()}
-                  className='w-[130px] h-[38px] bg-primary-1 rounded-[6px] flex items-center justify-center gap-2 group hover:opacity-90 transition-all duration-300 ease-in-out'
-                >
-                  <span className='font-[500] text-xs  leading-[24px] tracking-[0.4px] text-white'>
-                    {`Save Changes`.toUpperCase()}
-                  </span>
-                </button>
-              </div>
-            </DialogFooter>
           </div>
         </div>
       </DialogContent>

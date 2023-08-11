@@ -1,24 +1,12 @@
 import { zodResolver } from '@hookform/resolvers/zod';
-import { useForm } from 'react-hook-form';
+import { useForm, Controller } from 'react-hook-form';
 import React from 'react';
 import * as z from 'zod';
-import { cn } from 'lib/utils';
-import { Button } from 'components/shadcn/ui/button';
-import {
-  Form,
-  FormControl,
-  FormDescription,
-  FormField,
-  FormItem,
-  FormLabel,
-  FormMessage,
-} from 'components/shadcn/ui/form';
+
+import { Form } from 'components/shadcn/ui/form';
 import { Input } from 'components/shadcn/input';
 import { toast } from 'components/shadcn/ui/use-toast';
 
-import { format } from 'date-fns';
-import { Calendar } from 'components/shadcn/ui/calendar';
-import { Popover, PopoverContent, PopoverTrigger } from 'components/shadcn/ui/popover';
 import Icon from 'utils/Icon';
 import FileDropzone from './FileDropZone';
 const FormSchema = z.object({
@@ -54,10 +42,16 @@ export default function AddResumeForm({ setModalOpen }: Iprops) {
     <Form {...form}>
       {}
       <form onSubmit={form.handleSubmit(onSubmit)} className='w-full space-y-6'>
-        <section className=' grid grid-cols-1 md:grid-cols-[1fr_1fr] gap-6  border-t-2 border-b-2 pt-10 pb-[3rem] sm:pb-[4rem] md:pb-[2rem] lg:pb-[4rem] mb-4 sm:mb-4 md:mb-1 lg:mb-1 '>
-          <FileDropzone
-            onDrop={(files: any) => handleFileDrop(files, form.setValue)}
-            file={form.watch('file')}
+        <section className=' border-t-2 border-b-2 pt-4 pb-[3rem] sm:pb-[4rem] md:pb-[2rem] lg:pb-[10rem] mb-4 sm:mb-4 md:mb-1 lg:mb-1 '>
+          <Controller
+            name='file'
+            control={form.control}
+            render={({ field }) => (
+              <FileDropzone
+                onDrop={(acceptedFiles: any) => field.onChange(acceptedFiles[0])}
+                file={field.value}
+              />
+            )}
           />
         </section>
         <div className='flex items-center justify-end w-full gap-4'>

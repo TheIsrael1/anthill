@@ -1,5 +1,5 @@
 import { useDropzone } from 'react-dropzone';
-
+import Icon from 'utils/Icon';
 const FileDropzone = ({ onDrop, file }: any) => {
   const { getRootProps, getInputProps, isDragActive } = useDropzone({
     onDrop,
@@ -9,18 +9,18 @@ const FileDropzone = ({ onDrop, file }: any) => {
     <section {...getRootProps()}>
       <input {...getInputProps()} />
       {file ? (
-        <p>{file?.name}</p>
+        <div className='flex justify-center items-center gap-3 py-4 mt-4 border rounded-lg hover:cursor-pointer'>
+          <Icon name='uploadIcon'></Icon>
+          <p className='text-sm'>{file.name}</p>
+        </div>
       ) : isDragActive ? (
         <p>Drop the files here ...</p>
       ) : (
-        <div>
-          <div>
-            {/* <BiLinkAlt color="red" fontSize={"1.3rem"}/> */}
-            <p>Drag and drop or browse a file of 20MB overall</p>
-          </div>
-          {/* <MdError
-							color={"black"}
-						/> */}
+        <div className='flex justify-center items-center gap-3 py-4 mt-4 border rounded-lg hover:cursor-pointer'>
+          <Icon name='uploadIcon'></Icon>
+          <p className='text-sm'>
+            Drop a file to add, <span className='text-primary-1'>or Choose File</span>
+          </p>
         </div>
       )}
     </section>
