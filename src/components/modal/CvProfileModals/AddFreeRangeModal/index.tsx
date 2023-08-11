@@ -6,32 +6,14 @@ import useStore from 'store';
 import { planTypes } from 'types';
 import Icon from 'utils/Icon';
 
-interface IManageSubscriptions {
+interface Iprops {
   trigger: JSX.Element;
   triggerClassName?: string;
   title?: string;
 }
 
-const AddFreeRangeModal = ({ trigger, triggerClassName, title }: IManageSubscriptions) => {
-  const currUserPlan = useStore((state) => state?.plan);
-  const setCurrUserPlan = useStore((state) => state?.setPlan);
-
-  const defaultSelected: Record<planTypes, subTypes> = {
-    starter: 'Nollywood Student',
-    student: 'Nollywood Student',
-    professional: 'Nollywood Professional',
-    master: 'Nollywood Master',
-  };
-
-  const [selectedPlan, setSelectedPlan] = useState<subTypes>(defaultSelected[currUserPlan]);
+const AddFreeRangeModal = ({ trigger, triggerClassName, title }: Iprops) => {
   const [modalOpen, setModalOpen] = useState(false);
-
-  const doSubSelection = () => {
-    const newPlan = Object.entries(defaultSelected)?.find(([_, v]) => v === selectedPlan);
-    const res = newPlan?.[0] as unknown as planTypes;
-    setCurrUserPlan(res);
-    setModalOpen(false);
-  };
 
   return (
     <Dialog onOpenChange={(i) => setModalOpen(i)} open={modalOpen}>

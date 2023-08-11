@@ -46,7 +46,7 @@ const FormSchema = z.object({
 interface Iprops {
   setModalOpen: React.Dispatch<React.SetStateAction<boolean>>;
 }
-export default function AddExperienceForm({ setModalOpen }: Iprops) {
+export default function AddProjectForm({ setModalOpen }: Iprops) {
   const form = useForm<z.infer<typeof FormSchema>>({
     resolver: zodResolver(FormSchema),
   });

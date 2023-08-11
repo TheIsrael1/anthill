@@ -14,25 +14,7 @@ interface Iprop {
 }
 
 const AddUserInfoModal = ({ trigger, triggerClassName, title }: Iprop) => {
-  const currUserPlan = useStore((state) => state?.plan);
-  const setCurrUserPlan = useStore((state) => state?.setPlan);
-
-  const defaultSelected: Record<planTypes, subTypes> = {
-    starter: 'Nollywood Student',
-    student: 'Nollywood Student',
-    professional: 'Nollywood Professional',
-    master: 'Nollywood Master',
-  };
-
-  const [selectedPlan, setSelectedPlan] = useState<subTypes>(defaultSelected[currUserPlan]);
   const [modalOpen, setModalOpen] = useState(false);
-
-  const doSubSelection = () => {
-    const newPlan = Object.entries(defaultSelected)?.find(([_, v]) => v === selectedPlan);
-    const res = newPlan?.[0] as unknown as planTypes;
-    setCurrUserPlan(res);
-    setModalOpen(false);
-  };
 
   return (
     <Dialog onOpenChange={(i) => setModalOpen(i)} open={modalOpen}>
