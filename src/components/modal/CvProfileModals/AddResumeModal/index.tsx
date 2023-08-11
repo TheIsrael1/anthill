@@ -5,6 +5,7 @@ import { useState } from 'react';
 import useStore from 'store';
 import { planTypes } from 'types';
 import Icon from 'utils/Icon';
+import AddResumeForm from './addResumeForm';
 
 interface Iprops {
   trigger: JSX.Element;
@@ -24,6 +25,7 @@ const AddResumeModal = ({ trigger, triggerClassName, title }: Iprops) => {
             {title || `Upload Resume`}
           </h4>
           <div className='flex flex-col w-full gap-[0.87rem]'>
+            <AddResumeForm setModalOpen={setModalOpen} />
             <form>
               <section className=' border-t-2 border-b-2 pt-4 pb-[3rem] sm:pb-[4rem] md:pb-[2rem] lg:pb-[10rem] mb-4 sm:mb-4 md:mb-1 lg:mb-1 '>
                 <p className='text-sm text-gray-400'>Upload Resume</p>
