@@ -1,8 +1,8 @@
-import Account from "components/app/account-settings/Account";
-import BillingAndPlan from "components/app/account-settings/BillingAndPlan";
-import Connections from "components/app/account-settings/Connections";
-import Notification from "components/app/account-settings/Notification";
-import Security from "components/app/account-settings/Security";
+import Account from "pages/app/account-settings/Account";
+import BillingAndPlan from "./BillingAndPlan";
+import Connections from "./Connections";
+import Notification from "./Notification";
+import Security from "./Security";
 import PlanGuard from "guards/PlanGuard";
 import { useState } from "react";
 import Icon from "utils/Icon";
@@ -44,7 +44,7 @@ const AccountSettings = () => {
     const [currFilter, setCurrFilter] = useState<filterTypes>('ACCOUNT');
 
     return (
-        <div className='container w-full px-container-base flex flex-col py-[1.875rem]'>
+        <div className='container w-full h-full px-container-base flex flex-col py-[1.875rem] overflow-auto'>
             <PlanGuard page='settings'>
                 
                 {/* to be refactored */}
@@ -58,15 +58,16 @@ const AccountSettings = () => {
                                 i?.name === currFilter
                                 ? `bg-primary-1 text-white`
                                 : `bg-transparent text-secondary-2 hover:text-primary-1`
-                            } flex rounded-[5px] w-max px-4 lg:px-[1.5rem]  h-[1.5rem] lg:h-[2.5rem] items-center transition-all ease-in-out`}
+                            } flex rounded-[5px] w-max px-4 lg:px-[1.5rem]  h-[1.8rem] lg:h-[2.5rem] items-center transition-all ease-in-out `}
                             onClick={() => setCurrFilter(i?.name)}
                             >
                                 <span className="mr-2">{i?.icon}</span>
-                                <span className='text-[13px] lg:text-[16px] leading-[24px] tracking-[0.15px] whitespace-nowrap'>{i?.name}</span>
+                                <span className='text-[13px] lg:text-[16px] leading-3 tracking-[0.15px] whitespace-nowrap mt-[3px] md:mt-0'>{i?.name}</span>
                             </button>
                         ))}
                         </div>
                     </div>
+                    {/* ... */}
 
                     <div className="mt-7">
                         <DisplayTab title={currFilter} />

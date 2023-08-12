@@ -86,6 +86,8 @@ import { ReactComponent as ColorFillIcon } from 'assets/svg/colorFillIcon.svg';
 import { ReactComponent as OutlinedLocation } from 'assets/svg/outlinedLocation.svg';
 import { ReactComponent as CalenderIcon } from 'assets/svg/calenderIcon.svg';
 import { ReactComponent as LinkIcon } from 'assets/svg/linkIcon.svg';
+import { ReactComponent as CautionIcon } from 'assets/svg/cautionIcon.svg';
+import { ReactComponent as CancelIcon } from 'assets/svg/cancelIcon.svg';
 
 export type iconTypes =
   | 'filmReel'
@@ -175,6 +177,8 @@ export type iconTypes =
   | 'colorFillIcon'
   | 'outlinedLocation'
   | 'linkIcon'
+  | 'cautionIcon'
+  | 'cancelIcon'
   | 'calenderIcon';
 
   
@@ -274,6 +278,8 @@ const Icon = ({ name, svgProp }: IconInterface) => {
     outlinedLocation: <OutlinedLocation {...svgProp} />,
     calenderIcon: <CalenderIcon {...svgProp} />,
     linkIcon: <LinkIcon {...svgProp} />,
+    cautionIcon: <CautionIcon {...svgProp} />,
+    cancelIcon: <CancelIcon {...svgProp} />,
   };
 
   return icons[name];

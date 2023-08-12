@@ -1,6 +1,14 @@
-import { useState } from 'react';
+import React, { useState } from 'react';
+import { Input } from './input';
 
-const CustomInput: React.FC = () => {
+interface CustomInputProps {
+    label: string;
+    type: string;
+    className?: string;
+    // Add other props like type, placeholder, etc.
+}
+
+const CustomInput: React.FC<CustomInputProps> = ({ label, type, className, ...props }) => {
     const [inputValue, setInputValue] = useState('');
     const [isFocused, setIsFocused] = useState(false);
 
@@ -17,23 +25,24 @@ const CustomInput: React.FC = () => {
     };
 
     return (
-        <div className="relative mt-4">
+        <div className="relative flex w-full">
             <label
                 className={`absolute left-2 transition-all duration-300 ${
-                    isFocused || inputValue ? 'top-0 text-primary' : 'top-2'
-                } pointer-events-none text-gray-600`}
+                    isFocused || inputValue ? 'top-[-4px] bg-white text-primary' : 'top-[13px]'
+                } pointer-events-none  leading-3 font-[300] text-[14px] text-secondary-2 tracking-[0.15px]`}
             >
-                Label
+                {label}
             </label>
-            <input
+            <Input
                 className={`w-full p-3 border ${
                     isFocused || inputValue ? 'border-primary' : 'border-gray-300'
-                } rounded-md outline-none focus:border-primary transition-all duration-300`}
-                type="text"
+                } rounded-md outline-none focus:border-primary transition-all duration-300 ${className}`}
+                type={type}
                 value={inputValue}
                 onChange={handleInputChange}
                 onFocus={handleInputFocus}
                 onBlur={handleInputBlur}
+                {...props} // Pass other input props
             />
         </div>
     );

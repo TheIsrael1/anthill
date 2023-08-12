@@ -10,8 +10,8 @@ return (
     <div className="container w-full px-container-base flex flex-col py-[1.875rem]">
         <div className="w-full relative overflow-hidden bg-white border  rounded-lg shadow-3">
             <Icon name='profileCover'/>
-           <div className="flex">
-                <div className="p-[1px] w-25 bg-white rounded-lg  absolute bottom-[15px] left-[20px]">
+           <div className="flex flex-col md:flex-row">
+                <div className="p-[1px] w-25 bg-white rounded-lg  absolute bottom-[120px] md:bottom-[15px] left-[20px]">
                  <LazyLoadImage
                     src={profilePicture}
                     alt=''
@@ -19,9 +19,9 @@ return (
                     placeholderSrc={`data:image/svg+xml;base64,${toBase64(shimmer(700, 475))}`}
                  />
                 </div>
-                <div className="p-5 ps-40">
-                    <h5 className="mb-2 text-2xl font-bold tracking-tight text-gray-500">John Doe</h5>
-                    <ul className="flex gap-x-4">
+                <div className="p-5 md:ps-40">
+                    <h5 className="mb-2 pt-24 md:pt-0 text-2xl font-bold tracking-tight text-gray-500">John Doe</h5>
+                    <ul className="flex flex-wrap gap-x-2 gap-y-1 md:gap-x-4">
                         <li className="flex items-center"><span><Icon name='colorFillIcon' /></span><p className="flex text-[13px] lg:text-[16px] leading-[24px] tracking-[0.15px] whitespace-nowrap text-gray-400 ms-1">UX designer</p></li>
                         <li className="flex items-center"><span><Icon name='outlinedLocation' /></span><p className="flex text-[13px] lg:text-[16px] leading-[24px] tracking-[0.15px] whitespace-nowrap text-gray-400 ms-1">Vatican City</p></li>
                         <li className="flex items-center"><span><Icon name='calenderIcon' /></span><p className="flex text-[13px] lg:text-[16px] leading-[24px] tracking-[0.15px] whitespace-nowrap text-gray-400 ms-1">Joined April 2021</p></li>
@@ -29,6 +29,7 @@ return (
                 </div>
            </div>
         </div>
+        
         <div>
             
         </div>
