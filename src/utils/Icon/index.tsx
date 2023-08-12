@@ -90,6 +90,11 @@ import { ReactComponent as OutlinedLocation } from 'assets/svg/outlinedLocation.
 import { ReactComponent as CalenderIcon } from 'assets/svg/calenderIcon.svg';
 import { ReactComponent as UploadIcon } from 'assets/svg/upload.svg';
 import { ReactComponent as CalendarIconBlack } from 'assets/svg/calendarBlack.svg';
+import { ReactComponent as StepMarkChecked } from 'assets/svg/stepMarkChecked.svg';
+import { ReactComponent as StepMarkEmpty } from 'assets/svg/stepMarkEmpty.svg';
+import { ReactComponent as StepMarkFalse } from 'assets/svg/stepMarkfalse.svg';
+import { ReactComponent as Connector } from 'assets/svg/Connector.svg';
+import { ReactComponent as AddIcon } from 'assets/svg/ic_baseline-plus.svg';
 
 export type iconTypes =
   | 'filmReel'
@@ -183,7 +188,12 @@ export type iconTypes =
   | 'outlinedLocation'
   | 'calenderIcon'
   | 'uploadIcon'
-  | 'calendarIconBlack';
+  | 'calendarIconBlack'
+  | 'stepMarkChecked'
+  | 'stepMarkEmpty'
+  | 'stepMarkFalse'
+  | 'connector'
+  | 'addIcon';
 
 interface IconInterface {
   name: iconTypes;
@@ -284,6 +294,11 @@ const Icon = ({ name, svgProp }: IconInterface) => {
     calenderIcon: <CalenderIcon {...svgProp} />,
     uploadIcon: <UploadIcon {...svgProp} />,
     calendarIconBlack: <CalendarIconBlack {...svgProp} />,
+    stepMarkChecked: <StepMarkChecked {...svgProp} />,
+    stepMarkEmpty: <StepMarkEmpty {...svgProp} />,
+    stepMarkFalse: <StepMarkFalse {...svgProp} />,
+    connector: <Connector {...svgProp} />,
+    addIcon: <AddIcon {...svgProp} />,
   };
 
   return icons[name];
