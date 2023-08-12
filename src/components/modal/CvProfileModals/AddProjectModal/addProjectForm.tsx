@@ -14,13 +14,6 @@ import {
 } from 'components/shadcn/ui/form';
 import { Input } from 'components/shadcn/input';
 import { toast } from 'components/shadcn/ui/use-toast';
-import {
-  Select,
-  SelectContent,
-  SelectItem,
-  SelectTrigger,
-  SelectValue,
-} from 'components/shadcn/ui/select';
 
 const FormSchema = z.object({
   title: z.string().min(2, {
