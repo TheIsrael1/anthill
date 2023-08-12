@@ -68,7 +68,7 @@ const ProjectsTab = ({
     });
   }
   return (
-    <TabsContent value='Projects' className='h-[70vh] mt-8  mx-8'>
+    <TabsContent value='Projects' className='h-[70vh] mt-8  md:mx-8'>
       <div className=' flex  flex-col  h-full '>
         <div className='flex flex-col mb-8 px-1'>
           <h2 className='text-lg'>Projects</h2>

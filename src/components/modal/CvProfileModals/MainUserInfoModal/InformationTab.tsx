@@ -75,7 +75,7 @@ const InformationTab = ({ switchTab, data: tabData, handleComplete }: Iprops) =>
     });
   }
   return (
-    <TabsContent value='Information' className='h-[70vh]   mx-8'>
+    <TabsContent value='Information' className='h-[70vh]   md:mx-8'>
       <div className=' flex flex-col  gap-4   h-full '>
         <div className='flex flex-col my-4 px-1'>
           <h2 className='text-lg'>Information</h2>
@@ -156,7 +156,7 @@ const InformationTab = ({ switchTab, data: tabData, handleComplete }: Iprops) =>
                             <Button
                               variant={'outline'}
                               className={cn(
-                                'w-[240px] md:w-full pl-3 text-left font-normal  text-secondary-3',
+                                'w-full pl-3 text-left font-normal  text-secondary-3',
                                 !field.value && 'text-muted-foreground',
                               )}
                             >

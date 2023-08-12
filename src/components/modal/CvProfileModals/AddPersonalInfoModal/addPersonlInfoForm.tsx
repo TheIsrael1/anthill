@@ -158,7 +158,7 @@ export default function AddPersonalInfoForm({ setModalOpen }: Iprops) {
                         <Button
                           variant={'outline'}
                           className={cn(
-                            'w-[240px] md:w-full pl-3 text-left font-normal  text-secondary-3',
+                            'w-full pl-3 text-left font-normal  text-secondary-3',
                             !field.value && 'text-muted-foreground',
                           )}
                         >

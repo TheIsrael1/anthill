@@ -66,7 +66,7 @@ const EducationTab = ({ switchTab, data: tabData, handleComplete }: Iprops) => {
     });
   }
   return (
-    <TabsContent value='Education' className='h-[70vh] mt-8  mx-8'>
+    <TabsContent value='Education' className='h-[70vh] mt-8  md:mx-8'>
       <div className='flex-col flex  h-full  '>
         <div className='flex flex-col mb-8 px-1'>
           <h2 className='text-lg'>Education</h2>
@@ -133,7 +133,7 @@ const EducationTab = ({ switchTab, data: tabData, handleComplete }: Iprops) => {
                             <Button
                               variant={'outline'}
                               className={cn(
-                                'w-[240px] md:w-full pl-3 text-left font-normal  text-secondary-3',
+                                'w-full pl-3 text-left font-normal  text-secondary-3',
                                 !field.value && 'text-muted-foreground',
                               )}
                             >
@@ -184,7 +184,7 @@ const EducationTab = ({ switchTab, data: tabData, handleComplete }: Iprops) => {
                             <Button
                               variant={'outline'}
                               className={cn(
-                                'w-[240px] md:w-full pl-3 text-left font-normal text-secondary-3',
+                                'w-full pl-3 text-left font-normal text-secondary-3',
                                 !field.value && 'text-muted-foreground',
                               )}
                             >

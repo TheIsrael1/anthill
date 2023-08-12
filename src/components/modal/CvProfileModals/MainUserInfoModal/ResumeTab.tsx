@@ -49,7 +49,7 @@ const ResumeTab = ({ switchTab, data, handleComplete }: Iprops) => {
   };
 
   return (
-    <TabsContent value='Resume' className='h-[70vh] mt-8  mx-8'>
+    <TabsContent value='Resume' className='h-[70vh] mt-8  md:mx-8'>
       <div className=' flex-col flex h-full '>
         <div className='flex flex-col mb-8 px-1'>
           <h2 className='text-lg'>Resume & Skills</h2>
