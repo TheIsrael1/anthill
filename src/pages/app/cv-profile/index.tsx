@@ -33,13 +33,13 @@ const CVProfile = () => {
                   <span className='font-[300] text-xs md:text-sm leading-[24px] tracking-[0.4px]'>
                     Add Categories
                   </span>
-                  {/* <Icon
-                    name='addThreadIcon'
+                  <Icon
+                    name='addIcon'
                     svgProp={{
                       className:
-                        'text-white bg-none cursor-pointer hover:opacity-95 transition-opacity duration-300 ease-in-out active:opacity-100',
+                        'text-primary-1 cursor-pointer hover:opacity-95 transition-opacity duration-300 ease-in-out active:opacity-100',
                     }}
-                  /> */}
+                  />
                 </button>
               }
             />

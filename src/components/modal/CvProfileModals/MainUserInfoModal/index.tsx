@@ -2,9 +2,13 @@ import { Dialog, DialogContent, DialogTrigger, DialogFooter } from 'components/s
 import { Tabs, TabsContent, TabsList, TabsTrigger } from 'components/shadcn/ui/tabs';
 import { Button } from 'components/shadcn/ui/button';
 import Icon from 'utils/Icon';
-
+import InformationTab from './InformationTab';
 import { useState } from 'react';
 import { da } from 'date-fns/locale';
+import ResumeTab from './ResumeTab';
+import ExperiencesTab from './ExperiencesTab';
+import EducationTab from './EducationTab';
+import ProjectsTab from './ProjectsTab';
 
 interface Iprop {
   trigger: JSX.Element;
@@ -160,95 +164,12 @@ const MainUserAddInfoModal = ({ trigger, triggerClassName, title }: Iprop) => {
                 </div>
               </TabsTrigger>
             </TabsList>
-            <TabsContent value='Information' className='h-[70vh] mt-8  mx-8'>
-              <div className='bg-red-500 flex justify-center items-center  h-full py-[10rem]'>
-                <p>Information</p>
-                <Button
-                  onClick={() => {
-                    switchTab(data[1]);
-                  }}
-                >
-                  Save changes
-                </Button>
-              </div>
-            </TabsContent>
-            <TabsContent value='Resume' className='h-[70vh] mt-8  mx-8'>
-              <div className='bg-blue-600 flex flex-col justify-center items-center h-full py-[10rem] '>
-                <Button
-                  onClick={() => {
-                    switchTab(data[0]);
-                  }}
-                >
-                  Prev
-                </Button>
-                <p>Resume</p>
-                <Button
-                  onClick={() => {
-                    switchTab(data[2]);
-                  }}
-                >
-                  Save changes
-                </Button>
-              </div>
-            </TabsContent>
-            <TabsContent value='Experiences' className='h-[70vh] mt-8  mx-8'>
-              <div className='bg-green-600 flex flex-col justify-center items-center h-full py-[10rem] '>
-                <Button
-                  onClick={() => {
-                    switchTab(data[1]);
-                  }}
-                >
-                  Prev
-                </Button>
-                <p>Experiences</p>
-                <Button
-                  onClick={() => {
-                    switchTab(data[3]);
-                  }}
-                >
-                  Save changes
-                </Button>
-              </div>
-            </TabsContent>
-            <TabsContent value='Education' className='h-[70vh] mt-8  mx-8'>
-              <div className='bg-yellow-600 flex-col flex justify-center items-center h-full py-[10rem] '>
-                <Button
-                  onClick={() => {
-                    switchTab(data[2]);
-                  }}
-                >
-                  Prev
-                </Button>
-                <p>Education</p>
-                <Button
-                  onClick={() => {
-                    switchTab(data[4]);
-                  }}
-                >
-                  Save changes
-                </Button>
-              </div>
-            </TabsContent>
-            <TabsContent value='Projects' className='h-[70vh] mt-8  mx-8'>
-              <div className='bg-orange-600 flex justify-center flex-col items-center h-full py-[10rem] '>
-                <Button
-                  onClick={() => {
-                    switchTab(data[3]);
-                  }}
-                >
-                  Prev
-                </Button>
-                <p>Projects</p>
-                <Button
-                  onClick={() => {
-                    setModalOpen(false);
-                    switchTab(data[0]);
-                  }}
-                >
-                  Save changes
-                </Button>
-              </div>
-            </TabsContent>
+
+            <InformationTab switchTab={switchTab} data={data} />
+            <ResumeTab switchTab={switchTab} data={data} />
+            <ExperiencesTab switchTab={switchTab} data={data} />
+            <EducationTab switchTab={switchTab} data={data} />
+            <ProjectsTab switchTab={switchTab} data={data} setModalOpen={setModalOpen} />
           </Tabs>
         </div>
       </DialogContent>
