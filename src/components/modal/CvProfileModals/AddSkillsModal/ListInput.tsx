@@ -38,7 +38,7 @@ const ListInput = ({ items, setItems }: IProps) => {
           onChange={handleInputChange}
           onKeyDown={handleKeyPress}
           placeholder='Input a skill and press enter to save'
-          className='placeholder:text-primary-9/[0.8] w-full  border-gray-300 rounded-md p-2 py-4 pl-3 text-secondary-3 w-full'
+          className='placeholder:text-secondary-1 placeholder:text-xs w-full  border-gray-300 rounded-md p-2 py-4 pl-3 text-secondary-3 w-full'
         />
       </div>
 

@@ -42,7 +42,7 @@ const FormSchema = z.object({
     required_error: 'End date is required.',
   }),
 });
-const EducationTab = ({ switchTab, data, handleComplete }: Iprops) => {
+const EducationTab = ({ switchTab, data: tabData, handleComplete }: Iprops) => {
   const form = useForm<z.infer<typeof FormSchema>>({
     resolver: zodResolver(FormSchema),
   });
@@ -53,7 +53,8 @@ const EducationTab = ({ switchTab, data, handleComplete }: Iprops) => {
       startDate: format(data.startDate, 'yyyy-MM-dd'),
       endDate: format(data.endDate, 'yyyy-MM-dd'),
     };
-    console.log(newData);
+    switchTab(tabData[4]);
+    handleComplete(tabData[3]);
 
     toast({
       title: 'You submitted the following values:',
@@ -66,7 +67,11 @@ const EducationTab = ({ switchTab, data, handleComplete }: Iprops) => {
   }
   return (
     <TabsContent value='Education' className='h-[70vh] mt-8  mx-8'>
-      <div className='flex-col flex justify-center items-center h-full  '>
+      <div className='flex-col flex  h-full  '>
+        <div className='flex flex-col mb-8 px-1'>
+          <h2 className='text-lg'>Education</h2>
+          <h3 className='text-xs text-gray-500'>Tell us about your Education</h3>
+        </div>
         <Form {...form}>
           <form onSubmit={form.handleSubmit(onSubmit)} className='w-full space-y-6'>
             <section className='   grid grid-cols-1 md:grid-cols-[1fr_1fr] gap-6 '>
@@ -80,7 +85,11 @@ const EducationTab = ({ switchTab, data, handleComplete }: Iprops) => {
                         Place of study
                       </label>
                       <FormControl>
-                        <Input className=' text-secondary-3' {...field} />
+                        <Input
+                          className=' placeholder:text-secondary-1 text-secondary-3'
+                          placeholder='Where did you Study?'
+                          {...field}
+                        />
                       </FormControl>
                     </div>
                     <FormMessage className='text-xs mt-1' />
@@ -97,7 +106,11 @@ const EducationTab = ({ switchTab, data, handleComplete }: Iprops) => {
                         Course of study
                       </label>
                       <FormControl>
-                        <Input className=' text-secondary-3' {...field} />
+                        <Input
+                          className='placeholder:text-secondary-1 text-secondary-3'
+                          placeholder='What did you study'
+                          {...field}
+                        />
                       </FormControl>
                     </div>
                     <FormMessage className='text-xs mt-1' />
@@ -124,7 +137,11 @@ const EducationTab = ({ switchTab, data, handleComplete }: Iprops) => {
                                 !field.value && 'text-muted-foreground',
                               )}
                             >
-                              {field.value ? format(field.value, 'PPP') : <span>Pick a date</span>}
+                              {field.value ? (
+                                format(field.value, 'PPP')
+                              ) : (
+                                <span className='text-secondary-1'>Pick a date</span>
+                              )}
                               <Icon
                                 name='calendarIconBlack'
                                 svgProp={{
@@ -171,7 +188,11 @@ const EducationTab = ({ switchTab, data, handleComplete }: Iprops) => {
                                 !field.value && 'text-muted-foreground',
                               )}
                             >
-                              {field.value ? format(field.value, 'PPP') : <span>Pick a date</span>}
+                              {field.value ? (
+                                format(field.value, 'PPP')
+                              ) : (
+                                <span className='text-secondary-1'>Pick a date</span>
+                              )}
                               <Icon
                                 name='calendarIconBlack'
                                 svgProp={{
@@ -200,29 +221,56 @@ const EducationTab = ({ switchTab, data, handleComplete }: Iprops) => {
                 )}
               />
             </section>
+            <div className='flex justify-end'>
+              <button
+                type='button'
+                className=' px-2 md:px-4 py-1   bg-transparent border-primary-1 border rounded-[7px] flex items-center justify-center gap-2 group hover:opacity-90 transition-all duration-300 ease-in-out'
+              >
+                <span className='font-[400] text-gray-600 text-xs md:text-sm leading-[24px] tracking-[0.4px]'>
+                  Add Education
+                </span>
+                <Icon
+                  name='plusIcon'
+                  svgProp={{
+                    className:
+                      'text-primary-1  w-4 font-light cursor-pointer hover:opacity-95 transition-opacity duration-300 ease-in-out active:opacity-100',
+                  }}
+                />
+              </button>
+            </div>
             <div className='flex items-center justify-between w-full gap-4'>
               <button
                 onClick={() => {
-                  switchTab(data[2]);
+                  switchTab(tabData[2]);
                 }}
                 type='button'
-                className='w-max px-[0.87rem] h-[38px] shadow-9 bg-white rounded-[6px] flex items-center justify-center gap-2 group hover:opacity-90 transition-all duration-300 ease-in-out'
+                className='w-max py-1 px-4 shadow-9 bg-white rounded-[6px] flex items-center justify-center gap-2 group hover:opacity-90 transition-all duration-300 ease-in-out'
               >
+                <Icon
+                  name='arrowBack'
+                  svgProp={{
+                    className:
+                      'text-primary-1  w-4  cursor-pointer hover:opacity-95 transition-opacity duration-300 ease-in-out active:opacity-100',
+                  }}
+                />
                 <span className='font-[500] text-xs leading-[24px] tracking-[0.4px] text-primary-1 whitespace-nowrap'>
                   {`Previous`.toUpperCase()}
                 </span>
               </button>
               <button
                 type='submit'
-                onClick={() => {
-                  switchTab(data[4]);
-                  handleComplete(data[3]);
-                }}
-                className='px-2 py-1 bg-primary-1 rounded-[6px] flex items-center justify-center gap-2 group hover:opacity-90 transition-all duration-300 ease-in-out'
+                className='px-4 py-1 bg-primary-1 rounded-[6px] flex items-center justify-center gap-2 group hover:opacity-90 transition-all duration-300 ease-in-out'
               >
                 <span className='font-[500] text-xs  leading-[24px] tracking-[0.4px] text-white'>
                   {`Save and continue`.toUpperCase()}
                 </span>
+                <Icon
+                  name='arrowTo'
+                  svgProp={{
+                    className:
+                      'text-white  w-4  cursor-pointer hover:opacity-95 transition-opacity duration-300 ease-in-out active:opacity-100',
+                  }}
+                />
               </button>
             </div>
           </form>

@@ -50,7 +50,7 @@ const FormSchema = z.object({
     required_error: 'End date is required.',
   }),
 });
-const ExperiencesTab = ({ switchTab, data, handleComplete }: Iprops) => {
+const ExperiencesTab = ({ switchTab, data: tabData, handleComplete }: Iprops) => {
   const form = useForm<z.infer<typeof FormSchema>>({
     resolver: zodResolver(FormSchema),
   });
@@ -61,7 +61,8 @@ const ExperiencesTab = ({ switchTab, data, handleComplete }: Iprops) => {
       startDate: format(data.startDate, 'yyyy-MM-dd'),
       endDate: format(data.endDate, 'yyyy-MM-dd'),
     };
-    console.log(newData);
+    switchTab(tabData[3]);
+    handleComplete(tabData[2]);
 
     toast({
       title: 'You submitted the following values:',
@@ -74,7 +75,11 @@ const ExperiencesTab = ({ switchTab, data, handleComplete }: Iprops) => {
   }
   return (
     <TabsContent value='Experiences' className='h-[70vh] mt-8  mx-8'>
-      <div className=' flex flex-col justify-center items-center h-full  '>
+      <div className=' flex flex-col  h-full  '>
+        <div className='flex flex-col mb-8 px-1'>
+          <h2 className='text-lg'>Experiences</h2>
+          <h3 className='text-xs text-gray-500'>Tell us about your experience</h3>
+        </div>
         <Form {...form}>
           <form onSubmit={form.handleSubmit(onSubmit)} className='w-full space-y-6'>
             <section className='   '>
@@ -88,7 +93,11 @@ const ExperiencesTab = ({ switchTab, data, handleComplete }: Iprops) => {
                         Place of Work
                       </label>
                       <FormControl>
-                        <Input className=' text-secondary-3' {...field} />
+                        <Input
+                          className=' text-secondary-3 placeholder:text-secondary-1'
+                          placeholder='Where did you work?'
+                          {...field}
+                        />
                       </FormControl>
                     </div>
                     <FormMessage className='text-xs mt-1' />
@@ -97,23 +106,6 @@ const ExperiencesTab = ({ switchTab, data, handleComplete }: Iprops) => {
               />
 
               <section className='grid grid-cols-1 md:grid-cols-[1fr_1fr] gap-6 mt-8'>
-                <FormField
-                  control={form.control}
-                  name='role'
-                  render={({ field }) => (
-                    <FormItem>
-                      <div className='relative'>
-                        <label className='absolute top-[-20%] left-2 bg-white rounded-full font-extralight text-secondary-1 text-xs px-1'>
-                          Role
-                        </label>
-                        <FormControl>
-                          <Input className=' text-secondary-3' {...field} />
-                        </FormControl>
-                      </div>
-                      <FormMessage className='text-xs mt-1' />
-                    </FormItem>
-                  )}
-                />
                 <FormField
                   control={form.control}
                   name='jobMode'
@@ -125,8 +117,11 @@ const ExperiencesTab = ({ switchTab, data, handleComplete }: Iprops) => {
                         </label>
                         <Select onValueChange={field.onChange} defaultValue={field.value}>
                           <FormControl>
-                            <SelectTrigger className='w-full text-secondary-3'>
-                              <SelectValue placeholder='Contract' />
+                            <SelectTrigger className='w-full text-secondary-1'>
+                              <SelectValue
+                                placeholder='Specify Job mode (Contract, Fulltime, etc)'
+                                className='text-secondary-1'
+                              />
                             </SelectTrigger>
                           </FormControl>
                           <SelectContent>
@@ -141,6 +136,28 @@ const ExperiencesTab = ({ switchTab, data, handleComplete }: Iprops) => {
                     </FormItem>
                   )}
                 />
+                <FormField
+                  control={form.control}
+                  name='role'
+                  render={({ field }) => (
+                    <FormItem>
+                      <div className='relative'>
+                        <label className='absolute top-[-20%] left-2 bg-white rounded-full font-extralight text-secondary-1 text-xs px-1'>
+                          Role
+                        </label>
+                        <FormControl>
+                          <Input
+                            className=' placeholder:text-secondary-1 text-secondary-3'
+                            placeholder='What was your role?'
+                            {...field}
+                          />
+                        </FormControl>
+                      </div>
+                      <FormMessage className='text-xs mt-1' />
+                    </FormItem>
+                  )}
+                />
+
                 <FormField
                   control={form.control}
                   name='startDate'
@@ -163,7 +180,7 @@ const ExperiencesTab = ({ switchTab, data, handleComplete }: Iprops) => {
                                 {field.value ? (
                                   format(field.value, 'PPP')
                                 ) : (
-                                  <span>Pick a date</span>
+                                  <span className='text-secondary-1'>Pick a date</span>
                                 )}
                                 <Icon
                                   name='calendarIconBlack'
@@ -214,7 +231,7 @@ const ExperiencesTab = ({ switchTab, data, handleComplete }: Iprops) => {
                                 {field.value ? (
                                   format(field.value, 'PPP')
                                 ) : (
-                                  <span>Pick a date</span>
+                                  <span className='text-secondary-1'>Pick a date</span>
                                 )}
                                 <Icon
                                   name='calendarIconBlack'
@@ -245,29 +262,57 @@ const ExperiencesTab = ({ switchTab, data, handleComplete }: Iprops) => {
                 />
               </section>
             </section>
+            <div className='flex justify-end'>
+              <button
+                type='button'
+                className=' px-2 md:px-4 py-1   bg-transparent border-primary-1 border rounded-[7px] flex items-center justify-center gap-2 group hover:opacity-90 transition-all duration-300 ease-in-out'
+              >
+                <span className='font-[400] text-gray-600 text-xs md:text-sm leading-[24px] tracking-[0.4px]'>
+                  Add Experience
+                </span>
+                <Icon
+                  name='plusIcon'
+                  svgProp={{
+                    className:
+                      'text-primary-1  w-4 font-light cursor-pointer hover:opacity-95 transition-opacity duration-300 ease-in-out active:opacity-100',
+                  }}
+                />
+              </button>
+            </div>
+
             <div className='flex items-center justify-between w-full gap-4'>
               <button
                 onClick={() => {
-                  switchTab(data[1]);
+                  switchTab(tabData[1]);
                 }}
                 type='button'
-                className='w-max px-[0.87rem] h-[38px] shadow-9 bg-white rounded-[6px] flex items-center justify-center gap-2 group hover:opacity-90 transition-all duration-300 ease-in-out'
+                className='w-max px-3 py-1 shadow-9 bg-white rounded-[6px] flex items-center justify-center gap-2 group hover:opacity-90 transition-all duration-300 ease-in-out'
               >
-                <span className='font-[500] text-xs leading-[24px] tracking-[0.4px] text-primary-1 whitespace-nowrap'>
+                <Icon
+                  name='arrowBack'
+                  svgProp={{
+                    className:
+                      'text-primary-1  w-4  cursor-pointer hover:opacity-95 transition-opacity duration-300 ease-in-out active:opacity-100',
+                  }}
+                />
+                <span className='font-[400] text-xs leading-[24px] tracking-[0.4px] text-primary-1 whitespace-nowrap'>
                   {`previous`.toUpperCase()}
                 </span>
               </button>
               <button
-                onClick={() => {
-                  switchTab(data[3]);
-                  handleComplete(data[2]);
-                }}
-                type='button'
-                className='px-2 py-1 bg-primary-1 rounded-[6px] flex items-center justify-center gap-2 group hover:opacity-90 transition-all duration-300 ease-in-out'
+                type='submit'
+                className='px-4 py-1 bg-primary-1 rounded-[6px] flex items-center justify-center gap-2 group hover:opacity-90 transition-all duration-300 ease-in-out'
               >
-                <span className='font-[500] text-xs  leading-[24px] tracking-[0.4px] text-white'>
+                <span className='font-[400] text-xs  leading-[24px] tracking-[0.4px] text-white'>
                   {`Save and continue`.toUpperCase()}
                 </span>
+                <Icon
+                  name='arrowTo'
+                  svgProp={{
+                    className:
+                      'text-white  w-4  cursor-pointer hover:opacity-95 transition-opacity duration-300 ease-in-out active:opacity-100',
+                  }}
+                />
               </button>
             </div>
           </form>

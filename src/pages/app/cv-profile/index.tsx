@@ -14,7 +14,7 @@ const CVProfile = () => {
     <div className='container w-full px-container-base flex flex-col py-[1.875rem]'>
       <PlanGuard page='cv-profile'>
         <section>
-          <div className='flex justify-between mb-6'>
+          <div className='flex justify-between items-start mb-6'>
             <button className=' mb-4  rounded-[15px] flex items-center justify-center gap-2 group hover:opacity-90 transition-all duration-300 ease-in-out'>
               <Icon
                 name='arrowBack'
@@ -29,15 +29,15 @@ const CVProfile = () => {
             <MainUserAddInfoModal
               title='Add Categories'
               trigger={
-                <button className=' px-4 py-2  bg-transparent border-primary-1 border rounded-[15px] flex items-center justify-center gap-2 group hover:opacity-90 transition-all duration-300 ease-in-out'>
-                  <span className='font-[300] text-xs md:text-sm leading-[24px] tracking-[0.4px]'>
+                <button className=' px-2 md:px-3 py-1  bg-transparent border-primary-1 border rounded-[10px] flex items-center justify-center gap-2 group hover:opacity-90 transition-all duration-300 ease-in-out'>
+                  <span className='font-[400] text-xs  leading-[24px] tracking-[0.4px]'>
                     Add Categories
                   </span>
                   <Icon
-                    name='addIcon'
+                    name='plusIcon'
                     svgProp={{
                       className:
-                        'text-primary-1 cursor-pointer hover:opacity-95 transition-opacity duration-300 ease-in-out active:opacity-100',
+                        'text-primary-1  w-4 font-light cursor-pointer hover:opacity-95 transition-opacity duration-300 ease-in-out active:opacity-100',
                     }}
                   />
                 </button>

@@ -50,11 +50,17 @@ const ResumeTab = ({ switchTab, data, handleComplete }: Iprops) => {
 
   return (
     <TabsContent value='Resume' className='h-[70vh] mt-8  mx-8'>
-      <div className=' flex-col justify-center items-center h-full '>
+      <div className=' flex-col flex h-full '>
+        <div className='flex flex-col mb-8 px-1'>
+          <h2 className='text-lg'>Resume & Skills</h2>
+          <h3 className='text-xs text-gray-500'>Upload your resume and enter your skills</h3>
+        </div>
         <ListInput items={items} setItems={setItems} />
         <Form {...form}>
           <form onSubmit={form.handleSubmit(onSubmit)} className='w-full space-y-6'>
-            <section className=' pb-[3rem] sm:pb-[4rem] md:pb-[2rem] lg:pb-[10rem] mb-4 sm:mb-4 md:mb-1 lg:mb-1 '>
+            <section className=' pb-[3rem] sm:pb-[4rem] md:pb-[2rem] lg:pb-[7rem] mb-4 sm:mb-4 md:mb-1 lg:mb-1 '>
+              <h3 className='text-xs text-gray-500'>Upload Resume</h3>
+
               <FormField
                 name='file'
                 control={form.control}
@@ -72,8 +78,15 @@ const ResumeTab = ({ switchTab, data, handleComplete }: Iprops) => {
                   switchTab(data[0]);
                 }}
                 type='button'
-                className='w-max px-[0.87rem] h-[38px] shadow-9 bg-white rounded-[6px] flex items-center justify-center gap-2 group hover:opacity-90 transition-all duration-300 ease-in-out'
+                className='w-max px-4 py-1 shadow-9 bg-white rounded-[6px] flex items-center justify-center gap-2 group hover:opacity-90 transition-all duration-300 ease-in-out'
               >
+                <Icon
+                  name='arrowBack'
+                  svgProp={{
+                    className:
+                      'text-primary-1  w-4  cursor-pointer hover:opacity-95 transition-opacity duration-300 ease-in-out active:opacity-100',
+                  }}
+                />
                 <span className='font-[500] text-xs leading-[24px] tracking-[0.4px] text-primary-1 whitespace-nowrap'>
                   {`previous`.toUpperCase()}
                 </span>
@@ -84,11 +97,18 @@ const ResumeTab = ({ switchTab, data, handleComplete }: Iprops) => {
                   handleComplete(data[1]);
                 }}
                 type='button'
-                className='px-2 py-1 bg-primary-1 rounded-[6px] flex items-center justify-center gap-2 group hover:opacity-90 transition-all duration-300 ease-in-out'
+                className='px-3 py-1 bg-primary-1 rounded-[6px] flex items-center justify-center gap-2 group hover:opacity-90 transition-all duration-300 ease-in-out'
               >
                 <span className='font-[500] text-xs  leading-[24px] tracking-[0.4px] text-white'>
                   {`Save and continue`.toUpperCase()}
                 </span>
+                <Icon
+                  name='arrowTo'
+                  svgProp={{
+                    className:
+                      'text-white  w-4  cursor-pointer hover:opacity-95 transition-opacity duration-300 ease-in-out active:opacity-100',
+                  }}
+                />
               </button>
             </div>
           </form>

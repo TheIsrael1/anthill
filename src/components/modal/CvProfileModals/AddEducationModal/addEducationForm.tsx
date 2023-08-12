@@ -64,7 +64,7 @@ export default function AddEducationForm({ setModalOpen }: Iprops) {
   return (
     <Form {...form}>
       <form onSubmit={form.handleSubmit(onSubmit)} className='w-full space-y-6'>
-        <section className=' border-t-2 border-b-2 pt-10 pb-[3rem] sm:pb-[4rem] md:pb-[2rem] lg:pb-[8rem] mb-4 sm:mb-4 md:mb-1 lg:mb-1  grid grid-cols-1 md:grid-cols-[1fr_1fr] gap-6 '>
+        <section className=' pt-10 pb-[3rem] sm:pb-[4rem] md:pb-[2rem] lg:pb-[8rem] mb-4 sm:mb-4 md:mb-1 lg:mb-1  grid grid-cols-1 md:grid-cols-[1fr_1fr] gap-6 '>
           <FormField
             control={form.control}
             name='placeOfStudy'

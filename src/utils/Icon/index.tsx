@@ -95,6 +95,8 @@ import { ReactComponent as StepMarkEmpty } from 'assets/svg/stepMarkEmpty.svg';
 import { ReactComponent as StepMarkFalse } from 'assets/svg/stepMarkfalse.svg';
 import { ReactComponent as Connector } from 'assets/svg/Connector.svg';
 import { ReactComponent as AddIcon } from 'assets/svg/ic_baseline-plus.svg';
+import { ReactComponent as NoCvProfileIcon } from 'assets/svg/noCvProfile.svg';
+import { ReactComponent as PlusIcon } from 'assets/svg/plus.svg';
 
 export type iconTypes =
   | 'filmReel'
@@ -193,7 +195,9 @@ export type iconTypes =
   | 'stepMarkEmpty'
   | 'stepMarkFalse'
   | 'connector'
-  | 'addIcon';
+  | 'addIcon'
+  | 'noCvProfileIcon'
+  | 'plusIcon';
 
 interface IconInterface {
   name: iconTypes;
@@ -299,6 +303,8 @@ const Icon = ({ name, svgProp }: IconInterface) => {
     stepMarkFalse: <StepMarkFalse {...svgProp} />,
     connector: <Connector {...svgProp} />,
     addIcon: <AddIcon {...svgProp} />,
+    noCvProfileIcon: <NoCvProfileIcon {...svgProp} />,
+    plusIcon: <PlusIcon {...svgProp} />,
   };
 
   return icons[name];

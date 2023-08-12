@@ -3,7 +3,7 @@ import Icon from 'utils/Icon';
 import AddResumeModal from 'components/modal/CvProfileModals/AddResumeModal';
 export default function ResumeSectionCvProfile() {
   return (
-    <div className=' bg-white p-6 pt-1 rounded-md '>
+    <div className=' bg-white p-8 pt-1 rounded-md '>
       <h4 className='relative font-[700] text-sm   leading-[40px] tracking-[0.15px] mb-4'>
         Resume
       </h4>

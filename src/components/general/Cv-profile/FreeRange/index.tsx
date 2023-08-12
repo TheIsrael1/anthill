@@ -3,7 +3,7 @@ import Icon from 'utils/Icon';
 import AddFreeRangeModal from 'components/modal/CvProfileModals/AddFreeRangeModal';
 export default function FreeRangeSectionCvProfile() {
   return (
-    <div className=' bg-white p-6 pt-1 rounded-md '>
+    <div className=' bg-white p-8 pt-1 rounded-md '>
       <h4 className='relative font-[700] text-sm leading-[40px] tracking-[0.15px] mb-4'>
         Free Range
       </h4>

@@ -18,7 +18,7 @@ const FileDropzone = ({ onDrop, file }: any) => {
       ) : (
         <div className='flex justify-center items-center gap-3 py-4 mt-4 border rounded-lg hover:cursor-pointer'>
           <Icon name='uploadIcon'></Icon>
-          <p className='text-sm'>
+          <p className='text-sm text-secondary-1'>
             Drop a file to add, <span className='text-primary-1'>or Choose File</span>
           </p>
         </div>

@@ -36,7 +36,7 @@ const FormSchema = z.object({
   phone: z.string().min(2, {
     message: 'Please enter a valid Number.',
   }),
-  twitter: z.string({
+  bio: z.string({
     required_error: 'Twitter is required.',
   }),
   linkedin: z.string({
@@ -49,7 +49,7 @@ const FormSchema = z.object({
     required_error: 'Address is required.',
   }),
 });
-const InformationTab = ({ switchTab, data, handleComplete }: Iprops) => {
+const InformationTab = ({ switchTab, data: tabData, handleComplete }: Iprops) => {
   const form = useForm<z.infer<typeof FormSchema>>({
     resolver: zodResolver(FormSchema),
   });
@@ -59,6 +59,10 @@ const InformationTab = ({ switchTab, data, handleComplete }: Iprops) => {
       ...data,
       dob: format(data.dob, 'yyyy-MM-dd'),
     };
+
+    switchTab(tabData[1]);
+    handleComplete(tabData[0]);
+
     console.log(newData);
 
     toast({
@@ -71,10 +75,36 @@ const InformationTab = ({ switchTab, data, handleComplete }: Iprops) => {
     });
   }
   return (
-    <TabsContent value='Information' className='h-[70vh] mt-8  mx-8'>
-      <div className=' flex justify-center items-center  h-full '>
+    <TabsContent value='Information' className='h-[70vh]   mx-8'>
+      <div className=' flex flex-col  gap-4   h-full '>
+        <div className='flex flex-col my-4 px-1'>
+          <h2 className='text-lg'>Information</h2>
+          <h3 className='text-xs text-gray-500'>Enter Your personal information</h3>
+        </div>
+
         <Form {...form}>
           <form onSubmit={form.handleSubmit(onSubmit)} className='w-full space-y-6'>
+            <FormField
+              control={form.control}
+              name='bio'
+              render={({ field }) => (
+                <FormItem>
+                  <div className='relative'>
+                    <label className='absolute top-[-20%] left-2 bg-white rounded-full font-extralight text-secondary-1 text-xs px-1'>
+                      Bio
+                    </label>
+                    <FormControl>
+                      <Input
+                        className='placeholder:text-secondary-1 placeholder:text-xs text-secondary-3'
+                        placeholder='Short Bio that talks about what you do (I.e Cinematographer & Animator)'
+                        {...field}
+                      />
+                    </FormControl>
+                  </div>
+                  <FormMessage className='text-xs mt-1' />
+                </FormItem>
+              )}
+            />
             <section className=' grid grid-cols-1 md:grid-cols-[1fr_1fr] gap-6  '>
               <FormField
                 control={form.control}
@@ -111,42 +141,6 @@ const InformationTab = ({ switchTab, data, handleComplete }: Iprops) => {
                   </FormItem>
                 )}
               />
-              <FormField
-                control={form.control}
-                name='twitter'
-                render={({ field }) => (
-                  <FormItem>
-                    <div className='relative'>
-                      <label className='absolute top-[-20%] left-2 bg-white rounded-full font-extralight text-secondary-1 text-xs px-1'>
-                        Twitter
-                      </label>
-                      <FormControl>
-                        <Input className=' text-secondary-3' {...field} />
-                      </FormControl>
-                    </div>
-                    <FormMessage className='text-xs mt-1' />
-                  </FormItem>
-                )}
-              />
-
-              <FormField
-                control={form.control}
-                name='linkedin'
-                render={({ field }) => (
-                  <FormItem>
-                    <div className='relative'>
-                      <label className='absolute top-[-20%] left-2 bg-white rounded-full font-extralight text-secondary-1 text-xs px-1'>
-                        LinkedIn
-                      </label>
-                      <FormControl>
-                        <Input className=' text-secondary-3' {...field} />
-                      </FormControl>
-                    </div>
-                    <FormMessage className='text-xs mt-1' />
-                  </FormItem>
-                )}
-              />
-
               <FormField
                 control={form.control}
                 name='dob'
@@ -194,14 +188,15 @@ const InformationTab = ({ switchTab, data, handleComplete }: Iprops) => {
                   </FormItem>
                 )}
               />
+
               <FormField
                 control={form.control}
-                name='address'
+                name='linkedin'
                 render={({ field }) => (
                   <FormItem>
                     <div className='relative'>
                       <label className='absolute top-[-20%] left-2 bg-white rounded-full font-extralight text-secondary-1 text-xs px-1'>
-                        Address
+                        LinkedIn Profile link
                       </label>
                       <FormControl>
                         <Input className=' text-secondary-3' {...field} />
@@ -212,28 +207,56 @@ const InformationTab = ({ switchTab, data, handleComplete }: Iprops) => {
                 )}
               />
             </section>
+            <FormField
+              control={form.control}
+              name='address'
+              render={({ field }) => (
+                <FormItem>
+                  <div className='relative'>
+                    <label className='absolute top-[-20%] left-2 bg-white rounded-full font-extralight text-secondary-1 text-xs px-1'>
+                      Address
+                    </label>
+                    <FormControl>
+                      <Input className=' text-secondary-3' {...field} />
+                    </FormControl>
+                  </div>
+                  <FormMessage className='text-xs mt-1' />
+                </FormItem>
+              )}
+            />
             <div className='flex items-center justify-between w-full gap-4'>
               <button
                 type='button'
                 // disabled={form.formState.isSubmitting}
                 disabled={true}
-                className='bg-gray-300 disabled:cursor-not-allowed px-2  py-1 rounded-[6px] flex items-center justify-center gap-2 group hover:opacity-90 transition-all duration-300 ease-in-out'
+                className='bg-gray-200 disabled:cursor-not-allowed px-4  py-1 rounded-[6px] flex items-center justify-center gap-2 group hover:opacity-90 transition-all duration-300 ease-in-out'
               >
-                <span className='font-[500] text-xs leading-[24px] tracking-[0.4px] text-gray-500 whitespace-nowrap'>
+                <Icon
+                  name='arrowBack'
+                  svgProp={{
+                    className:
+                      'text-gray-400  w-4  cursor-pointer hover:opacity-95 transition-opacity duration-300 ease-in-out active:opacity-100',
+                  }}
+                />
+                <span className='font-[500] text-xs leading-[24px] tracking-[0.4px] text-gray-400 whitespace-nowrap'>
                   {`Previous`.toUpperCase()}
                 </span>
               </button>
               <button
-                type='button'
-                onClick={() => {
-                  switchTab(data[1]);
-                  handleComplete(data[0]);
-                }}
-                className='px-2 py-1 bg-primary-1 rounded-[6px] flex items-center justify-center gap-2 group hover:opacity-90 transition-all duration-300 ease-in-out'
+                type='submit'
+                className='px-3 py-1 bg-primary-1 rounded-[6px] flex items-center justify-center gap-2 group hover:opacity-90 transition-all duration-300 ease-in-out'
               >
-                <span className='font-[500] text-xs  leading-[24px] tracking-[0.4px] text-white'>
+                <span className='font-[300] text-xs  leading-[24px] tracking-[0.4px] text-white'>
                   {`Save and Continue`.toUpperCase()}
                 </span>
+
+                <Icon
+                  name='arrowTo'
+                  svgProp={{
+                    className:
+                      'text-white  w-4  cursor-pointer hover:opacity-95 transition-opacity duration-300 ease-in-out active:opacity-100',
+                  }}
+                />
               </button>
             </div>
           </form>

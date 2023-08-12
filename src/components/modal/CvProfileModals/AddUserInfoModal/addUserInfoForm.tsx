@@ -48,7 +48,7 @@ export default function AddUserInfoForm({ setModalOpen }: Iprops) {
   return (
     <Form {...form}>
       <form onSubmit={form.handleSubmit(onSubmit)} className='w-full space-y-6'>
-        <section className=' border-t-2 border-b-2 pt-6 pb-[3rem] sm:pb-[4rem] md:pb-[2rem] lg:pb-[4rem] mb-4 sm:mb-4 md:mb-1 lg:mb-1 '>
+        <section className='  pt-6 pb-[3rem] sm:pb-[4rem] md:pb-[2rem] lg:pb-[4rem] mb-4 sm:mb-4 md:mb-1 lg:mb-1 '>
           <div className='flex items-center gap-2 mb-6'>
             <div className='p-[1px] w-[7rem]   bg-white rounded-lg '>
               <img

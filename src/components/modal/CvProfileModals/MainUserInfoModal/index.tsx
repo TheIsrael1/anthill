@@ -17,6 +17,7 @@ interface Iprop {
 }
 
 const MainUserAddInfoModal = ({ trigger, triggerClassName, title }: Iprop) => {
+  const [showForms, setShowForms] = useState<boolean>(false);
   const [modalOpen, setModalOpen] = useState<boolean>(false);
   const [activeTab, setActiveTab] = useState<string>('Information');
   const [iconName, setIconName] = useState('stepMarkChecked' as any);
@@ -49,7 +50,48 @@ const MainUserAddInfoModal = ({ trigger, triggerClassName, title }: Iprop) => {
       return iconList[1];
     }
   };
-
+  if (!showForms) {
+    return (
+      <Dialog onOpenChange={(i) => setModalOpen(i)} open={modalOpen}>
+        <DialogTrigger className={triggerClassName}>{trigger}</DialogTrigger>
+        <DialogContent className='h-screen bg-white max-w-full overflow-x-hidden md:h-[92vh]  sm:w-[70vw] md:!max-w-[1200px] lg:pt-[1.5rem] px-6 lg:px-[2rem] overflow-auto'>
+          <div className=' flex flex-col items-center justify-center w-full gap-6 '>
+            <div></div>
+            <Icon name='noCvProfileIcon' svgProp={{ className: 'w-[50%] md:w-[90%]' }} />
+            <h2 className='text-xl max-w-md font-semibold text-center'>
+              Would you like to take a moment to create a custom CV profile?
+            </h2>
+            <h3 className='text-gray-500 text-sm max-w-lg text-center'>
+              This would help you be easily discoverable to other filmmakers for networking or
+              project purposes!
+            </h3>
+            <div className='flex  items-center justify-between w-full gap-4'>
+              <button
+                onClick={() => {
+                  setModalOpen(false);
+                }}
+                type='button'
+                className='w-max py-2 px-3 border-primary-1 border shadow-9 bg-white rounded-[6px] flex items-center justify-center gap-2 group hover:opacity-90 transition-all duration-300 ease-in-out'
+              >
+                <span className='font-[500] text-xs leading-[24px] tracking-[0.4px]   whitespace-nowrap'>
+                  No, I’ll create it later
+                </span>
+              </button>
+              <button
+                onClick={() => setShowForms(true)}
+                type='button'
+                className='px-10 py-2 bg-primary-1 rounded-[6px] flex items-center justify-center gap-2 group hover:opacity-90 transition-all duration-300 ease-in-out'
+              >
+                <span className='font-[500] text-xs  leading-[24px] tracking-[0.4px] text-white'>
+                  Yes Continue
+                </span>
+              </button>
+            </div>
+          </div>
+        </DialogContent>
+      </Dialog>
+    );
+  }
   return (
     <Dialog onOpenChange={(i) => setModalOpen(i)} open={modalOpen}>
       <DialogTrigger className={triggerClassName}>{trigger}</DialogTrigger>

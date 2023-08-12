@@ -47,7 +47,7 @@ const ExperienceSectionCvProfile = () => {
                   Add
                 </span>
                 <Icon
-                  name='editPen'
+                  name='addIcon'
                   svgProp={{
                     className:
                       'text-primary-1 cursor-pointer hover:opacity-95 transition-opacity duration-300 ease-in-out active:opacity-100',
