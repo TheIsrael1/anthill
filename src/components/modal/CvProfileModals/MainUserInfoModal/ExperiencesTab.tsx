@@ -29,6 +29,8 @@ import { Popover, PopoverContent, PopoverTrigger } from 'components/shadcn/ui/po
 import Icon from 'utils/Icon';
 interface Iprops {
   switchTab: (tab: string) => void;
+  handleComplete: (tab: string) => void;
+
   data: string[];
 }
 const FormSchema = z.object({
@@ -48,7 +50,7 @@ const FormSchema = z.object({
     required_error: 'End date is required.',
   }),
 });
-const ExperiencesTab = ({ switchTab, data }: Iprops) => {
+const ExperiencesTab = ({ switchTab, data, handleComplete }: Iprops) => {
   const form = useForm<z.infer<typeof FormSchema>>({
     resolver: zodResolver(FormSchema),
   });
@@ -258,6 +260,7 @@ const ExperiencesTab = ({ switchTab, data }: Iprops) => {
               <button
                 onClick={() => {
                   switchTab(data[3]);
+                  handleComplete(data[2]);
                 }}
                 type='button'
                 className='px-2 py-1 bg-primary-1 rounded-[6px] flex items-center justify-center gap-2 group hover:opacity-90 transition-all duration-300 ease-in-out'

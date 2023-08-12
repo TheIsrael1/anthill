@@ -20,6 +20,7 @@ const MainUserAddInfoModal = ({ trigger, triggerClassName, title }: Iprop) => {
   const [modalOpen, setModalOpen] = useState<boolean>(false);
   const [activeTab, setActiveTab] = useState<string>('Information');
   const [iconName, setIconName] = useState('stepMarkChecked' as any);
+  const [completed, setCompleted] = useState<string[]>([]);
   const [data, setData] = useState<string[]>([
     'Information',
     'Resume',
@@ -35,6 +36,19 @@ const MainUserAddInfoModal = ({ trigger, triggerClassName, title }: Iprop) => {
   const switchTab = (tab: string) => {
     setActiveTab(tab);
   };
+  const handleComplete = (tab: string) => {
+    setCompleted([...completed, tab]);
+  };
+  const checkIcon = (tab: string) => {
+    if (tab === activeTab) {
+      return iconList[2];
+    }
+    if (completed.includes(tab)) {
+      return iconList[0];
+    } else {
+      return iconList[1];
+    }
+  };
 
   return (
     <Dialog onOpenChange={(i) => setModalOpen(i)} open={modalOpen}>
@@ -44,12 +58,12 @@ const MainUserAddInfoModal = ({ trigger, triggerClassName, title }: Iprop) => {
           <Tabs defaultValue='account' value={activeTab} className=''>
             <TabsList className='hidden lg:flex justify-around w-full   bg-white my-4  '>
               <TabsTrigger
-                value='Information'
+                value={data[0]}
                 onClick={() => switchTab(data[0])}
                 className='items-start gap-1 rounded-lg'
               >
                 <Icon
-                  name={iconList[0]}
+                  name={checkIcon(data[0])}
                   svgProp={{
                     className:
                       ' self-center w-6 rounded-2xl px-1 cursor-pointer hover:opacity-95 transition-opacity duration-300 ease-in-out active:opacity-100',
@@ -69,12 +83,15 @@ const MainUserAddInfoModal = ({ trigger, triggerClassName, title }: Iprop) => {
                 }}
               />
               <TabsTrigger
-                value='Resume'
+                value={data[1]}
+                disabled={
+                  completed.includes(data[1]) ? false : activeTab === data[1] ? false : true
+                }
                 onClick={() => switchTab(data[1])}
                 className='items-start gap-1 rounded-lg'
               >
                 <Icon
-                  name={iconList[0]}
+                  name={checkIcon(data[1])}
                   svgProp={{
                     className:
                       ' self-center w-6 rounded-2xl px-1 cursor-pointer hover:opacity-95 transition-opacity duration-300 ease-in-out active:opacity-100',
@@ -95,11 +112,14 @@ const MainUserAddInfoModal = ({ trigger, triggerClassName, title }: Iprop) => {
               />
               <TabsTrigger
                 onClick={() => switchTab(data[2])}
-                value='Experiences'
+                value={data[2]}
+                disabled={
+                  completed.includes(data[2]) ? false : activeTab === data[2] ? false : true
+                }
                 className='items-start gap-1 rounded-lg'
               >
                 <Icon
-                  name={iconList[0]}
+                  name={checkIcon(data[2])}
                   svgProp={{
                     className:
                       ' self-center w-6 rounded-2xl px-1 cursor-pointer hover:opacity-95 transition-opacity duration-300 ease-in-out active:opacity-100',
@@ -121,11 +141,14 @@ const MainUserAddInfoModal = ({ trigger, triggerClassName, title }: Iprop) => {
               />
               <TabsTrigger
                 onClick={() => switchTab(data[3])}
-                value='Education'
+                disabled={
+                  completed.includes(data[3]) ? false : activeTab === data[3] ? false : true
+                }
+                value={data[3]}
                 className='items-start gap-1 rounded-lg'
               >
                 <Icon
-                  name={iconList[0]}
+                  name={checkIcon(data[3])}
                   svgProp={{
                     className:
                       ' self-center w-6 rounded-2xl px-1 cursor-pointer hover:opacity-95 transition-opacity duration-300 ease-in-out active:opacity-100',
@@ -147,11 +170,14 @@ const MainUserAddInfoModal = ({ trigger, triggerClassName, title }: Iprop) => {
               />
               <TabsTrigger
                 onClick={() => switchTab(data[4])}
-                value='Projects'
+                disabled={
+                  completed.includes(data[4]) ? false : activeTab === data[4] ? false : true
+                }
+                value={data[4]}
                 className='items-start gap-1 rounded-lg'
               >
                 <Icon
-                  name={iconList[0]}
+                  name={checkIcon(data[4])}
                   svgProp={{
                     className:
                       ' self-center w-6 rounded-2xl px-1 cursor-pointer hover:opacity-95 transition-opacity duration-300 ease-in-out active:opacity-100',
@@ -165,11 +191,17 @@ const MainUserAddInfoModal = ({ trigger, triggerClassName, title }: Iprop) => {
               </TabsTrigger>
             </TabsList>
 
-            <InformationTab switchTab={switchTab} data={data} />
-            <ResumeTab switchTab={switchTab} data={data} />
-            <ExperiencesTab switchTab={switchTab} data={data} />
-            <EducationTab switchTab={switchTab} data={data} />
-            <ProjectsTab switchTab={switchTab} data={data} setModalOpen={setModalOpen} />
+            <InformationTab switchTab={switchTab} data={data} handleComplete={handleComplete} />
+            <ResumeTab switchTab={switchTab} data={data} handleComplete={handleComplete} />
+            <ExperiencesTab switchTab={switchTab} data={data} handleComplete={handleComplete} />
+            <EducationTab switchTab={switchTab} data={data} handleComplete={handleComplete} />
+            <ProjectsTab
+              switchTab={switchTab}
+              data={data}
+              setModalOpen={setModalOpen}
+              handleComplete={handleComplete}
+              setCompleted={setCompleted}
+            />
           </Tabs>
         </div>
       </DialogContent>

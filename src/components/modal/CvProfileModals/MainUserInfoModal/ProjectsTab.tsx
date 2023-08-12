@@ -30,10 +30,12 @@ const FormSchema = z.object({
 });
 interface Iprops {
   switchTab: (tab: string) => void;
+  handleComplete: (tab: string) => void;
   data: string[];
   setModalOpen?: React.Dispatch<React.SetStateAction<boolean>>;
+  setCompleted?: React.Dispatch<React.SetStateAction<string[]>>;
 }
-const ProjectsTab = ({ switchTab, data, setModalOpen }: Iprops) => {
+const ProjectsTab = ({ switchTab, data, setModalOpen, handleComplete, setCompleted }: Iprops) => {
   const form = useForm<z.infer<typeof FormSchema>>({
     resolver: zodResolver(FormSchema),
   });
@@ -129,6 +131,10 @@ const ProjectsTab = ({ switchTab, data, setModalOpen }: Iprops) => {
                     setModalOpen(false);
                   }
                   switchTab(data[0]);
+                  handleComplete(data[4]);
+                  if (setCompleted) {
+                    setCompleted([]); //would consider taking this line out
+                  }
                 }}
                 className='w-[130px] h-[38px] bg-primary-1 rounded-[6px] flex items-center justify-center gap-2 group hover:opacity-90 transition-all duration-300 ease-in-out'
               >
