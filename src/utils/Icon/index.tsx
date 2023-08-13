@@ -88,6 +88,7 @@ import { ReactComponent as CalenderIcon } from 'assets/svg/calenderIcon.svg';
 import { ReactComponent as LinkIcon } from 'assets/svg/linkIcon.svg';
 import { ReactComponent as CautionIcon } from 'assets/svg/cautionIcon.svg';
 import { ReactComponent as CancelIcon } from 'assets/svg/cancelIcon.svg';
+import { ReactComponent as CaretDownIcon } from 'assets/svg/caretDownIcon.svg';
 
 export type iconTypes =
   | 'filmReel'
@@ -179,6 +180,7 @@ export type iconTypes =
   | 'linkIcon'
   | 'cautionIcon'
   | 'cancelIcon'
+  | 'caretDownIcon'
   | 'calenderIcon';
 
   
@@ -280,6 +282,7 @@ const Icon = ({ name, svgProp }: IconInterface) => {
     linkIcon: <LinkIcon {...svgProp} />,
     cautionIcon: <CautionIcon {...svgProp} />,
     cancelIcon: <CancelIcon {...svgProp} />,
+    caretDownIcon: <CaretDownIcon {...svgProp} />,
   };
 
   return icons[name];

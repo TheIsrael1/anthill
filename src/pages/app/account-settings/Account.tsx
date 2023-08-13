@@ -1,31 +1,49 @@
 import { LazyLoadImage } from "react-lazy-load-image-component"
 import profilePicture from 'assets/image/profilePicture.png';
 import { shimmer, toBase64 } from "utils/general/shimmer";
-import CustomInput from "components/shadcn/CustomInput.tsx";
+import CustomInput from "components/shadcn/customInput";
 import { useState } from "react";
+import CustomSelectTrigger from "components/shadcn/customSelectTrigger";
+import { Label } from "components/shadcn/label";
+import { handleUploadProfile } from "utils/images/upload-profile";
+import { Input } from "components/shadcn/input";
 
 
 const Account = () => {
     const [disabled, setDisabled] = useState(true)
+    const dropOptions = ["value1", "value2", "value3", "value4", "value5"];
+    const [selectedFile, setSelectedFile] = useState<File | null | undefined>(null);
+
+    const handleFileChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+        setSelectedFile(handleUploadProfile(event))
+    };
+
     return (
         <div className="flex flex-col">
             <div className="bg-white w-100 shadow-3 px-5 py-7 rounded-md">
                 <div className="flex flex-col md:flex-row md gap-x-4 md:items-center">
                     <div className="w-32 h-32">
-                        <LazyLoadImage
-                            src={profilePicture}
-                            alt='avatar'
-                            className='w-full h-full  transition-transform duration-300 ease-in-out bg-top bg-cover group-hover:scale-105'
-                            placeholderSrc={`data:image/svg+xml;base64,${toBase64(shimmer(700, 475))}`}
-                        />
+                    <LazyLoadImage
+                        src={selectedFile ? URL.createObjectURL(selectedFile) : profilePicture}
+                        alt='avatar'
+                        className='w-full h-full transition-transform duration-300 ease-in-out bg-top bg-cover group-hover:scale-105'
+                        placeholderSrc={`data:image/svg+xml;base64,${toBase64(shimmer(700, 475))}`}
+                    />
                     </div>
                     <div className="flex mt-3 md:mt-0 flex-col gap-y-2">
                         <div className="flex gap-x-2 md:gap-x-4">
-                            <button className='w-max py-[0.3rem] px-[1.1rem] md:px-[1.5rem] bg-primary-1 rounded-[8px] flex items-center justify-center gap-2 hover:opacity-90 transition-opacity ease-in-out duration-300 group'>
+                            <Label htmlFor="file-input" className='w-max py-[0.3rem] px-[1.1rem] md:px-[1.5rem] bg-primary-1 rounded-[8px] flex items-center justify-center gap-2 hover:opacity-90 transition-opacity ease-in-out duration-300 group'>
                                 <span className='leading-[28px] tracking-[0.15px] text-white text-[13px] md:text-[14px] lg:text-[16px]'>UPLOAD A NEW PHOTO</span>
-                            </button>
+                            </Label>
+                            <Input
+                                type="file"
+                                accept=".jpg, .jpeg, .png, .gif"
+                                onChange={handleFileChange}
+                                className="hidden"
+                                id="file-input"
+                            />
                             <button className='w-max py-[0.3rem] px-[1.1rem] md:px-[1.5rem] border border-red-200 bg-white text-red-500 rounded-[8px] flex items-center justify-center gap-2 hover:bg-red-100 hover:opacity-90 transition-all ease-in-out duration-300 group'>
-                                <span className='leading-[28px] tracking-[0.15px] text-[13px] md:text-[14px] lg:text-[16px]'>RESET</span>
+                                <span className='leading-[28px] tracking-[0.15px] text-[13px] md:text-[14px] lg:text-[16px]' onClick={() => setSelectedFile(null)}>RESET</span>
                             </button>
                         </div>
                         <p className='font-[300] text-[12px] md:text-[13px] lg:text-[14px] text-secondary-2 leading-[21px] tracking-[0.15px]'>
@@ -53,12 +71,12 @@ const Account = () => {
 
                     {/* this ones are drop select, could be searchable too, the input below would be changed */}
                     <div className="flex flex-col md:flex-row w-full md:gap-x-4 gap-y-3 md:gap-y-0">
-                        <CustomInput label="Country" type="text" className="w-full" />
-                        <CustomInput label="Language" type="text" className="w-full" />
+                        <CustomSelectTrigger label="Country" options={dropOptions} className="w-full"/>
+                        <CustomSelectTrigger label="Language" options={dropOptions} className="w-full"/>
                     </div>
                     <div className="flex flex-col md:flex-row w-full md:gap-x-4 gap-y-3 md:gap-y-0">
-                        <CustomInput label="Status" type="text" className="w-full" />
-                        <CustomInput label="Currency" type="text" className="w-full" />
+                        <CustomSelectTrigger label="Status" options={dropOptions} className="w-full"/>
+                        <CustomSelectTrigger label="Select a fruit" options={dropOptions} className="w-full"/>
                     </div>
                     {/* .... */}
                     

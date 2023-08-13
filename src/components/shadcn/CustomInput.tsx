@@ -5,7 +5,6 @@ interface CustomInputProps {
     label: string;
     type: string;
     className?: string;
-    // Add other props like type, placeholder, etc.
 }
 
 const CustomInput: React.FC<CustomInputProps> = ({ label, type, className, ...props }) => {
