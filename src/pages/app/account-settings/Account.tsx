@@ -32,7 +32,7 @@ const Account = () => {
                     </div>
                     <div className="flex mt-3 md:mt-0 flex-col gap-y-2">
                         <div className="flex gap-x-2 md:gap-x-4">
-                            <Label htmlFor="file-input" className='w-max py-[0.3rem] px-[1.1rem] md:px-[1.5rem] bg-primary-1 rounded-[8px] flex items-center justify-center gap-2 hover:opacity-90 transition-opacity ease-in-out duration-300 group'>
+                            <Label htmlFor="file-input" role="button" className='w-max py-[0.3rem] px-[1.1rem] md:px-[1.5rem] bg-primary-1 rounded-[8px] flex items-center justify-center gap-2 hover:opacity-90 transition-opacity ease-in-out duration-300 group'>
                                 <span className='leading-[28px] tracking-[0.15px] text-white text-[13px] md:text-[14px] lg:text-[16px]'>UPLOAD A NEW PHOTO</span>
                             </Label>
                             <Input
