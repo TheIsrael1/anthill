@@ -16,6 +16,7 @@ import { ReactComponent as PForumIcon } from 'assets/svg/pForumIcon.svg';
 import { ReactComponent as SearchIcon } from 'assets/svg/searchIcon.svg';
 import { ReactComponent as ThreeDotIcon } from 'assets/svg/threeDotIcon.svg';
 import { ReactComponent as PadLock } from 'assets/svg/padLock.svg';
+import { ReactComponent as PadLockV2 } from 'assets/svg/padLockV2.svg';
 import { ReactComponent as StudentIcon } from 'assets/svg/studentIcon.svg';
 import { ReactComponent as DemoDp } from 'assets/svg/demoDp.svg';
 import { ReactComponent as ExternalLink } from 'assets/svg/externalLink.svg';
@@ -88,6 +89,10 @@ import { ReactComponent as SkypeIcon } from 'assets/svg/skypeIcon.svg';
 import { ReactComponent as ColorFillIcon } from 'assets/svg/colorFillIcon.svg';
 import { ReactComponent as OutlinedLocation } from 'assets/svg/outlinedLocation.svg';
 import { ReactComponent as CalenderIcon } from 'assets/svg/calenderIcon.svg';
+import { ReactComponent as LinkIcon } from 'assets/svg/linkIcon.svg';
+import { ReactComponent as CautionIcon } from 'assets/svg/cautionIcon.svg';
+import { ReactComponent as CancelIcon } from 'assets/svg/cancelIcon.svg';
+import { ReactComponent as CaretDownIcon } from 'assets/svg/caretDownIcon.svg';
 import { ReactComponent as UploadIcon } from 'assets/svg/upload.svg';
 import { ReactComponent as CalendarIconBlack } from 'assets/svg/calendarBlack.svg';
 import { ReactComponent as StepMarkChecked } from 'assets/svg/stepMarkChecked.svg';
@@ -118,6 +123,7 @@ export type iconTypes =
   | 'searchIcon'
   | 'threeDotIcon'
   | 'padLock'
+  | 'padLockV2'
   | 'studentIcon'
   | 'demoDp'
   | 'funkyPagesHero'
@@ -188,6 +194,11 @@ export type iconTypes =
   | 'checkIcon'
   | 'colorFillIcon'
   | 'outlinedLocation'
+  | 'linkIcon'
+  | 'cautionIcon'
+  | 'cancelIcon'
+  | 'caretDownIcon'
+  | 'calenderIcon'
   | 'calenderIcon'
   | 'uploadIcon'
   | 'calendarIconBlack'
@@ -225,6 +236,7 @@ const Icon = ({ name, svgProp }: IconInterface) => {
     searchIcon: <SearchIcon {...svgProp} />,
     threeDotIcon: <ThreeDotIcon {...svgProp} />,
     padLock: <PadLock {...svgProp} />,
+    padLockV2: <PadLockV2 {...svgProp} />,
     studentIcon: <StudentIcon {...svgProp} />,
     demoDp: <DemoDp {...svgProp} />,
     funkyPagesHero: <FunkyPagesHero {...svgProp} />,
@@ -296,6 +308,10 @@ const Icon = ({ name, svgProp }: IconInterface) => {
     colorFillIcon: <ColorFillIcon {...svgProp} />,
     outlinedLocation: <OutlinedLocation {...svgProp} />,
     calenderIcon: <CalenderIcon {...svgProp} />,
+    linkIcon: <LinkIcon {...svgProp} />,
+    cautionIcon: <CautionIcon {...svgProp} />,
+    cancelIcon: <CancelIcon {...svgProp} />,
+    caretDownIcon: <CaretDownIcon {...svgProp} />,
     uploadIcon: <UploadIcon {...svgProp} />,
     calendarIconBlack: <CalendarIconBlack {...svgProp} />,
     stepMarkChecked: <StepMarkChecked {...svgProp} />,
