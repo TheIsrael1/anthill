@@ -84,7 +84,7 @@ import { ReactComponent as ExternalLinkBlue } from 'assets/svg/externalLinkBlue.
 import { ReactComponent as ProfileCover } from 'assets/svg/profileCover.svg';
 import { ReactComponent as CheckIcon } from 'assets/svg/checkIcon.svg';
 import { ReactComponent as FlagIcon } from 'assets/svg/flagIcon.svg';
-import { ReactComponent as LanguageIcon } from 'assets/svg/languageIcon.svg';
+import { ReactComponent as LanguageIcon } from 'assets/svg/LanguageIcon.svg';
 import { ReactComponent as SkypeIcon } from 'assets/svg/skypeIcon.svg';
 import { ReactComponent as ColorFillIcon } from 'assets/svg/colorFillIcon.svg';
 import { ReactComponent as OutlinedLocation } from 'assets/svg/outlinedLocation.svg';
