@@ -16,6 +16,7 @@ import { ReactComponent as PForumIcon } from 'assets/svg/pForumIcon.svg';
 import { ReactComponent as SearchIcon } from 'assets/svg/searchIcon.svg';
 import { ReactComponent as ThreeDotIcon } from 'assets/svg/threeDotIcon.svg';
 import { ReactComponent as PadLock } from 'assets/svg/padLock.svg';
+import { ReactComponent as PadLockV2 } from 'assets/svg/padLockV2.svg';
 import { ReactComponent as StudentIcon } from 'assets/svg/studentIcon.svg';
 import { ReactComponent as DemoDp } from 'assets/svg/demoDp.svg';
 import { ReactComponent as ExternalLink } from 'assets/svg/externalLink.svg';
@@ -76,6 +77,10 @@ import { ReactComponent as FaqSub } from 'assets/svg/faqSub.svg';
 import { ReactComponent as NFMLogo } from 'assets/svg/nfmLogo.svg';
 import { ReactComponent as Location } from 'assets/svg/location.svg';
 import { ReactComponent as BigPlus } from 'assets/svg/bigPlusIcon.svg';
+import { ReactComponent as EditPen } from 'assets/svg/editPen.svg';
+import { ReactComponent as Mail } from 'assets/svg/mail.svg';
+import { ReactComponent as EditPenBlue } from 'assets/svg/editPenBlue.svg';
+import { ReactComponent as ExternalLinkBlue } from 'assets/svg/externalLinkBlue.svg';
 import { ReactComponent as ProfileCover } from 'assets/svg/profileCover.svg';
 import { ReactComponent as CheckIcon } from 'assets/svg/checkIcon.svg';
 import { ReactComponent as FlagIcon } from 'assets/svg/flagIcon.svg';
@@ -84,6 +89,19 @@ import { ReactComponent as SkypeIcon } from 'assets/svg/skypeIcon.svg';
 import { ReactComponent as ColorFillIcon } from 'assets/svg/colorFillIcon.svg';
 import { ReactComponent as OutlinedLocation } from 'assets/svg/outlinedLocation.svg';
 import { ReactComponent as CalenderIcon } from 'assets/svg/calenderIcon.svg';
+import { ReactComponent as LinkIcon } from 'assets/svg/linkIcon.svg';
+import { ReactComponent as CautionIcon } from 'assets/svg/cautionIcon.svg';
+import { ReactComponent as CancelIcon } from 'assets/svg/cancelIcon.svg';
+import { ReactComponent as CaretDownIcon } from 'assets/svg/caretDownIcon.svg';
+import { ReactComponent as UploadIcon } from 'assets/svg/upload.svg';
+import { ReactComponent as CalendarIconBlack } from 'assets/svg/calendarBlack.svg';
+import { ReactComponent as StepMarkChecked } from 'assets/svg/stepMarkChecked.svg';
+import { ReactComponent as StepMarkEmpty } from 'assets/svg/stepMarkEmpty.svg';
+import { ReactComponent as StepMarkFalse } from 'assets/svg/stepMarkfalse.svg';
+import { ReactComponent as Connector } from 'assets/svg/Connector.svg';
+import { ReactComponent as AddIcon } from 'assets/svg/ic_baseline-plus.svg';
+import { ReactComponent as NoCvProfileIcon } from 'assets/svg/noCvProfile.svg';
+import { ReactComponent as PlusIcon } from 'assets/svg/plus.svg';
 
 export type iconTypes =
   | 'filmReel'
@@ -105,6 +123,7 @@ export type iconTypes =
   | 'searchIcon'
   | 'threeDotIcon'
   | 'padLock'
+  | 'padLockV2'
   | 'studentIcon'
   | 'demoDp'
   | 'funkyPagesHero'
@@ -163,6 +182,10 @@ export type iconTypes =
   | 'nfmLogo'
   | 'location'
   | 'bigPlus'
+  | 'editPen'
+  | 'mail'
+  | 'editPenBlue'
+  | 'externalLinkBlue'
   | 'profileCover'
   | 'outlinedStar'
   | 'flagIcon'
@@ -171,9 +194,21 @@ export type iconTypes =
   | 'checkIcon'
   | 'colorFillIcon'
   | 'outlinedLocation'
-  | 'calenderIcon';
-
-  
+  | 'linkIcon'
+  | 'cautionIcon'
+  | 'cancelIcon'
+  | 'caretDownIcon'
+  | 'calenderIcon'
+  | 'calenderIcon'
+  | 'uploadIcon'
+  | 'calendarIconBlack'
+  | 'stepMarkChecked'
+  | 'stepMarkEmpty'
+  | 'stepMarkFalse'
+  | 'connector'
+  | 'addIcon'
+  | 'noCvProfileIcon'
+  | 'plusIcon';
 
 interface IconInterface {
   name: iconTypes;
@@ -201,6 +236,7 @@ const Icon = ({ name, svgProp }: IconInterface) => {
     searchIcon: <SearchIcon {...svgProp} />,
     threeDotIcon: <ThreeDotIcon {...svgProp} />,
     padLock: <PadLock {...svgProp} />,
+    padLockV2: <PadLockV2 {...svgProp} />,
     studentIcon: <StudentIcon {...svgProp} />,
     demoDp: <DemoDp {...svgProp} />,
     funkyPagesHero: <FunkyPagesHero {...svgProp} />,
@@ -240,7 +276,7 @@ const Icon = ({ name, svgProp }: IconInterface) => {
     faqBanner: <FaqBannerSvg {...svgProp} />,
     phoneIcon: <PhoneIcon {...svgProp} />,
     starIcon: <StartIcon {...svgProp} />,
-    outlinedStar: <OutlinedStar {...svgProp}/>,
+    outlinedStar: <OutlinedStar {...svgProp} />,
     linkFilterIcon: <LinkFilterIcon {...svgProp} />,
     missionIcon: <MissionIcon {...svgProp} />,
     valuesIcon: <ValuesIcon {...svgProp} />,
@@ -260,7 +296,11 @@ const Icon = ({ name, svgProp }: IconInterface) => {
     arrowBackTailess: <ArrowBackTailess {...svgProp} />,
     location: <Location {...svgProp} />,
     bigPlus: <BigPlus />,
-    profileCover: <ProfileCover {...svgProp}/>,
+    editPen: <EditPen />,
+    mail: <Mail {...svgProp} />,
+    editPenBlue: <EditPenBlue {...svgProp} />,
+    externalLinkBlue: <ExternalLinkBlue {...svgProp} />,
+    profileCover: <ProfileCover {...svgProp} />,
     checkIcon: <CheckIcon {...svgProp} />,
     flagIcon: <FlagIcon {...svgProp} />,
     languageIcon: <LanguageIcon {...svgProp} />,
@@ -268,6 +308,19 @@ const Icon = ({ name, svgProp }: IconInterface) => {
     colorFillIcon: <ColorFillIcon {...svgProp} />,
     outlinedLocation: <OutlinedLocation {...svgProp} />,
     calenderIcon: <CalenderIcon {...svgProp} />,
+    linkIcon: <LinkIcon {...svgProp} />,
+    cautionIcon: <CautionIcon {...svgProp} />,
+    cancelIcon: <CancelIcon {...svgProp} />,
+    caretDownIcon: <CaretDownIcon {...svgProp} />,
+    uploadIcon: <UploadIcon {...svgProp} />,
+    calendarIconBlack: <CalendarIconBlack {...svgProp} />,
+    stepMarkChecked: <StepMarkChecked {...svgProp} />,
+    stepMarkEmpty: <StepMarkEmpty {...svgProp} />,
+    stepMarkFalse: <StepMarkFalse {...svgProp} />,
+    connector: <Connector {...svgProp} />,
+    addIcon: <AddIcon {...svgProp} />,
+    noCvProfileIcon: <NoCvProfileIcon {...svgProp} />,
+    plusIcon: <PlusIcon {...svgProp} />,
   };
 
   return icons[name];

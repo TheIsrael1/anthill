@@ -14,6 +14,7 @@ import ServiceAd from 'pages/app/service-ad';
 import Profile from 'pages/app/user-profile';
 import SingleBlog from 'pages/inner-pages/single-blog';
 import SingleBts from 'pages/inner-pages/single-bts';
+import AccountSettings from 'pages/app/account-settings';
 import { routeTypes, routesInterface } from 'types';
 
 const internalRoute: routeTypes = [
@@ -82,6 +83,11 @@ const internalRoute: routeTypes = [
     path: 'profile',
     plan: 'student',
   },
+  {
+    element: <AccountSettings/>,
+    path: 'settings',
+    plan: 'student'
+  }
 ];
 
 export const innerInternalRoutes: routesInterface<string>[] = [

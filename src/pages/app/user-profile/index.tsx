@@ -6,7 +6,6 @@ import useStore from 'store';
 
 const Profile = () => {
   const { data } = useStore((store) => store.authDetails);
-
   return (
     <div className='container w-full px-container-base flex flex-col py-[1.875rem]'>
       <div className='w-full relative overflow-hidden bg-white border  rounded-lg shadow-3'>
